@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-contacus',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './contacus.component.css'
 })
 export class ContacusComponent {
-  logoUrl = 'assets/images/logo.png';  
+   appComponent = new AppComponent();
 }

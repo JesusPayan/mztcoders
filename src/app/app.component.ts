@@ -18,9 +18,10 @@ import { Routes } from '@angular/router';
 export class AppComponent {
   title = 'mztcoders';
   welcomeMessage ='Bienvenido a Smarts Coders'  
-  logoUrl = 'assets/images/logo.png'; 
+  logoUrl = 'assets/images/logo-removebg-preview.png'; 
   one = 'assets/images/1.png';
   two = 'assets/images/2.png';
   three = 'assets/images/3.png'; 
   currentYear = new Date().getFullYear();
+  
 }

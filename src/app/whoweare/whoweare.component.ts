@@ -12,7 +12,7 @@ imports: [CommonModule, MatDividerModule, MatListModule],
   styleUrl: './whoweare.component.css'
 })
 export class WhoweareComponent {
-  logoUrl = '/assets/images/logo-removebg-preview.png';
+logoUrl = '/assets/images/logo-removebg-preview.png';
 whoweareMessage = '¿Quiénes somos?';
 constwhoweareDescription = 
 'Smart Coders Academy nace por la necesidad de capital humano capacitado para el mundo laboral '+
