@@ -15,9 +15,6 @@ import { Routes } from '@angular/router';
   styleUrl: './app.component.css'
 })
 
-
-
-
 export class AppComponent {
   title = 'mztcoders';
   welcomeMessage ='Bienvenido a Smarts Coders'  
@@ -25,4 +22,5 @@ export class AppComponent {
   one = 'assets/images/1.png';
   two = 'assets/images/2.png';
   three = 'assets/images/3.png'; 
+  currentYear = new Date().getFullYear();
 }

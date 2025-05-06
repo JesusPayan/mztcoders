@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './contacus.component.css'
 })
 export class ContacusComponent {
-
+  logoUrl = 'assets/images/logo.png';  
 }

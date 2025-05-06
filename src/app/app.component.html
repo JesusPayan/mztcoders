@@ -13,13 +13,16 @@
           <a class="nav-link" aria-current="page" href="#">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/whoweare">Quienes somos</a>
+          <a class="nav-link" routerLink="/who-we-are">Quienes somos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Oferta Educativa</a>
+          <a class="nav-link" routerLink="/learning-path">Oferta Educativa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contacus">Contacto</a>
+          <a class="nav-link" routerLink="/learning-path">Noticias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contac-us">Contacto</a>
         </li>
       </ul>
       
@@ -34,34 +37,31 @@
   </div>
 </nav>
 <router-outlet></router-outlet>
-
-  <div class="container-fluid text-white p-5" id="footer">
+ <!-- <footer class="footer">
+  <div class="footer-content expand-lg bg-dark text-white p-5">
     <div class="row">
-      
-      <div class="col-md-4 text-center">
+      <div class="col-md-4">
         <h2>Contacto</h2>
         <p>
           <a href="mailto:jesus.he.payan@gmail.com">Escribenos al correo</a>
         </p>
-      </div>
-      <div class="col-md-4 text-center">
         <h2>Redes Sociales</h2>
         <ul>
           <li><a href="https://www.facebook.com/SmartCodersAcademy">Facebook</a></li>
           <li><a href="https://www.instagram.com/smartcodersacademy">Instagram</a></li>
         </ul>
-      </div>
-      <div class="col-md-4 text-center">
         <h2>Enlaces</h2>
         <ul>
           <li><a href="https://www.smartcodersacademy.com">Smart Coders Academy</a></li>
           <li><a href="https://www.smartcodersacademy.com">Smart Coders Academy</a></li>
         </ul>
-      </div>
-      <p class="text-center">&copy; 2025 Smart Coders Academy. Todos los derechos reservados.</p>
+      </div>main
     </div>
-    
+  
+    <span>&copy; {{ currentYear }} Smart Coders Academy. Todos los derechos reservados.</span>
   </div>
+</footer> -->
+  
 
 
 <!-- 
