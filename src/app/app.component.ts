@@ -22,6 +22,7 @@ export class AppComponent {
   one = 'assets/images/1.png';
   two = 'assets/images/2.png';
   three = 'assets/images/3.png'; 
+
   currentYear = new Date().getFullYear();
-  
+  backgroundImageUrl  = 'assets/images/backgroung.png'; 
 }
