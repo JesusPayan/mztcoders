@@ -15,7 +15,8 @@ import { NgForm } from '@angular/forms';
 export class SignUpComponent {
    appComponent = new AppComponent();
    @ViewChild('signUpForm') signUpForm!: NgForm;
-   onSubmit() {
+  onSubmit() {}
+   registrer() {
     const formData = this.signUpForm.value;
     console.log('Form submitted:', formData);
     alert  ('Form submitted successfully!');
