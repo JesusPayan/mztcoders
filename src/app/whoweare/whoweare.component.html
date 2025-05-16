@@ -1,4 +1,4 @@
-<div class="container-fluid text-white p-5">
+<!-- <div class="container-fluid text-white p-5">
     <div class="row">
         <div class="col"></div>
         <div class="col-md-4 text-center" id="whoweare">
@@ -47,4 +47,46 @@
                 </div>
             </div>
         </div>
+</div> -->
+<div class="container-fluid">
+    <!-- inicio del renglon principal-->
+    <div class="row justify-content-md-center">
+         <div class="col-md-3 mt-3" >
+            <img [src]="selfimgUrl" ngClass="img-fluid" height="100%" width="100%" class="align-self-center" alt="">
+            <h6 class="text-justify text-secondary mt-3">"Mi misión es transformar el aprendizaje en una experiencia accesible, práctica y alineada a las necesidades reales del mundo laboral"</h6>
+        </div>
+        <div class="col-md-9">
+            <div class="row justify-content-md-start mt-3">
+                <h2 class="text-start text-dark mt-3">Conoceme</h2>
+            </div>
+            <p class="lh-base fs-5 text-start text-secondary">Soy Jesus Payan, egresado del la Universidad Automanoma de Sinaloa, me gusta la programacion, la tecnologia y la innovacion,            
+            ,Mi gusto por la programacion y mi determinacion, me ha llevado capacitarme e incursionar desde 2020 en el mundo de la programacion.
+            <p class="lh-base fs-5  text-start text-secondary">Desde 2021, soy colaborador de una empresa He participado activamente en el desarrollo de aplicaciones web modernas, aplicando principios SOLID, buenas prácticas de seguridad y arquitecturas basadas en microservicios. Además, apoyo a equipos técnicos mediante entrevistas, formación y resolución de incidencias con ayuda de herramientas de Inteligencia Artificial Generativa.</p>                   
+        </div>
+    </div>
+    <div class="row justify-content-md-center" style="background: #e9ecef;">
+        <div class="col-md-9">
+            <div class="row justify-content-md-start mt-3" style="border: solid 1px #e9ecef;">
+                <h2 class="text-start text-dark mt-3">¿Como nace la academia?</h2>
+            </div>
+            <p class="lh-base fs-5 text-start text-secondary">
+                Creemos que cualquier persona puede construir una carrera en tecnología, sin importar su edad, 
+                experiencia previa o formación académica. 
+                Nacemos al ver cómo muchos jóvenes y profesionales con ganas de reinventarse se sienten perdidos entre cursos genéricos, sin guía ni práctica real.
+            </p>
+            <div class="row justify-content-md-center mt-3" style="border: solid 1px #e9ecef;">
+                <h2 class="text-start text-dark mt-3">¿Para que nace nuestra academia?</h2>
+            </div>    
+            <p class="lh-base fs-5 text-start text-secondary">
+                Detectamos la necesidad de las empresas de contar con talentos capaces de enfrentarse a los desafios tecnológicos actuales resolviendo problemas reales. 
+                ademas de que queremos separar la brecha entre cada persona y el mundo laboral de la tecnología.    
+            </p>
+            <b class="text-dark">Date la oportunidad de ser parte de nuestra academia</b> 
+                <button class="btn btn-outline-success" type="submit" routerLink="/sign-up" style="margin-left: 3rem;">Registrate</button>
+        </div>
+        <div class="col-md-3 mt-3" >
+            <img [src]="logoUrl" ngClass="img-fluid" height="100%" width="100%" class="" alt="">
+            <h6 class="text-start text-secondary mt-3">"Existimos para acompañarte en ese cambio de vida que estás buscando."</h6>
+        </div>
+    </div>
 </div>

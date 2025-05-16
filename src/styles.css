@@ -3,13 +3,43 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  font-size: 16px; line-height: 1.5; }
-
+  font-size: 16px; line-height: 1.5; 
+  /* background-color: var(--black); */
+  /* background-image: url('assets/images/backgroung.png'); */
+  background-color: var(--gray-lightest); background-attachment: fixed; background-position: center;
+  background-repeat: no-repeat; background-size: cover; background-clip: content-box;
+  backface-visibility: hidden; background-origin: content-box; 
+ 
+  /* opacity: 0.9; background-color: var(--black); background-image: url('assets/images/backgroung.png'); */
+  /* background-color: var(--dark-blue); background-attachment: fixed; background-position: center;
+  background-repeat: no-repeat; background-size: cover; background-clip: content-box;
+  background-origin: content-box; background-color: var(--black); background-image: url('assets/images/backgroung.png');
+  background-attachment: fixed;
+  background-color: var(--black); background-image: url('assets/images/backgroung.png');  background-attachment: fixed;
+  background-color: var(--black); background-image: url('assets/images/backgroung.png'); */
+  background-size: cover; background-repeat: no-repeat; background-position: center;
+  color: var(--white); --black: #000000; --white: #ffffff; --bright-blue: #00aaff;
+  --dark-blue: #001f3f; --light-gray: #f0f0f0; --dark-gray: #333333; --red: #ff4136;
+  --green: #2ecc40; --yellow: #ffdc00; --purple: #b10dc9; --orange: #ff851b;
+  --pink: #f012be; --teal: #39cccc; --navy: #001f3f; --silver: #dddddd;
+  --gray-lightest: #f8f9fa; --gray-lighter: #e9ecef; --gray-light: #dee2e6;
+  --gray-darkest: #343a40; --gray-darker: #212529; --gray-dark: #495057;
+  --gray-medium: #868e96; --gray-light-medium: #adb5bd; }
+  body::-webkit-scrollbar { width: 8px; height: 8px; }
+  body::-webkit-scrollbar-thumb { background-color: var(--gray-light); border-radius: 4px; }
+  body::-webkit-scrollbar-thumb:hover { background-color: var(--gray-dark); }
+  body::-webkit-scrollbar-track { background-color: var(--gray-lightest); border-radius: 4px; }
+.custom-toast {
+  background-color: #4caf50 !important; /* verde éxito */
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 16px;
+}
 .container {
     position: relative;
     min-height: 100vh;
     background-color: var(--black);
-    border: solid 2px red
+    
 }
 h1 {
     font-size: 50;
@@ -33,8 +63,28 @@ h1 {
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol";
   }
+  .card {
+    
+    /* background-color: transparent; */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    color: var(--white);
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+      opacity: 95%;
+    
+    background-attachment: fixed;
+    background-image: var('assets/images/backgroung.png');
+      
+      
+  }
   .card:hover {
     /* transform: translateY(-5px); */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    
 }
