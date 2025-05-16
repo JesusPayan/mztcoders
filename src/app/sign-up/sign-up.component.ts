@@ -48,7 +48,7 @@ import { StudentService, Student } from '../services/student.service';
 import { CommonModule } from '@angular/common';
 import { response } from 'express';
 import { MatSnackBar,MatSnackBarConfig  } from '@angular/material/snack-bar';
-import { ToastComponent } from '../utils/toast/Toast.componet';
+import { ToastComponent } from '../utils/toast/toast.componet';
 
 @Component({
   selector: 'app-sign-up',
@@ -100,8 +100,6 @@ respuesta: any;
         }if(this.respuesta.statusCode in['503', '500','504','502']){
           toast.showToast("Error en el servidor, intente mas tarde", 'error', 'error');
         }
-          
-        
       },
       error: (error) => {
         toast.showToast(error, 'error', 'error');
