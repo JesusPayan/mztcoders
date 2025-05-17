@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <!-- <h1 class="text-center mt-5"><b>Inicia tu aprendizaje</b></h1> -->
+<!-- <div class="container-fluid">
+    <h1 class="text-center mt-5"><b>Inicia tu aprendizaje</b></h1> 
      <h1 class="text-center mt-5">Escoje tu ruta de aprendizaje</h1>
     <mat-stepper orientation="horizontal" linear #stepper class="mt-5" >
         <mat-step>
@@ -167,9 +167,9 @@
     <div class="row">
         Escoje tu ruta de aprendizaje
         <div class="col-md-12 text-center">
-            <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+       <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
                 {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-              </button> -->
+              </button> 
               <mat-stepper [linear]="isLinear" #stepper>
                 <mat-step [stepControl]="firstFormGroup">
                   <form [formGroup]="firstFormGroup">
@@ -251,7 +251,7 @@
                 <div class="card-body text-center">
                     <h2 class="card-title text-center"><b>Desarrollador Backend</b></h2>
                     <img src="{{midDeveloperImageUrl}}" class="card-img-top" width="60" height="60" alt="...">
-                    <!-- <div class="row">
+                  <div class="row">
                         <div class="col-4">
                             <div class="card">
                                 <img src="{{springImageUrl}}" class="card-img-body" alt="Spring">
@@ -279,7 +279,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="card-body text-center">
                     <h2 class="card-title text-center"><b>Desarrollador FullStack</b></h2>
@@ -317,4 +317,134 @@
                 </div>
         </div>
     </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <h2 class="text-start text-dark mt-3">Inica tu aprendizaje</h2>
+    </div>
+    <div class="row justify-content-md-center mb-3"style="background: #e9ecef;">
+        <h2 class="text-center text-dark mt-3">Tronco Comun</h2>
+        <div class="col-md-4">
+            <div class="card">
+                <img [src]="gitHubImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Aprenderas a usar herramientas como git y github para versionar tu codigo y trabajar en equipo con otros desarrolladores.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img [src]="javaImageUrl" ngClass="img-fluid align-text-center" height="1000" width="1000" alt="" class="align-self-center">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Aprenderas los fundamentos del lenguaje de programacion Java y crearas tus primeras aplicaciones con el.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img [src]="pooImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Aprenderas los fundamentos del paradigma de programacion orientada a objetos y crearas tus primeras aplicaciones con el
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <h2 class="text-center text-dark mt-3">Desarrollador Backend</h2>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="javaImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Profundizaremos en el lenguaje de programacion Java asi como el framework Collections el manejo de excepciones
+            </p>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="sqlImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Aprenderas los fundamentos de diseño de bases de datos relacionales, asi como el lenguaje SQL para la manipulacion de datos. 
+            </p>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="springImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+               Aprenderas a crear tus primeras aplicaciones web con Spring Boot, un framework de Java que facilita el desarrollo de aplicaciones empresariales.
+            </p>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="junitImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Probaras la calidad de tus metodos y clases de tus desarrollos  integrando pruebas unitarias con el framework para Java JUnit.
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-md-center"style="background: #e9ecef;">
+        <h2 class="text-start text-dark mt-3">Desarrollador Frontend</h2>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="htmlImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+               Usa HTML para Definir la estructura y contenido (títulos, párrafos, imágenes, enlaces, formularios, etc.) definir la estructura de tu sitio web.
+            </p>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="cssImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Lenguaje de estilos que da formato y diseño a páginas HTML,Controla colores, fuentes, márgenes, tamaños, posiciones, etc.
+            </p>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="boostrapImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+            <p class="lh-base fs-5 text-center text-secondary">
+                Usa boostrap para crear interfaces modernas y adaptables a móviles, usando un Framework CSS basado en componentes y diseño responsivo.
+            </p>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img [src]="angularImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+            </div>
+                <p class="lh-base fs-5 text-center text-secondary">
+                    Crea aplicaciones grandes y escalables web SPA (Single Page Applications), usa componentes, servicios, módulos y enrutamiento.
+                </p>
+        </div>
+    </div>
+        <div class="row justify-content-md-center">
+            <h2 class="text-start text-dark mt-3">Desarrollador FullStack</h2>
+            <div class="col-md-3">
+                <div class="card">
+                    <img [src]="apiImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img [src]="springImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img [src]="angularImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img [src]="junitImageUrl" ngClass="img-fluid" height="1000" width="1000" class="align-self-center" alt="">
+                </div>
+            </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <p class="lh-base fs-5 text-center text-secondary">
+      En nuestra academia de desarrollo de software te acompañamos desde cero hasta convertirte en un profesional listo para el mundo real. Ofrecemos una formación integral, práctica y enfocada en lo que verdaderamente se necesita en la industria tecnológica actual.             
+      </p>  
+    </div> 
 </div>
