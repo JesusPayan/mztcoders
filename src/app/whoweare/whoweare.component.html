@@ -1,92 +1,71 @@
-<!-- <div class="container-fluid text-white p-5">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-md-4 text-center" id="whoweare">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h2 class="card-title"><b>Somos Smart Coders Academy</b></h2>
-                    <img [src]="logoUrl" height="300" width="300" class="" alt="">
-                    <p class="card-text">"<b>The best way to learn coding</b>"</p>
-                </div>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title text-center"><b>Nuestra Misi&oacute;n</b></h2>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Formar desarrolladores de software altamente capacitados, éticos y comprometidos, mediante una educación práctica, actualizada y centrada en las necesidades del mercado tecnológico, fomentando el pensamiento crítico, la resolución de problemas y la mejora continua.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title text-center"><b>Nuestra Visi&oacute;n</b></h2>
-                </div>
-                <div class="card-body text-justify">
-                    <p class="card-text">Formar desarrolladores de software altamente capacitados, éticos y comprometidos, mediante una educación práctica, actualizada y centrada en las necesidades del mercado tecnológico, fomentando el pensamiento crítico, la resolución de problemas y la mejora continua.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title text-center"><b>Nuestros Valores</b></h2>
-                </div>
-                <div class="card-body text-justify">
-                    <ul>
-                        <li class="card-text">Honestidad</li>
-                        <li class="card-text">Responsabilidad</li>
-                        <li class="card-text">Compromiso</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-</div> -->
+
 <div class="container-fluid">
     <!-- inicio del renglon principal-->
-    <div class="row justify-content-md-center">
-         <div class="col-md-3 mt-3" >
-            <img [src]="selfimgUrl" ngClass="img-fluid" height="100%" width="100%" class="align-self-center" alt="">
-            <h6 class="text-justify text-secondary mt-3">"Mi misión es transformar el aprendizaje en una experiencia accesible, práctica y alineada a las necesidades reales del mundo laboral"</h6>
+    <div class="row justify-content-md-center mt-1 ">
+        <div class="col-md-2">
         </div>
-        <div class="col-md-9">
-            <div class="row justify-content-md-start mt-3">
-                <h2 class="text-start text-dark mt-3">Conoceme</h2>
-            </div>
-            <p class="lh-base fs-5 text-start text-secondary">Soy Jesus Payan, egresado del la Universidad Automanoma de Sinaloa, me gusta la programacion, la tecnologia y la innovacion,            
-            ,Mi gusto por la programacion y mi determinacion, me ha llevado capacitarme e incursionar desde 2020 en el mundo de la programacion.
-            <p class="lh-base fs-5  text-start text-secondary">Desde 2021, soy colaborador de una empresa He participado activamente en el desarrollo de aplicaciones web modernas, aplicando principios SOLID, buenas prácticas de seguridad y arquitecturas basadas en microservicios. Además, apoyo a equipos técnicos mediante entrevistas, formación y resolución de incidencias con ayuda de herramientas de Inteligencia Artificial Generativa.</p>                   
+        <div class="col-md-8 mt-2"> 
+            <img src="{{selfimgUrl}}" class="mx-auto d-block mt-3" alt="">
+            <h5 class="text-center text-dark text-wrap mt-2">"Mi misión es ayudarte a aprender de una manera dinamica y divertida <br>
+                  alineada a las necesidades reales del mundo laboral actual"</h5>
+            <h2 class="text-center text-dark mt-3">Jesus Payán</h2>
+            <p class="lh-base fs-6 text-justify text-secondary">Soy egresado del la Facultad de Informatica Mazatlan de la Universidad Automanoma de Sinaloa,
+            siempre he sido muy curioso y me gusta aprender cosas nuevas, lo que me ha llevado a incursionar en el mundo de la programacion.
+            Desde 2021 colaboro en una de las firmas mas importantes de consultoria tecnologica a nivel nacional e internacional, gracias a esto he podido aprender y desarrollar habilidades que me permiten ser un buen profesional en el campo de la programacion.
+            </p>
+            
+        </div>
+        <div class="col-md-2">
         </div>
     </div>
     <div class="row justify-content-md-center" style="background: #e9ecef;">
-        <div class="col-md-9">
-            <div class="row justify-content-md-start mt-3" style="border: solid 1px #e9ecef;">
-                <h2 class="text-start text-dark mt-3">¿Como nace la academia?</h2>
-            </div>
-            <p class="lh-base fs-5 text-start text-secondary">
-                Creemos que cualquier persona puede construir una carrera en tecnología, sin importar su edad, 
-                experiencia previa o formación académica. 
-                Nacemos al ver cómo muchos jóvenes y profesionales con ganas de reinventarse se sienten perdidos entre cursos genéricos, sin guía ni práctica real.
-            </p>
-            <div class="row justify-content-md-center mt-3" style="border: solid 1px #e9ecef;">
-                <h2 class="text-start text-dark mt-3">¿Para que nace nuestra academia?</h2>
-            </div>    
-            <p class="lh-base fs-5 text-start text-secondary">
-                Detectamos la necesidad de las empresas de contar con talentos capaces de enfrentarse a los desafios tecnológicos actuales resolviendo problemas reales. 
-                ademas de que queremos separar la brecha entre cada persona y el mundo laboral de la tecnología.    
-            </p>
-            <b class="text-dark">Date la oportunidad de ser parte de nuestra academia</b> 
-                <button class="btn btn-outline-success" type="submit" routerLink="/sign-up" style="margin-left: 3rem;">Registrate</button>
+        <div class="col-md-2">
         </div>
-        <div class="col-md-3 mt-3" >
-            <img [src]="logoUrl" ngClass="img-fluid" height="100%" width="100%" class="" alt="">
-            <h6 class="text-start text-secondary mt-3">"Existimos para acompañarte en ese cambio de vida que estás buscando."</h6>
+        <div class="col-md-8">
+            <img src="{{logoUrl}}" class="mx-auto d-block mt-3" alt="">
+                <h5 class="text-center text-dark text-wrap mt-2">"Existimos para acompañarte en ese cambio de vida que estás buscando."</h5>
+                <h2 class="text-center text-dark mt-3">¿Como nace la academia?</h2>
+                <p class="lh-base fs-6 text-start text-secondary">
+                    Como muchos de los estudiantes de informatica cuando egrese de mi carrera me pregunte tendre las herramientas necesarias para enfrentarme a la realidad laboral, la respuesta es no...
+                    <br>muchas veces es necesario adentrarnos un poco mas en el aprendizaje de la programacion para lograr el desarrollo profesional y personal que necesitamos, eso es lo que nos llevo a crear Smart Coders Academy, una academia de programacion con el fin de ayudar a los estudiantes a conseguir sus objetivos profesionales.
+                </p>
+            </div>
+            <div class="col-md-2">
+
+            </div>
         </div>
     </div>
-</div>
+    <div class="row justify-content-md-center mt-3">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <img src="{{logoUrl}}" class="mx-auto d-block mt-3" alt="">
+                <h5 class="text-center text-dark text-wrap mt-2">"Existimos para acompañarte en ese cambio de vida que estás buscando."</h5>
+                <h2 class="text-center text-dark mt-3">¿Que hacemos?</h2>
+                <p class="lh-base fs-6 text-start text-secondary">
+                  Formamos desarrolladores de software desde cero hasta un nivel profesional, combinando teoría sólida con práctica y proyectos reales.
+                </p>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+
+    <div class="row justify-content-md-center mt-2" style="background: #e9ecef;">
+        <div class="col-md-6 mt-1" >
+            <!-- <h2 class="text-center text-dark mt-3">Mision</h2> -->
+            <img src="{{misionimgUrl}}" class="mx-auto d-block mt-1" alt="">
+                <p class="lh-base fs-6 text-center text-secondary ms-3 pd-1">
+                   Empoderar a nuestros alumnos con los conocimientos, habilidades y mentalidad que les permitan destacar en el mundo tecnológico y transformar sus vidas a través del aprendizaje.
+                </p>
+        </div> 
+        <div class="col-md-6 mt-2">
+            <!-- <h2 class="text-center text-dark mt-3">Vision</h2> -->
+            <img src="{{visionimgUrl}}" class="mx-auto d-block mt-1" alt="">
+            <p class="lh-base fs-6 text-center text-secondary">
+                Ser una academia referente en Mazatlan en la formación de profesionales en desarrollo de software, 
+                <br>reconocida por su excelencia académica, innovación tecnológica y compromiso con el crecimiento personal y profesional de sus estudiantes.
+            </p>
+        </div>
+    </div>    
+
