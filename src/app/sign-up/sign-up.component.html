@@ -1,4 +1,4 @@
-<div class="container-fluid ">
+<!-- <div class="container-fluid ">
     <div class="row justify-content-center align-items-center vh-100 mt-3">
         <div class="col-12 col-md-6 col-lg-4"> 
         <div class="card shadow-lg border-0 rounded-3" id="cardSignUp">
@@ -28,6 +28,47 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card w-60">
+                <div class="card-body">
+                    <h5 class="card-title text-center fs-3 fw-bold mb-4 text-dark">Registro</h5>
+                    <!-- <form #signupForm class="w-100 mt-2 text-secondary" onSubmit(signupForm)> -->
+                        <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.registrer()" method="post">
+                            <!-- Add form fields here -->
+                        <div class="mb-2">
+                            <label for="textBoxName" class="form-label">Nombre</label>
+                            <!-- <input type="text" class="form-control" id="textBoxName" placeholder="Juan Perez Lopez" required> -->
+                            <input type="text" id="name" class="form-control" placeholder="Juan Perez Lopez" name="name"  [(ngModel)]="student.name" required/>
+                        </div>
+                        <div class="mb-2">
+                             <label for="textBoxEmail" class="form-label">Correo</label>
+                            <!-- <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required> -->
+                            <input type="email" id="email" class="form-control" placeholder="Juan Perez Lopez" name="email" [(ngModel)]="student.email" required />
+                        </div>
+                        <div class="mb-2">
+                             <label for="textBoxEmail" class="form-label">Telefono</label>
+                            <!-- <input type="text" class="form-control" id="textBoxName" placeholder="669144....." required> -->
+                             <input type="text" id="phone"class="form-control" placeholder="Juan Perez Lopez" name="phone" [(ngModel)]="student.phone" required />
+                        </div>
+                        <!-- <div class="mb-2">
+                             <label for="textBoxEmail" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneTextBox" class="form-label">Repeat password</label>
+                            <input type="password" class="form-control" id="phoneTextBox" placeholder="6691....." required>
+                        </div> -->
+                        <div class="justify-content-center align-items-center vh-50 mt-5">
+                            <button type="submit" class="btn btn-primary w-100 ml-2 mb-4">Guardar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

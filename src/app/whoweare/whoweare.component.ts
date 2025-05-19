@@ -13,9 +13,9 @@ imports: [CommonModule, MatDividerModule, MatListModule],
 })
 export class WhoweareComponent {
 logoUrl = '/assets/images/logo-removebg-preview.png';
-whoweareMessage = '¿Quiénes somos?';
-constwhoweareDescription = 
-'Smart Coders Academy nace por la necesidad de capital humano capacitado para el mundo laboral '+
-'Soy Jesus Payan. Fundador e Instructor de la academia \ncon mas de 5 años de experencia en el sector ' 
+selfimgUrl = '/assets/images/who-we-are-self.jpg';
+misionimgUrl = '/assets/images/mision.png';
+visionimgUrl = '/assets/images/vision.png';
+valoresimgUrl = '/assets/images/valores.png';
   // Nos dedicamos a crear soluciones digitales que transforman ideas en realidades. Nuestro objetivo es brindar un servicio de 
 }
