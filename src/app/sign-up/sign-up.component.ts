@@ -82,8 +82,13 @@ respuesta: any;
    console.log(this.student);
    const toast = new ToastComponent(this.toast);   
     if (!this.student.name || !this.student.email || !this.student.phone) {
+      console.log('Faltan campos por llenar');
       //alert('Faltan campos por llenar');
        toast.showToast('Faltan campos por llenar','error','error');
+       confirm('Faltan campos por llenar');
+      //  alert('Faltan campos por llenar');
+
+      
       return;
     }
     const newPost = { title: 'Nuevo post', body: 'Contenido...', userId: 1 };
@@ -100,6 +105,7 @@ respuesta: any;
         }if(this.respuesta.statusCode in['503', '500','504','502']){
           toast.showToast("Error en el servidor, intente mas tarde", 'error', 'error');
         }
+        confirm(this.respuesta.message);
       },
       error: (error) => {
         toast.showToast(error, 'error', 'error');

@@ -21,6 +21,9 @@
           <a class="nav-link" routerLink="/learning-path">Noticias</a>
         </li>
         <li class="nav-item d-flex ms-2">
+          <a class="nav-link" routerLink="/student-dashboard">Student Dashboard</a>
+        </li>
+        <li class="nav-item d-flex ms-2">
           <a class="nav-link" routerLink="/contac-us">Contacto</a>
         </li>
       </ul>
@@ -31,11 +34,11 @@
     </div>
   </div>
 </nav>
-<div class="container-fluid navbar-expand-sm sticky-top">
+
+<router-outlet></router-outlet>
+<div class="container-fluid navbar-expand-sm sticky-bottom">
   <h2 class="text-center text-danger">Espera noticias de Smart Coders Academy</h2>
 </div>
-<router-outlet></router-outlet>
-
 <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
   <div class="container-fluid text-align-center"> -->
     <!-- <div class="row">

@@ -1,1 +1,131 @@
-<p>student-dashboard works!</p>
+<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand h-10 w-auto ml-auto" routerLink="/home-page"><img [src]='logoUrl' alt="" height="50" width="50"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto"  >
+        <li class="nav-item d-flex ms-2">
+          <a class="nav-link"  routerLink="/home-page" routerLinkActive="active">Inicio</a>
+        </li>
+        <li class="nav-item d-flex ms-2">
+          <a class="nav-link" routerLink="/who-we-are">Conocenos</a>
+        </li>
+        <li class="nav-item d-flex ms-2">
+          <a class="nav-link" routerLink="/learning-path">Oferta Educativa</a>
+        </li>
+        <li class="nav-item d-flex ms-2">
+          <a class="nav-link" routerLink="/learning-path">Noticias</a>
+        </li>
+        <li class="nav-item d-flex ms-2">
+          <a class="nav-link" routerLink="/student-dashboard">Student Dashboard</a>
+        </li>
+        <li class="nav-item d-flex ms-2">
+          <a class="nav-link" routerLink="/contac-us">Contacto</a>
+        </li>
+      </ul>
+      <form class="d-flex align-items-end">  
+          <button class="btn btn-outline-danger"type="submit" routerLink="/login-page">Logout</button>
+      </form> 
+    </div>
+</nav> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 position-fixed" style="border: solid 1px red;">
+            <div id="mySidenav" class="sidenav mt-0">
+                <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"><i class="fa fa-close"></i></a> -->
+                <div class="card mt-4">
+                    <img src="{{studentImage}}" alt="">
+                </div>
+                <h1 class="text-center text-primary">Bienvenido</h1>
+                <h1 class="text-center text-primary">{{studentName}}</h1>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        Aprendizaje
+                    </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <b>Tronco comun</b>
+                            <ul>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Git y Github</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Fundamentos de Java</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Programacion Orientada a Objetos</a>
+                            </ul>
+
+                            Desarrollador Backend
+                            <ul>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Java Avanzado</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Bases de datos</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Spring/Springboot</a>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Unit Testing</a>
+                            </ul>
+                            Desarrollador Frontend
+                            <ul>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">HTML</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">CSS</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Boostrap</a>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Angular</a>
+                            </ul>
+                            Desarrollador Fullstack
+                            <ul>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Api Rest</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Spring/Springboot</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Angular</a>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Unit Testing</a>
+                            </ul>
+                            Extras
+                            <ul>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Metodologias Agiles</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Mock Interviews</a></li>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Patrones de Diseño</a>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Arquitectura de Software</a>
+                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Principios de Cloud Computing</a>
+                            </ul>
+                           
+                        </ng-template>
+                    </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        Progreso
+                    </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            Github
+                        </ng-template>
+                    </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        Pagos
+                    </mat-expansion-panel-header>
+
+                    <ng-template matExpansionPanelContent>
+                        Githu
+                    </ng-template>
+                </mat-expansion-panel>
+                                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        Examenes
+                    </mat-expansion-panel-header>
+
+                    <ng-template matExpansionPanelContent>
+                        Lecciones
+                    </ng-template>
+                </mat-expansion-panel>
+
+            </div>
+        </div>
+        <div class="col-10 bg-dark text-light" style="height: 100vh;">
+           
+        
+            <h1 class="text-center text-danger mt-4 border-top-danger">contenido</h1>
+        </div>
+    </div>
+        
+
+
+  
+        
+
+
+        
+ 
+    
+   

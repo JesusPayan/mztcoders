@@ -6,13 +6,19 @@ import {MatIconModule} from '@angular/material/icon';
 import { WhoweareComponent } from './whoweare/whoweare.component';
 import { ContacusComponent } from './contacus/contacus.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { Routes } from '@angular/router';
+
+
+import { MatExpansionModule } from '@angular/material/expansion';
+
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatIconModule, RouterLink, WhoweareComponent, ContacusComponent, LoginPageComponent],
+  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatIconModule, RouterLink, WhoweareComponent, ContacusComponent, LoginPageComponent,StudentDashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
