@@ -75,6 +75,14 @@ mat-expansion-panel{
 }
 
 /* Optional: Style the caret down icon */
+#main{
+  height: 100vh; 
+  margin-left: 17rem;
+  /* margin-right: 5rem; */
+  width: 85%;
+  margin-top: 6rem;
+
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}

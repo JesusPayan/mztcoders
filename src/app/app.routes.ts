@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { StudentPaymentPageComponent } from './student-payment-page/student-payment-page.component';
 
 export const routes: Routes = [
     { path: 'who-we-are', component: WhoweareComponent },
@@ -17,5 +18,6 @@ export const routes: Routes = [
     { path: 'news-page', component:    NewsPageComponent },
     { path: 'login-page', component:   LoginPageComponent },
     { path: 'student-dashboard', component:   StudentDashboardComponent},
+    {path : 'student-payment-page', component: StudentPaymentPageComponent},
     {path : '', redirectTo: '/home-page', pathMatch: 'full'}
   ]

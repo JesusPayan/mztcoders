@@ -31,7 +31,7 @@
 </nav> -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 position-fixed" style="border: solid 1px red;">
+        <div class="col-2 position-fixed">
             <div id="mySidenav" class="sidenav mt-0">
                 <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"><i class="fa fa-close"></i></a> -->
                 <div class="card mt-4">
@@ -95,9 +95,8 @@
                     <mat-expansion-panel-header>
                         Pagos
                     </mat-expansion-panel-header>
-
                     <ng-template matExpansionPanelContent>
-                        Githu
+                        <li><a type="button" class="lh-base text-decoration-none text-align-start" routerLink="/student-payment-page">Agregar Pago</a>
                     </ng-template>
                 </mat-expansion-panel>
                                 <mat-expansion-panel>
@@ -112,10 +111,8 @@
 
             </div>
         </div>
-        <div class="col-10 bg-dark text-light" style="height: 100vh;">
-           
-        
-            <h1 class="text-center text-danger mt-4 border-top-danger">contenido</h1>
+        <div class="col-10  text-dark" id="main">
+            <app-student-payment-page></app-student-payment-page>
         </div>
     </div>
         
