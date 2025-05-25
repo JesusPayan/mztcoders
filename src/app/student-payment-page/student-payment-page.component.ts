@@ -61,6 +61,9 @@ import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Student } from '../services/Student';
+import { Payment } from '../services/Payment';
+import { Observable } from 'rxjs';
+import { PaymentService } from '../services/paymentservice';
 
 export interface PeriodicElement {
   name: string;
@@ -95,17 +98,24 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./student-payment-page.component.css']
 })
 export class StudentPaymentPageComponent {
-
+ paymentData = new FormData();  
   selectedFile:File | null = null;
   currentDate = new Date();
   amount: boolean = false; 
   student: Student = {
+    id: 6,
     name: 'Juan Perez Lopez',
-    email: '',
-    phone: ''
+    email: 'jesus.he.payan@gmail',
+    phone: '6691429322'
+    
   };
-
-   constructor(private http: HttpClient) {}
+  payment: Payment = {
+    amount: 0,
+    date: this.currentDate,
+    studentId: this.student.id ?? 0,
+    file: this.selectedFile
+  }
+   constructor(private http: HttpClient, private paymentService: PaymentService) {}
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
@@ -132,20 +142,66 @@ export class StudentPaymentPageComponent {
       this.selectedFile = input.files[0];
     }
   }
+
+
   onSubmit(): void {
-    if (!this.selectedFile) return;
 
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
+    if (!this.selectedFile){
+      alert('Por favor, selecciona un archivo para enviar.');
+      return;
+    } else{
+      console.log('servicio pára enviar el pago');
+      const paymentData = new FormData();
+    //   this.paymentData.append('amount', String(this.amount)); // Aquí puedes establecer el monto del pago
+    //  this. paymentData.append('date', this.currentDate.toISOString());
+    //   paymentData.append('studentId', (this.student.id ?? 0).toString());
+    //   paymentData.append('file', this.selectedFile);
+      // console.log('Datos del pago:', paymentData);
+      // alert('Datos del pago: ' + JSON.stringify(paymentData));
+      paymentData.append('amount', String(this.payment.amount));
+      paymentData.append('date', this.payment.date.toISOString()); //
+      paymentData.append('studentId', (this.payment.studentId ?? 0).toString()); 
+      paymentData.append('file', this.selectedFile);
 
-    this.http.post('http://localhost:8080/api/files/upload', formData).subscribe({
-      next: (response) => {
-        console.log('Archivo enviado exitosamente:', response);
-      },
-      error: (error) => {
-        console.error('Error al enviar archivo:', error);
-      }
-    });
+      this.http.post('http://localhost:8080/api/auth/payments/register', paymentData).subscribe({
+        next: (response) => {
+          console.log('Pago registrado exitosamente:', response);
+          alert('Pago registrado exitosamente');
+        },
+        error: (error) => {
+          console.error('Error al registrar el pago:', error);
+          alert('Error al registrar el pago');
+        }
+      });
+
+      // alert(this.paymentData.toString());
+      // this.paymentService.addPayment(this.payment).subscribe({
+      //   next: (response) => {
+      //     console.log('Pago registrado exitosamente:', response);
+      //     alert('Pago registrado exitosamente');
+      //   },
+      //   error: (error) => {
+      //     console.error('Error al registrar el pago:', error);
+      //     alert('Error al registrar el pago');
+      //   }
+      // });
+
+    }
+
+    // const formData = new FormData();
+    // formData.append('studentId', (this.student?.id ?? '').toString());
+    // formData.append('file', this.selectedFile);
+
+    // this.http.post('http://localhost:8080/api/files/upload', formData).subscribe({
+    //   next: (response) => {
+    //     console.log('Archivo enviado exitosamente:', response);
+    //     alert('Archivo enviado exitosamente');
+    //   },
+    //   error: (error) => {
+    //     console.error('Error al enviar archivo:', error);
+    //     alert('Error al enviar archivo');
+    //   }
+    // });
   }
 }
 
