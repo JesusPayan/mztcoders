@@ -1,0 +1,90 @@
+
+span{
+    color: #111;
+}
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0rem;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  /* padding: 8px 8px 8px 32px; */
+  /* text-decoration: none; */
+  font-size: 12px;
+   color: white; 
+  display: block;
+  transition: 0.3s;
+
+}
+mat-expansion-panel{
+    background-color: #111;
+    margin-top: 1rem;
+}
+
+
+
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+/* a{
+    margin-left: 1;
+    border: solid red 1px;
+    color: #111;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding: 0;
+} */
+
+
+
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: violet;
+  border-bottom: blueviolet 1px solid;
+}
+
+
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+#main{
+  height: 100vh; 
+  margin-left: 17rem;
+  /* margin-right: 5rem; */
+  width: 85%;
+  margin-top: 6rem;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

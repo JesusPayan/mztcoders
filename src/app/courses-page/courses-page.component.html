@@ -1,320 +1,85 @@
-<div class="container-fluid">
-    <!-- <h1 class="text-center mt-5"><b>Inicia tu aprendizaje</b></h1> -->
-     <h1 class="text-center mt-5">Escoje tu ruta de aprendizaje</h1>
-    <mat-stepper orientation="horizontal" linear #stepper class="mt-5" >
-        <mat-step>
-          <ng-template matStepLabel><h1 class="text-center" >Inicia tu aprendizaje</h1></ng-template>
-            <ng-template matStepContent id="step1">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="main-card">
-                            <img src="{{beginnersImageUrl}}" class="card-img-body" alt="Spring">
-                            <div class="card-body">
-                                <h2 class="card-title text-center">Fundamentos</h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{gitHubImageUrl}}" class="card-img-body text-center" alt="Java">
-                                            <h1 class="text-center">Git y GitHub</h1>
-                                            <mat-expansion-panel hideToggle="true" class="text-center">
-                                                <mat-expansion-panel-header class="text-justify">
-                                                <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>         
-                                                </mat-expansion-panel-header>
-                                                <h4>Git y GitHub son herramientas fundamentales para el desarrollo de software,
-                                                    pero tienen funcionalidades diferentes. Git es un sistema de control de versiones distribuido que permite rastrear y gestionar los cambios en el código.
-                                                    GitHub, por otro lado, es una plataforma basada en la nube que proporciona herramientas de colaboración y alojamiento de repositorios Git. </h4>
-                                            </mat-expansion-panel>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{javaImageUrl}}" class="card-img-body text-center" alt="Java">
-                                            <mat-panel-title class="text"><h3 class="text-center"><b>Java</b></h3></mat-panel-title>
-                                                <mat-expansion-panel hideToggle class="text-center">
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                    <p class="text-justify">                                        
-                                                        Java es un lenguaje de programación de alto nivel, robusto, orientado a objetos, 
-                                                        que permite el desarrollo de aplicaciones multiplataforma. 
-                                                        Se caracteriza por ser fácil de usar, seguro, distribuido, 
-                                                        dinámico y de alto rendimiento. 
-                                                    </p>
-                                            </mat-expansion-panel>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{sqlImageUrl}}" class="card-img-body text-center" alt="Java">
-                                            <h1 class="text-center">Bases de datos relacionales</h1>
-                                            <mat-expansion-panel hideToggle class="text-center">
-                                                <mat-expansion-panel-header class="text-justify">
-                                                <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>         
-                                                </mat-expansion-panel-header>
-                                                <h4>Las bases de datos relacionales se caracterizan por la organización de datos en tablas con filas y columnas,
-                                                    permitiendo relaciones entre ellas a través de claves primarias y foráneas. Además,
-                                                    ofrecen propiedades ACID para garantizar la integridad de los datos. 
-                                                </h4>
-                                            </mat-expansion-panel>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card">
-                                            <img src="{{pooImageUrl}}" class="card-img-body text-center" alt="Java">
-                                            <h1 class="text-center">POO (Programación Orientada a Objetos)</h1>
-                                            <mat-expansion-panel hideToggle class="text-center">
-                                                <mat-expansion-panel-header class="text-justify">
-                                                <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>         
-                                                </mat-expansion-panel-header>
-                                                <h4>La programación orientada a objetos (POO) es un paradigma de programación que organiza el software en torno a objetos, que combinan datos y comportamientos. En lugar de enfocarse en funciones y lógica, la POO se concentra en los objetos que los programadores necesitan manipular. Esto permite crear software más modular, reutilizable y fácil de mantener.</h4>
-                                            </mat-expansion-panel>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
+<div class="container-fluid mt-3 mb-3">
+    <div class="row justify-content-md-center mb-2 mt-2">
+     <h2 class="text-center text-light mt-4 p-4 bg-primary">Inicia tu aventura para convertirte en un Desarrollador FullStack.</h2>
+        <div class="col-md-12">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title><h2 class="text-center text-dark">Tronco Comun</h2></mat-panel-title>   
+                </mat-expansion-panel-header>
+                <div class="row justify-content-md-center mb-3 mt-2">
+                    <img src="{{gitHubImageUrl}}" class="mx-auto mt-3" alt="">
+                    <img src="{{javaImageUrl}}" class="mx-auto mt-3" alt="">
+                    <img src="{{pooImageUrl}}" class="mx-auto mt-3" alt="">
                 </div>
-                <button mat-button matStepperNext>Next</button>
-            </ng-template>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Step 2</ng-template>
-          <ng-template matStepContent>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <img src="{{midDeveloperImageUrl}}" class="card-img-body" alt="Spring">
-                        <div class="card-body">
-                            <h2 class="card-title text-center">Desarrollador Backend</h2>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card">
-                                        <img src="{{springImageUrl}}" class="card-img-body text-center" alt="Java">
-                                        <h1 class="text-center">Spring y Spring Boot</h1>
-                                        <mat-expansion-panel hideToggle="true" class="text-center">
-                                            <mat-expansion-panel-header class="text-justify">
-                                            <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>         
-                                            </mat-expansion-panel-header>
-                                            <h4>Hibernate es un framework de mapeo objeto-relacional (ORM) que facilita la comunicación entre objetos Java y una base de datos relacional. Spring Boot, por otro lado, es un framework para facilitar el desarrollo de aplicaciones Java, simplificando la configuración y proporcionando dependencias predefinidas. 
-                                                </h4>
-                                        </mat-expansion-panel>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img src="{{hibernateImageUrl}}" class="card-img-body text-center" alt="Java" width="7" height="60">
-                                        <mat-panel-title class="text"><h1 class="text-center"><b>Hibernate y JPA </b></h1></mat-panel-title>
-                                            <mat-expansion-panel hideToggle class="text-center">
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                                <p class="text-justify">                                        
-                                                    Java es un lenguaje de programación de alto nivel, robusto, orientado a objetos, 
-                                                    que permite el desarrollo de aplicaciones multiplataforma. 
-                                                    Se caracteriza por ser fácil de usar, seguro, distribuido, 
-                                                    dinámico y de alto rendimiento. 
-                                                </p>
-                                        </mat-expansion-panel>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card">
-                                        <img src="{{junitImageUrl}}" class="card-img-body text-center" alt="Java">
-                                        <h1 class="text-center">Bases de datos relacionales</h1>
-                                        <mat-expansion-panel hideToggle class="text-center">
-                                            <mat-expansion-panel-header class="text-justify">
-                                            <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>         
-                                            </mat-expansion-panel-header>
-                                            <h4>JUnit es un framework de pruebas unitarias en Java, utilizado para escribir y automatizar pruebas de código. Permite a los desarrolladores verificar que cada componente o unidad de código funcione correctamente y como se espera.  
-                                            </h4>
-                                        </mat-expansion-panel>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img src="{{apiImageUrl}}" class="card-img-body text-center" alt="Java">
-                                        <h1 class="text-center">POO (Programación Orientada a Objetos)</h1>
-                                        <mat-expansion-panel hideToggle class="text-center">
-                                            <mat-expansion-panel-header class="text-justify">
-                                            <mat-panel-title><h3 class="text-center">Expande para ver detalles</h3></mat-panel-title>         
-                                            </mat-expansion-panel-header>
-                                            <h4>Las API, o Interfaz de Programación de Aplicaciones (Application Programming Interface), son conjuntos de reglas, definiciones y protocolos que permiten que diferentes aplicaciones de software se comuniquen y compartan datos entre sí. En esencia, son un intermediario que facilita la interacción entre programas sin que estos necesiten conocer los detalles internos de la implementación del otro. 
-</h4>
-                                        </mat-expansion-panel>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </ng-template>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Step 3</ng-template>
-          <p>This content was rendered eagerly</p>
-          <button mat-button matStepperPrevious>Back</button>
-        </mat-step>
-    </mat-stepper>
-    <div class="row">
-        Escoje tu ruta de aprendizaje
-        <div class="col-md-12 text-center">
-            <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-                {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-              </button> -->
-              <mat-stepper [linear]="isLinear" #stepper>
-                <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Fundamentos</ng-template>
-                    <mat-form-field>
-                      <mat-label>Name</mat-label>
-                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                      <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{springImageUrl}}" class="card-img-body" alt="Spring">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Springboot</b></h3>
-                                    <h4 class="card-text">Crear aplicaciones web con Spring Boot, un framework de Java que facilita el desarrollo de aplicaciones empresariales.</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{hibernateImageUrl}}" class="card-img-body text-center" alt="Angular">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Hibernate</b></h3>
-                                    <h4 class="card-text">Manipula la informacion de tu  base de datos desde tu aplicacion web con Hibernate</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{junitImageUrl}}" class="card-img-body text-center" alt="Angular">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>JUnit</b></h3>
-                                    <h4 class="card-text">Prueba tus desarrollos con utilizando JUnit, un framework de pruebas unitarias para Java.</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </mat-form-field>
-                    <div>
-                      <button mat-button matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
-                  <form [formGroup]="secondFormGroup">
-                    <mat-form-field>
-                      <mat-label>Address</mat-label>
-                      <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                             required>
-                    </mat-form-field>
-                    <div>
-                      <button mat-button matStepperPrevious>Back</button>
-                      <button mat-button matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step>
-                  <ng-template matStepLabel>Done</ng-template>
-                  <p>You are now done.</p>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button (click)="stepper.reset()">Reset</button>
-                  </div>
-                </mat-step>
-              </mat-stepper>
-            <h2 class="card-title text-center mt-4"><b>Fundamentos</b></h2>
-                                
+                <p class="lh-base fs-5 text-start text-secondary mt-3">
+                    El tronco común es la base de todas las rutas. Aquí los estudiantes adquieren los fundamentos de la programación y la lógica computacional, además de las herramientas esenciales para cualquier desarrollador.
+                    <br>Al finalizar el tronco común, los estudiantes estarán listos para elegir su especialización: backend, frontend o fullstack.
+                </p>
+            </mat-expansion-panel>
         </div>
     </div>
-
-
-                <div class="card-body text-center ">
-                    <div class="row">
-                        <div class="col-md-4">
-                            
-                        </div>
-                       
-                        
-                      
-                <div class="card-body text-center">
-                    <h2 class="card-title text-center"><b>Desarrollador Backend</b></h2>
-                    <img src="{{midDeveloperImageUrl}}" class="card-img-top" width="60" height="60" alt="...">
-                    <!-- <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{springImageUrl}}" class="card-img-body" alt="Spring">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Springboot</b></h3>
-                                    <h4 class="card-text">Crear aplicaciones web con Spring Boot, un framework de Java que facilita el desarrollo de aplicaciones empresariales.</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{hibernateImageUrl}}" class="card-img-body text-center" alt="Angular">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Hibernate</b></h3>
-                                    <h4 class="card-text">Manipula la informacion de tu  base de datos desde tu aplicacion web con Hibernate</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{junitImageUrl}}" class="card-img-body text-center" alt="Angular">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>JUnit</b></h3>
-                                    <h4 class="card-text">Prueba tus desarrollos con utilizando JUnit, un framework de pruebas unitarias para Java.</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+    <div class="row justify-content-md-center mb-3 mt-2">
+        <h2 class="text-center text-light mt-4 p-4 bg-primary">Conviertete en un desarrollador Backend</h2>
+        <div class="col-md-12">
+               <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title ><h2 class="text-center text-dark"> Desarrollador Backend</h2> </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row justify-content-md-center mb-3 mt-2">
+                    <img src="{{javaImageUrl}}" class="mx-auto  mt-3" alt="">
+                    <img src="{{sqlImageUrl}}" class="mx-auto  mt-3" alt="">
+                    <img src="{{springImageUrl}}" class="mx-auto mt-3" alt="">
+                    <img src="{{junitImageUrl}}" class="mx-auto mt-3" alt="">
                 </div>
-                <div class="card-body text-center">
-                    <h2 class="card-title text-center"><b>Desarrollador FullStack</b></h2>
-                    <img src="{{advancedImageUrl}}" class="card-img-top" width="60" height="60" alt="...">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{basicFrontendImageUrl}}" class="card-img-body" alt="Spring">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Frontend basico</b></h3>
-                                    <h4 class="card-text">Crear paginas web sencillas con html 5, css, javascript y bootstrap</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{advancedFrontendImageUrl}}" class="card-img-body text-center" alt="Angular">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Frontend Avanzado</b></h3>
-                                    <h4 class="card-text">Desarrolla tus aplicaciones webs integrando el frontend con Angular y el backend con Spring Boot</h4>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="{{devopsImageUrl}}" class="card-img-body text-center" alt="Angular">
-                                <div class="card-body">
-                                    <h3 class="card-title"><b>Devops</b></h3>
-                                    <h4 class="card-text">Despliega tus aplicaciones en servidores de internet para que puedan ser accedidas desde cualquier parte del mundo</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p class="lh-base fs-5 text-start text-secondary mt-3">
+                    La ruta backend está orientada a construir la lógica del servidor, APIs robustas y la gestión de datos. Se enfoca en resolver problemas complejos, diseñar sistemas escalables y trabajar con bases de datos, autenticación, seguridad y más.
+                    <br>
+                    El estudiante egresará como un backend developer capaz de construir servicios robustos, seguros y listos para producción
+                </p>
+                </mat-expansion-panel>
         </div>
     </div>
-</div>
+    <div class="row justify-content-md-center mb-3 mt-2">
+        <h2 class="text-center text-light mt-4 p-4 bg-primary">Conviertete en un desarrollador Frontend</h2>
+        <div class="col-md-12">
+               <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title ><h2 class="text-center text-dark"> Desarrollador Frontend</h2> </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row justify-content-md-center mb-3 mt-2">
+                    <img src="{{htmlImageUrl}}" class="mx-auto  mt-3" alt="">
+                    <img src="{{cssImageUrl}}" class="mx-auto  mt-3" alt="">
+                    <img src="{{boostrapImageUrl}}" class="mx-auto mt-3" alt="">
+                    <img src="{{angularImageUrl}}" class="mx-auto mt-3" alt="">
+                </div>
+                <p class="lh-base fs-5 text-start text-secondary mt-3">
+                    La ruta frontend está enfocada en la creación de interfaces modernas, accesibles y responsivas. Se enseña a construir experiencias de usuario atractivas y funcionales usando herramientas y frameworks actuales.
+                    <br>
+                    El egresado será capaz de diseñar y desarrollar interfaces modernas y dinámicas, conectadas con servicios backend.
+                </p>
+                </mat-expansion-panel>
+        </div>
+    </div>
+    <div class="row justify-content-md-center mb-3 mt-2">
+        <h2 class="text-center text-light mt-4 p-4 bg-primary">Termina tu transformacion</h2>
+        <div class="col-md-12">
+               <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title ><h2 class="text-center text-dark"> Desarrollador Fullstack</h2> </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row justify-content-md-center mb-3 mt-2">
+                    <img src="{{apiImageUrl}}" class="mx-auto  mt-3" alt="">
+                    <img src="{{springImageUrl}}" class="mx-auto  mt-3" alt="">
+                    <img src="{{angularImageUrl}}" class="mx-auto mt-3" alt="">
+                    <img src="{{junitImageUrl}}" class="mx-auto mt-3" alt="">
+                </div>
+                <p class="lh-base fs-5 text-start text-secondary mt-3">
+                    La ruta fullstack combina el desarrollo frontend y backend, formando profesionales versátiles capaces de crear aplicaciones completas, desde el diseño de la base de datos hasta la interfaz del usuario.
+                    El estudiante fullstack egresará con un perfil integral, ideal para equipos pequeños, startups, o freelancing.
+                </mat-expansion-panel>
+        </div>
+    </div>
+  <p class="lh-base fs-5 text-center text-secondary mt-3 mb-3">
+      En nuestra academia de desarrollo de software te acompañamos desde cero hasta convertirte en un profesional listo para el mundo real. Ofrecemos una formación integral, práctica y enfocada en lo que verdaderamente se necesita en la industria tecnológica actual.             
+      </p> 
+    </div>
