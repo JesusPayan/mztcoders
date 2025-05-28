@@ -8,6 +8,9 @@ import { NewsPageComponent } from './news-page/news-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { StudentPaymentPageComponent } from './student-payment-page/student-payment-page.component';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 
 export const routes: Routes = [
     { path: 'who-we-are', component: WhoweareComponent },

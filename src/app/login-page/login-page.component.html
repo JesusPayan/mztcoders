@@ -1,25 +1,31 @@
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center vh-100">
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card w-60">
-
-                <div class="card-body">
-                    <h5 class="card-title text-center fs-3 fw-bold mb-4 text-dark">Iniciar Sesión</h5>
-                    <form #loginForm class="w-100 mt-2" (ngSubmit)="login()">
-                        <div class="mb-3">
-                            <label for="password" class="lh-base fs-4 text-start text-secondary form-label">Correo</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+            <div class="card w-60" id="mainCard">
+                    <div class="row justify-content-center align-items-center">
+                        <h5 class="card-title text-center fs-3 fw-bold mb-2 text-secondary">Ingreso</h5>
+                        <img src="{{this.logoUrl}}" class="card-img-top" alt="Logo">
+                    </div>    
+                    <div class="row justify-content-center align-items-center">
+                        <p class="card-text text-center fs-6 text-secondary">Ingresa tus datos para continuar</p>
+                        <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.login()" method="post">
+                            <!-- Add form fields here -->
+                        <div class="mb-2">
+                            <label for="textBoxName" class="form-label">Correo:</label>
+                            <!-- <input type="text" class="form-control" id="textBoxName" placeholder="Juan Perez Lopez" required> -->
+                            <input type="email" id="name" class="form-control" placeholder="Juan.Perez@out..." name="name"  [(ngModel)]="this.student.email" required/>
                         </div>
-                        <div class="mb-5">
-                            <label for="password" class="lh-base fs-5 text-start text-secondary form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" required>
+                        <div class="mb-2">
+                             <label for="textBoxEmail" class="form-label">Contraseña:</label>
+                            <!-- <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required> -->
+                            <input type="password" id="password" class="form-control" placeholder="" name="email" [(ngModel)]="this.student.password" required />
                         </div>
-                        <div class="justify-content-center align-items-center vh-50">
-                            <button type="submit" class="btn btn-primary w-100 ml-2 mb-4" (click)="login()">Login</button>
-                            <a class="lh-base fs-6 text-sucess text-center text-decoration-none offset-3 mt-5" href="http://">¿Olvidaste tu contraseña?</a>
+                        <div class="justify-content-center align-items-center vh-50 mt-4">
+                            <button type="submit" class="btn btn-outline-success w-100 ml-2 mb-4">Enviar</button>
+                            <!-- <h1>{{this.appComponent.isLoggedIn}}</h1> -->
                         </div>
                     </form>
-                </div>
+                    </div>
             </div>
         </div>
     </div>
