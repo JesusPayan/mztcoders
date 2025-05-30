@@ -1,98 +1,43 @@
 <div class="container-fluid">
-    <!-- Inicia el renglon principal -->
-    <div class="row justify-content-md-center"> 
-        <div class="col-md-auto col-lg-6 col-sm-12">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner text-center">
-                            <div class="carousel-item active" >
-                                <img src="{{javaBgImg}}" class="d-block w-500 h-600 align-items-center" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{javaBgImg}}" class="d-block w-1000 h-600 align-items-center" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{javaBgImg}}" class="d-block w-1000 h-600 align-items-center" alt="...">
-                            </div>
-                        </div>
-                    </div>
-            <h1 class="fs-2 fw-medium text-start mt-1 text-dark">¡Conviértete en el programador que el mundo necesita!</h1>
-            <p class=" fs-3 lh-base text-start text-secondary">En nuestra escuela, no solo aprendes a programar: te formas para crear soluciones reales.</p>
-            <p class="fs-3 fst-normal text-start text-secondary">🚀 Empieza hoy tu camino al éxito.</p>
-            <button class="btn btn-outline-success mt-2" type="submit" routerLink="/sign-up">Registrate</button>
-            <button class="btn btn-outline-info mt-2 ml-2 pd-2" type="submit" routerLink="/sign-up" style="margin-left:2rem;">Oferta educativa</button>
+    <div class="row justify-content-center"> 
+        <h1 class="fs-2 fw-medium text-center mt-1 text-dark">¡Conviértete en el programador que el mundo necesita!</h1>
+        <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
+            <div class="col-md-12 text-center">
+                <img src="{{contentToShow[0].imagePath}}" class="text-center w-100 h-100" alt="...">
+            </div>
+            <div class="col-md-12">
+                <p class=" fs-4 lh-base text-center text-secondary">En nuestra escuela no solo aprendes a programar, te formas para crear soluciones reales.</p>
+                <p class="fs-3 fst-normal text-center text-secondary">🚀 Empieza hoy tu camino al éxito.🚀</p>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-success mt-2 w-30" type="submit" routerLink="/sign-up">Registrate</button>
+                <button class="btn btn-outline-info mt-2 w-30" type="submit" routerLink="/sign-up" style="margin-left:2rem;">Oferta educativa</button>
+            </div>
         </div>
     </div>
-    <!-- Termina el renglon principal -->
-    <!-- Inicia el renglon secundario -->
-     <div class="row " style="background: #e9ecef;">
-         <div class="col-md-6 justify-content-md-center">
-           <h1 class="fs-2 fw-medium text-start mt-5 text-dark" >Aprendizaje actual y personalizado</h1>
-            <div class="card">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{practicesImg}}" class="d-block w-100 h-100 align-items-center" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <h1>Formacion Practica</h1>
-                        <p class="lh-base fs-5  text-start text-secondary">Aprende haciendo. Nuestros cursos están diseñados para que apliques lo que aprendes desde el primer día.</p>
-                        <button class="btn btn-outline-success mt-2" (click)="displayInfo(1)" type="submit">Expandir</button>
-                    </div>
+    <div class="row justify-content-center  mb-2" style="background: #e9ecef;">
+         <h1 class="fs-2 fw-medium text-center mt-5 text-dark">Aprendizaje actual y personalizado</h1>
+            <div class="content" *ngFor="let content of contentToShow" style="">
+                <div class="col-md-12 text-center">
+                        <img src="{{content.imagePath}}" class=" w-100 h-100 align-items-center" alt="...">
+                        <h1 class="lh-base fs-4   text-center text-dark">{{content.title}}</h1>
+                        <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
                 </div>
             </div>
-            <div class="card width-100">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{developTeamsImg}}" class="d-block w-100 h-100 align-items-center" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <h1>Aprende con los Mejores</h1>
-                        <p class="lh-base fs-5   text-start text-secondary">Aprende de expertos en activo que comparten contigo las mejores prácticas de la industria.</p>
-                        <button class="btn btn-outline-success mt-2" (click)="displayInfo(2)" type="submit">Expandir</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{bestPracticesImg}}" class="d-block w-100 h-100 align-items-center" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <h1>Mejores practicas</h1>
-                        <p class="lh-base fs-5 text-start text-secondary">Conoce y aplica las mejores practicas de la industria.</p>
-                        <button class="btn btn-outline-success mt-2" (click)="displayInfo(4)" type="submit">Expandir</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{bolsaDeTrabajoImg}}" class="d-block w-100 h-100 align-items-center" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <h1>Bolsa de Trabajo</h1>
-                        <p class="lh-base fs-5   text-start text-secondary">Conecta con empresas que buscan talento como el tuyo. Nosotros te acercamos a tu primer (o mejor) empleo..</p>
-                        <button class="btn btn-outline-success mt-2" (click)="displayInfo(4)" type="submit">Expandir</button>
-                    </div>
-                </div>
-            </div>
-         </div>
-         
-         <div class="col-md-6 ">
-            <div class="card mt-5 height-100 w-80">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <mat-card class="w-100">
-                            <mat-card-header class="bg-light text-dark">
-                                <mat-card-title class="text-center fs-3">{{titleToShow}}</mat-card-title>                
-                            </mat-card-header>
-                            <mat-card-content class="d-block w-15 h-5 align-items-center bg-light">
-                                <img src="{{imagetoShow}}" class="" class="d-block align-items-center mt-5 {{imgSize}}" alt="...">
-                                <p class="lh-base fs-5  text-start text-secondary mt-5">{{textToShow}}</p>                               
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                </div>
-            </div>
-         </div>
-     </div>
     </div>
+    <div class="row justify-content-center mb-4"> 
+        <h1 class="fs-2 fw-medium text-center mt-1 text-dark">¡Transforma tu potencial en habilidades reales!</h1>
+        <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
+            <div class="col-md-12 text-center">
+                <img src="{{imagesToShow[0].path}}" class="text-center" alt="...">
+            </div>
+            <div class="col-md-12">
+                <p class=" fs-5 lh-base text-center text-secondary">{{textToShow}}</p>
+                <p class="fs-3 fst-normal text-center text-secondary">🚀 Registrate hoy tu camino al éxito.🚀</p>
+            </div>
+            <div class="col-md-12 text-center mb-4">
+                <button class="btn btn-outline-success mt-2 w-30" type="submit" routerLink="/sign-up">Registrate</button>
+                <button class="btn btn-outline-info mt-2 w-30" type="submit" routerLink="/sign-up" style="margin-left:2rem;">Oferta educativa</button>
+            </div>
+        </div>
+</div>

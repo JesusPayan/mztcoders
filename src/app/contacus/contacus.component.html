@@ -1,4 +1,21 @@
 <div class="container-fluid">
+     <div class="row justify-content-center">
+        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{mainInfo[0].title}}</h1>
+        <img src="{{mainInfo[0].imagePath}}" class=" w-40 h-40 align-items-center" alt="...">
+            <p class="lh-base fs-5 text-center text-secondary mt-3">{{mainInfo[0].description}}</p>
+            
+            <div class="content" *ngFor="let content of contentInfo" style="">
+                <div class="col-md-12 text-center">
+                    <!-- <img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="..."> -->
+                    <h1 class="lh-base fs-4   text-start text-dark">{{content.title}}</h1>
+                    <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
+
+                    <a [href]="content.imagePath" class="link">{{content.imagePath}}</a>
+                </div>
+            </div>   
+    </div>
+
+<!-- <div class="container-flu
     <div class="row mt-5 mb-6">
         <div class="col-md-6 text-align-left">
             <div class="card">
@@ -6,7 +23,7 @@
                     <h1 class="card-title text-center text-primary mt-3"><b>Inicia con nosotros en el mundo del Desarrollo de software!</b></h1>
                     <div class="row">
                         <div class="col-4"></div>
-                        <div class="col-4"><img src="{{appComponent.logoUrl}}" class="text-align-left mb-2" alt="" height="200" width="200" ></div>
+                        <div class="col-4"><img [src]="imagesToShow[0].path" class="text-align-left mb-2" alt="" height="200" width="200" ></div><img [src]="imagesToShow[1].path" class="text-align-left mb-2" alt="" height="200" width="200" ></div>
                         <div class="col-4"></div>
                     </div>
                             <h2 class="card-title text-primary text-center"><b>Contáctanos</b></h2>
@@ -60,5 +77,5 @@
             <a class ="btn btn-success" href="https://wa.me/526691429322">Registrate</a>
          </div>
     </div>
-</div>
+</div> -->
 

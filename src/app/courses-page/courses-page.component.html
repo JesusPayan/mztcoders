@@ -1,4 +1,62 @@
-<div class="container-fluid mt-3 mb-3">
+<div class="container-fluid">
+    <div class="row justify-content-center"> 
+        <h1 class="fs-2 fw-medium text-center mt-1 text-dark">{{mainInfo[0].title}}</h1>
+        <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
+            <div class="col-md-12 text-center">
+                <img src="{{mainInfo[0].imagePath}}"  class="text-center mt-3 w-80 h-80 align-items-center" alt="">
+                <p class="lh-base fs-5 text-justify text-secondary mt-3">{{mainInfo[0].description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngFor="let content of contentInfo" style="background: #e9ecef; ">
+        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{content.title}}</h1>
+            <p class="lh-base fs-5 text-center text-secondary mt-3">{{content.description}}</p>
+            <div class="content" *ngFor="let content of troncoComun" style="">
+                <div class="col-md-12 text-center">
+                    <img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="...">
+                    <h1 class="lh-base fs-4   text-center text-dark">{{content.title}}</h1>
+                    <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
+                </div>
+            </div>   
+    </div>
+    <!--
+    <div class="row justify-content-center"> 
+        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{contentInfo[2].title}}</h1>
+            <p class="lh-base fs-5 text-center text-secondary mt-3">{{contentInfo[2].description}}</p>
+            <div class="content" *ngFor="let content of backend" style="">
+                <div class="col-md-12 text-center">
+                    <img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="...">
+                    <h1 class="lh-base fs-4   text-center text-dark">{{content.title}}</h1>
+                    <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
+                </div>
+            </div>   
+    </div>
+     <div class="row justify-content-center" style="background: #e9ecef;"> 
+        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{contentInfo[3].title}}</h1>
+            <p class="lh-base fs-5 text-center text-secondary mt-3">{{contentInfo[3].description}}</p>
+            <div class="content" *ngFor="let content of frontend" style="">
+                <div class="col-md-12 text-center">
+                    <img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="...">
+                    <h1 class="lh-base fs-4   text-center text-dark">{{content.title}}</h1>
+                    <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
+                </div>
+            </div>   
+    </div>
+     <div class="row justify-content-center"> 
+        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{contentInfo[4].title}}</h1>
+            <p class="lh-base fs-5 text-center text-secondary mt-3">{{contentInfo[4].description}}</p>
+            <div class="content" *ngFor="let content of fullStack" style="">
+                <div class="col-md-12 text-center">
+                    <img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="...">
+                    <h1 class="lh-base fs-4   text-center text-dark">{{content.title}}</h1>
+                    <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
+                </div>
+            </div>   
+    </div> -->
+        
+</div>
+
+<!-- <div class="container-fluid mt-3 mb-3">
     <div class="row justify-content-md-center mb-2 mt-2">
      <h2 class="text-center text-light mt-4 p-4 bg-primary">Inicia tu aventura para convertirte en un Desarrollador FullStack.</h2>
         <div class="col-md-12">
@@ -81,5 +139,4 @@
     </div>
   <p class="lh-base fs-5 text-center text-secondary mt-3 mb-3">
       En nuestra academia de desarrollo de software te acompañamos desde cero hasta convertirte en un profesional listo para el mundo real. Ofrecemos una formación integral, práctica y enfocada en lo que verdaderamente se necesita en la industria tecnológica actual.             
-      </p> 
-    </div>
+      </p> </div> -->

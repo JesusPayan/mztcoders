@@ -6,6 +6,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { BehaviorSubject } from 'rxjs'
 import { LinkRoute } from '../utils/LinkRoute';
 import { Student } from '../services/student.service';
+import { AppComponent } from '../app.component';
+import { ImagePath } from '../utils/ImagesPath';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations'; 
 @Component({
   selector: 'app-top-nav-bar',
   standalone: true,
@@ -14,7 +17,9 @@ import { Student } from '../services/student.service';
   styleUrls: ['./top-nav-bar.component.css']
 })
 export class TopNavBarComponent {
-    show = false;
+    constructor(private router: Router, private appComponent: AppComponent) {}
+    isLoggedIn = this.appComponent.isLoggedIn;
+
     linksToShow: LinkRoute[] = [];
     defaultlinks: LinkRoute[]  = [
       { path: 'home-page', label: 'Inicio' },
@@ -27,19 +32,10 @@ export class TopNavBarComponent {
       { path: 'home-page', label: 'Inicio' },
       { path: 'student-dashboard', label: 'Panel de Estudiante' },
     ];
-    imageUrl = 'assets/images/logo-removebg-preview.png';
-    public loggedIn = new BehaviorSubject<boolean>(true);
-    loggedIn$ = this.loggedIn.asObservable();
+    imagesToShow: ImagePath[] = [
+      
+     { component: 'logo',path: 'assets/images/logo-removebg-preview.png' },
+    ];
 
-   
-    // private loggedIn = new BehaviorSubject<boolean>(false)
-    // loggedIn$ = this.loggedIn.asObservable()
-    // constructor(private router: Router) {
-    //   this.linksToShow = this.defaultlinks;
-    //   this.router.events.subscribe(() => {
-    //     if (this.router.url === '/login-page') {
-    //       this.linksToShow = this.defaultlinks;
-    //     } else if (this.router.url === '/sign-up') {
-    //       this.linksToShow = this.defaultlinks;
-    //     }
+
 }

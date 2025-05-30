@@ -1,7 +1,7 @@
-<header class="mt" @fade>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" >
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" *ngIf="!isLoggedIn">
     <div class="container-fluid">
-        <a class="navbar-brand h-10 w-auto ml-auto" routerLink="/home-page"><img [src]='imageUrl' alt="" height="50" width="50"></a>
+        <a class="navbar-brand h-10 w-auto ml-auto" routerLink="/home-page"><img [src]="imagesToShow[0].path" alt="" height="50" width="50"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,7 +12,6 @@
             </li>
         </ul>
         <form class="d-flex align-items-end">
-            <!-- <h1 class="text-white">{{student.name}}</h1> -->
             <button class="btn btn-outline-success" type="submit" routerLink="/sign-up">Registro</button>
             <button class="btn btn-outline-primary"type="submit" routerLink="/login-page">Login</button>
         </form> 
