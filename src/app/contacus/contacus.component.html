@@ -1,18 +1,27 @@
 <div class="container-fluid">
-     <div class="row justify-content-center">
+     <!-- <div class="row justify-content-center">
         <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{mainInfo[0].title}}</h1>
         <img src="{{mainInfo[0].imagePath}}" class=" w-40 h-40 align-items-center" alt="...">
             <p class="lh-base fs-5 text-center text-secondary mt-3">{{mainInfo[0].description}}</p>
-            
-            <div class="content" *ngFor="let content of contentInfo" style="">
+            <div class="content" *ngFor="let content of contentInfo" >
                 <div class="col-md-12 text-center">
-                    <!-- <img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="..."> -->
-                    <h1 class="lh-base fs-4   text-start text-dark">{{content.title}}</h1>
+                    
+                    <h1 class="lh-base fs-4  text-start text-dark">{{content.title}}</h1>
                     <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
-
                     <a [href]="content.imagePath" class="link">{{content.imagePath}}</a>
                 </div>
-            </div>   
+            </div>    -->
+    <div class="row justify-content-center" >
+        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{mainInfo[0].title}}</h1>
+        <img src="{{mainInfo[0].imagePath}}" class=" w-40 h-40 align-items-center" alt="...">
+            <p class="lh-base fs-5 text-center text-secondary mt-3">{{mainInfo[0].description}}</p>
+            <div class="content" *ngFor="let content of contentInfo">
+                <div class="col-md-12 text-center">
+                    <h1 class="lh-base fs-5   text-start text-secondary">{{content.title}}</h1>
+                    <!-- <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p> -->
+                    <a href="{{content.description}}" class="button"><img src="{{content.imagePath}}" class=" w-80 h-80 align-items-center" alt="..."></a>
+                </div>
+            </div>       
     </div>
 
 <!-- <div class="container-flu

@@ -17,11 +17,11 @@ export class ContacusComponent {
 
    contentInfo: CourseInfo[] = [
     {
-       title: 'Email', description: 'Puedes contactarnos a través de nuestro correo electrónico: contacto@mztcoders.com', imagePath: 'mailto:mztcoders@gmail.com' },
-      { title: 'Teléfono', description: 'Llámanos al +52 6691429322 para hablar con uno de nuestros asesores.', imagePath: 'tel:+526691429322' },
-      { title: 'WhatsApp', description: 'Envíanos un mensaje por WhatsApp al +52 6691429322 para una respuesta rápida.', imagePath: 'https://wa.me/526691429322' },
-      { title: 'Facebook', description: 'Síguenos en Facebook para estar al tanto de nuestras novedades y eventos.', imagePath: 'https://www.facebook.com/mztcoders' },
-      { title: 'Instagram', description: 'Síguenos en Instagram para ver nuestro contenido visual y actualizaciones.', imagePath: 'https://www.instagram.com/mztcoders/' }
+       title: 'Puedes contactarnos a través de nuestro correo: mztcoders@gmail.com o haciendo clic en el siguiente enlace', description: 'mailto:mztcoders@gmail.com', imagePath: 'assets/images/gmail-logo.png' },
+      { title: 'Llámanos 6691429322 para hablar con uno de nuestros asesores y brindarte asesoramiento personalizado', description: '', imagePath: 'assets/images/phone.jpg' },
+      { title: 'Envíanos un mensaje por WhatsApp al 6691429322 o haz clic en el siguiente enlace', description: 'https://wa.me/526691429322', imagePath: 'assets/images/whats.jpg' },
+      { title: 'Síguenos en Facebook para estar al tanto de nuestras novedades y eventos.', description: '', imagePath: 'assets/images/Facebook-logo.png' },
+      // { title: 'Síguenos en TikTok para ver nuestro contenido visual y actualizaciones.', description: '', imagePath: 'assets/images/tiktok.png' }
    ];
      
    

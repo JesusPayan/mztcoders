@@ -5,11 +5,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { ImagePath } from '../utils/ImagesPath';
 import { CourseInfo } from '../utils/CourseInfo';
+import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-whoweare',
   standalone: true,
 
-imports: [CommonModule, MatDividerModule, MatListModule],
+imports: [CommonModule, MatDividerModule, MatListModule, NgOptimizedImage],
   templateUrl: './whoweare.component.html',
   styleUrl: './whoweare.component.css'
 })
@@ -18,7 +19,7 @@ logoUrl = '/assets/images/logo-removebg-preview.png';
 selfimgUrl = '/assets/images/who-we-are-self.jpg';
 misionimgUrl = '/assets/images/mision.png';
 visionimgUrl = '/assets/images/vision.png';
-valoresimgUrl = '/assets/images/valores.png';
+valoresimgUrl = '/assets/images/valores2.jpg';
   // Nos dedicamos a crear soluciones digitales que transforman ideas en realidades. Nuestro objetivo es brindar un servicio de 
 
 //"Existimos para acompañarte en ese cambio de vida que estás buscando."

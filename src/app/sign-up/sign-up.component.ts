@@ -1,47 +1,3 @@
-// import { Component,viewChild } from '@angular/core';
-// import { AppComponent } from '../app.component';
-// import { on } from 'events';
-// import { ViewChild } from '@angular/core';
-// import { NgForm } from '@angular/forms';
-// import {StudentService } from '../services/student.service';
-// import { Student } from '../services/Student';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
-
-// @Component({
-//   selector: 'app-sign-up',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './sign-up.component.html',
-//   styleUrl: './sign-up.component.css'
-// })
-
-// export class SignUpComponent {
-//    appComponent = new AppComponent();
-//    email: any;
-//    name: any;
-//    phone: any;
-   
-//     constructor(private studentService: StudentService) { }
-//   onSubmit() {}
-//    registrer(){ 
-//      this.email = document.getElementById('email');
-//      this.name = document.getElementById('name');
-//      this.phone = document.getElementById('phone');
-//      if (!this.email || !this.name || !this.phone) {
-//        alert('Faltan campos por llenar');
-//        return;
-//      }else{
-
-//       this.studentService.addStudent(new Student(this.name.value, this.email.value, this.phone.value)).subscribe();
-    
-
-//      alert  ('Registrado');
-//    }
-//   }
-// }
-  
-
 import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { StudentService, Student } from '../services/student.service';
@@ -49,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { response } from 'express';
 import { MatSnackBar,MatSnackBarConfig  } from '@angular/material/snack-bar';
 import { ToastComponent } from '../utils/toast/toast.componet';
+import { LinkRoute } from '../utils/LinkRoute';
+import { Elements } from '../utils/Element';
 
 @Component({
   selector: 'app-sign-up',
@@ -77,6 +35,11 @@ respuesta: any;
   };
 
   constructor(private studentService: StudentService, private toast: MatSnackBar) {}
+
+  imgToShow: LinkRoute[] = [
+    { path: 'logo', label: 'assets/images/logo-removebg-preview.png' }
+  ];
+
 
   // onSubmit(form: any) {
  registrer() {

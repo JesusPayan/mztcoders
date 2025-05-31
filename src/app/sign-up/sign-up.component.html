@@ -1,74 +1,34 @@
-<!-- <div class="container-fluid ">
-    <div class="row justify-content-center align-items-center vh-100 mt-3">
-        <div class="col-12 col-md-6 col-lg-4"> 
-        <div class="card shadow-lg border-0 rounded-3" id="cardSignUp">
-            <div class="card-body">
-                <h1 class="text-center text-primary"><b>Registro</b></h1>
-                <img src="{{appComponent.logoUrl}}" alt="Logo" class="img-fluid mb-3 mt-3" height="100" width="100" style="display: block; margin: auto;">
-                  <p class="text-center">Bienvenido a la plataforma de Smart Coders, por favor completa el siguiente formulario para registrarte.</p>
-                <form #signUpForm (ngSubmit)="onSubmit()" method="post">    
-                <div class="mb-3">
-                        <label for="textBoxName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="textBoxName" placeholder="Juan Perez Lopez" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="textBoxEmail" class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phoneTextBox" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="phoneTextBox" placeholder="6691....." required>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary w-100" routerLink="/sign-up">Registrarse</button>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-danger w-100" routerLink="/sign-up">Cancelar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center vh-100">
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card w-60">
-                <div class="card-body">
-                    <h5 class="card-title text-center fs-3 fw-bold mb-4 text-dark">Registro</h5>
-                    <!-- <form #signupForm class="w-100 mt-2 text-secondary" onSubmit(signupForm)> -->
+            <div class="card w-60 h-100" id="mainCard">
+                    <div class="row justify-content-center align-items-center">
+                        <h5 class="card-title text-center fs-3 fw-bold mb-2 text-secondary">Registro</h5>
+                        <img src="{{this.imgToShow[0].label}}" class="card-img-top" alt="Logo">
+                    </div>    
+                    <div class="row justify-content-center align-items-center">
+                        <p class="card-text text-center fs-6 text-secondary">Ingresa tus datos para continuar</p>
                         <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.registrer()" method="post">
                             <!-- Add form fields here -->
                         <div class="mb-2">
-                            <label for="textBoxName" class="form-label">Nombre</label>
-                            <!-- <input type="text" class="form-control" id="textBoxName" placeholder="Juan Perez Lopez" required> -->
-                            <input type="text" id="name" class="form-control" placeholder="Juan Perez Lopez" name="name"  [(ngModel)]="student.name" required/>
+                            <label for="textBoxName" class="form-label">Nombre:</label>
+                            <input type="text" id="name" class="form-control" placeholder="" name="name" [(ngModel)]="this.student.name" required />
                         </div>
                         <div class="mb-2">
-                             <label for="textBoxEmail" class="form-label">Correo</label>
-                            <!-- <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required> -->
-                            <input type="email" id="email" class="form-control" placeholder="Juan Perez Lopez" name="email" [(ngModel)]="student.email" required />
+                            <label for="textBoxEmail" class="form-label">Correo:</label>
+                            <input type="email" id="email" class="form-control" placeholder="" name="email" [(ngModel)]="this.student.email" required />
                         </div>
                         <div class="mb-2">
-                             <label for="textBoxEmail" class="form-label">Telefono</label>
-                            <!-- <input type="text" class="form-control" id="textBoxName" placeholder="669144....." required> -->
-                             <input type="text" id="phone"class="form-control" placeholder="Juan Perez Lopez" name="phone" [(ngModel)]="student.phone" required />
+                             <label for="textBoxEmail" class="form-label">Telefono:</label>
+
+                            <input type="tel" id="phone" class="form-control" placeholder="" name="phone" [(ngModel)]="this.student.phone" required />
                         </div>
-                        <!-- <div class="mb-2">
-                             <label for="textBoxEmail" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="phoneTextBox" class="form-label">Repeat password</label>
-                            <input type="password" class="form-control" id="phoneTextBox" placeholder="6691....." required>
-                        </div> -->
-                        <div class="justify-content-center align-items-center vh-50 mt-5">
-                            <button type="submit" class="btn btn-primary w-100 ml-2 mb-4">Guardar</button>
+                        <div class="justify-content-center align-items-center vh-50 mt-4">
+                            <button type="submit" class="btn btn-outline-success w-100 ml-2 mb-4">Enviar</button>
+                           
                         </div>
                     </form>
-                </div>
+                    </div>
             </div>
         </div>
     </div>

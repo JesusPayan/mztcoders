@@ -1,9 +1,10 @@
 .container-fluid{
-    margin-top: 5%;
-    margin-bottom: auto;
+    margin-top: 10%;
+    margin-bottom: 25%;
+    height: max-content;
 }
 .content{
-    margin-top: 1rem;
+    /* margin-top: 6rem; */
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
@@ -13,7 +14,6 @@
     justify-content: center;
     width: 20%;
     height: 100%;
-
 }
 img{
     width: 10%;

@@ -1,7 +1,7 @@
  .navbar{
     background-color: var(--black);
     border: solid 1px var(--gray-700);
-    box-shadow: 0 0 0 1px var(--gray-700);
+    box-shadow: 0 0 0 2px var(--gray-700);
   }
 .nav-link,.navbar-brand {
     display: flex;
@@ -20,8 +20,6 @@
     display: inline-block;
         list-style: none;
     padding: 0;
-    /* margin-left: 25em; */
-    /* margin-right: 25em; */
     text-align: center;
     color: var(--white);
     text-decoration: none;
@@ -48,8 +46,8 @@ button{
   height: fit-content;
   width: 6rem;
   margin-left: 1rem;
-
 }
+
   .navbar-toggler:hover {
     background: var(--gray-600);
     color: var(--white);

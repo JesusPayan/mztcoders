@@ -11,13 +11,15 @@ import { StudentPaymentPageComponent } from './student-payment-page/student-paym
 import { LinkRoute } from './utils/LinkRoute';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 
-import {NoopAnimationsModule} from '@angular/platform-browser/animations'; // Import NoopAnimationsModule for no animations
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { FooterPageComponent } from "./footer-page/footer-page.component";
+import { LeftSideComponentComponent } from "./left-side-component/left-side-component.component"; // Import NoopAnimationsModule for no animations
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ TopNavBarComponent, CommonModule, RouterLink, RouterOutlet, MatToolbarModule, MatIconModule, WhoweareComponent, ContacusComponent, LoginPageComponent, StudentDashboardComponent],
+  imports: [TopNavBarComponent, CommonModule, RouterLink, RouterOutlet, MatToolbarModule, MatIconModule, WhoweareComponent, ContacusComponent, LoginPageComponent, StudentDashboardComponent, FooterPageComponent, LeftSideComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

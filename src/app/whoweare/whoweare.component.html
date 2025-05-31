@@ -3,7 +3,7 @@
         <h1 class="fs-2 fw-medium text-center mt-1 text-dark">{{contentToShow[0].title}}</h1>
         <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
             <div class="col-md-12 text-center">
-                <img src="{{contentToShow[0].imagePath}}" class="text-center mt-2" alt="...">
+                <img src="{{contentToShow[0].imagePath}}" class="text-center mt-2" width="400" height="300" alt="...">
                 <h5 class="text-center text-dark text-wrap mt-2">"Mi misión es ayudarte a aprender de una manera dinamica y divertida <br>
                   alineada a las necesidades reales del mundo laboral actual"</h5>
             </div>
@@ -15,7 +15,7 @@
         <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{contentToShow[1].title}}</h1>
         <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
             <div class="col-md-12 text-center">
-                <img src="{{contentToShow[1].imagePath}}" class="text-center mt-3" alt="...">
+                <img src="{{contentToShow[1].imagePath}}" class="text-center mt-3" width="400" height="300" alt="...">
                 <h5 class="text-center text-dark text-wrap mt-2">"Mi misión es ayudarte a aprender de una manera dinamica y divertida <br>
                   alineada a las necesidades reales del mundo laboral actual"</h5>
             </div>
@@ -24,9 +24,9 @@
             </div>        </div>
     </div>
     <div class="row justify-content-center mb-2">
-            <div class="content" *ngFor="let item of contentToShow2" style="">
+            <div class="content" *ngFor="let item of contentToShow2">
                 <div class="col-md-12 text-center">
-                        <img src="{{item.imagePath}}" class=" w-80 h-100 align-items-center" alt="...">
+                        <img src="{{item.imagePath}}" class=" w-80 h-100 align-items-center" width="400" height="300" alt="...">
                         <h1 class="lh-base fs-3   text-center text-dark">{{item.title}}</h1>
                         <p class="lh-base fs-6  text-start text-secondary">{{item.description}}</p>
                 </div>

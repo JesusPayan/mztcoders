@@ -80,10 +80,12 @@ h1 {
     background-attachment: fixed;
     background-image: var('assets/images/backgroung.png');
       
-      
+  
   }
-  .card:hover {
-    /* transform: translateY(-5px); */
+  /* .card:hover {
+    /* transform: translateY(-5px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     cursor: pointer;   
-}
+} */
+
+
