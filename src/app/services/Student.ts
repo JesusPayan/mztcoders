@@ -1,15 +1,18 @@
 export class Student {
   // static id: any;
   
-  id: number;
+  id?: number;
   name: string;
   email: string;
   phone: string;
   createTimeStamp?: string;
   status?: boolean;
   password?: string;
-  constructor(id: number, name: string, email: string, phone: string, password: string ) {
-    this.id = id;
+  role?: string;
+  picture?: string;
+
+  constructor(id: number, name: string, email: string, phone: string, password: string, role: string ) {
+    this.id = 0; 
     this.name = name;
     this.email = email;
     this.phone = phone;
@@ -21,7 +24,8 @@ export class Student {
       json.name,
       json.email,
       json.phone,
-      json.password
+      json.password,
+      json.role
     );
   }
 }

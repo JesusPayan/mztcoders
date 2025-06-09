@@ -33,7 +33,6 @@ export class CoursesPageComponent {
    {title:'Ruta de apredizaje', description:'Para nosotros lo mas importante es que nuestros aprendan lo mas relevante en los ambitos del desarrollo de software, por eso hemos creado una ruta de aprendizaje que te ayudara a convertirte en un desarrollador profesional, esta ruta esta dividida en 3 niveles, cada nivel tiene un enfoque diferente y te ayudara a adquirir las habilidades necesarias para enfrentar los retos del mundo laboral.', imagePath:'assets/images/logo-removebg-preview.png'}, 
   ]
   contentInfo: CourseInfo[] = [
-    
     {title:'Tronco Común', description:'El tronco común es la base de nuestro curso, en este curso aprenderás los fundamentos de la programación, bases de datos, desarrollo web y mucho más. Este curso es ideal para aquellos que quieren empezar desde cero o para aquellos que quieren reforzar sus conocimientos.', imagePath:''},
     {title:'Desarrollador Backend', description:'Como desarrollador Backend, aprenderás a construir y mantener la lógica del lado del servidor, así como a gestionar las bases de datos y la comunicación entre el servidor y el cliente.', imagePath:''},
     {title:'Desarrollador Frontend', description:'Como desarrollador Frontend, aprenderás a construir la interfaz de usuario de las aplicaciones web, utilizando tecnologías como HTML, CSS y JavaScript.', imagePath:''},

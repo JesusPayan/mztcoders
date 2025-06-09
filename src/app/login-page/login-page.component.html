@@ -1,32 +1,90 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row justify-content-center align-items-center vh-100">
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card w-60" id="mainCard">
                     <div class="row justify-content-center align-items-center">
                         <h5 class="card-title text-center fs-3 fw-bold mb-2 text-secondary">Ingreso</h5>
                         <img src="{{this.logoUrl}}" class="card-img-top" alt="Logo">
+                         
                     </div>    
                     <div class="row justify-content-center align-items-center">
                         <p class="card-text text-center fs-6 text-secondary">Ingresa tus datos para continuar</p>
+
                         <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.login()" method="post">
-                            <!-- Add form fields here -->
+
                         <div class="mb-2">
+
                             <label for="textBoxName" class="form-label">Correo:</label>
-                            <!-- <input type="text" class="form-control" id="textBoxName" placeholder="Juan Perez Lopez" required> -->
-                            <input type="email" id="name" class="form-control" placeholder="Juan.Perez@out..." name="name"  [(ngModel)]="this.student.email" required/>
+                            <input type="email" id="name" class="form-control" placeholder="Juan.Perez@out..." name="username" [(ngModel)]="this.student.email" required/> 
                         </div>
                         <div class="mb-2">
                              <label for="textBoxEmail" class="form-label">Contraseña:</label>
-                            <!-- <input type="email" class="form-control" id="textBoxName" placeholder="JuanPerezLopez@outlook.com" required> -->
+                           
                             <input type="password" id="password" class="form-control" placeholder="" name="email" [(ngModel)]="this.student.password" required />
+                     
                         </div>
                         <div class="justify-content-center align-items-center vh-50 mt-4">
                             <button type="submit" class="btn btn-outline-success w-100 ml-2 mb-4">Enviar</button>
-                            <!-- <h1>{{this.appComponent.isLoggedIn}}</h1> -->
+                
                         </div>
                     </form>
                     </div>
             </div>
         </div>
     </div>
+</div> -->
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card w-60" id="mainCard">
+        <div class="row justify-content-center align-items-center">
+          <h5 class="card-title text-center fs-3 fw-bold mb-2 text-secondary">Ingreso</h5>
+          <img src="{{ logoUrl }}" class="card-img-top" alt="Logo">
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+          <p class="card-text text-center fs-6 text-secondary">Ingresa tus datos para continuar</p>
+          
+          <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.onSubmit()" method="post">
+            <div class="mb-2">
+              <label for="email" class="form-label">Correo:</label>
+              <input type="email"
+                     id="email"
+                     class="form-control"
+                     placeholder="juan.perez@outlook.com"
+                     name="email"
+                     [(ngModel)]="student.email"
+                     required />
+            </div>
+
+            <div class="mb-2">
+              <label for="password" class="form-label">Contraseña:</label>
+              <input type="password"
+                     id="password"
+                     class="form-control"
+                     placeholder="••••••••"
+                     name="password"
+                     [(ngModel)]="student.password"
+                     required />
+            </div>
+
+            <div class="justify-content-center align-items-center vh-50 mt-4">
+              <button type="submit" class="btn btn-outline-success w-100 ml-2 mb-4" onclick="">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- <div *ngIf="processingRequest" class="text-center mt-3">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div> -->

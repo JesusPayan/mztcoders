@@ -73,6 +73,9 @@
   } */
 
   /* Estilo base para pantallas grandes */
+.container-fluid{
+  margin-top: 10%;
+}
 .row-md-center {
   margin-left: 1rem;
   margin-right: 3rem;

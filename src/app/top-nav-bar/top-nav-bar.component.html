@@ -1,21 +1,44 @@
-<header class="sticky-top">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" *ngIf="!isLoggedIn">
-    <div class="container-fluid">
-        <a class="navbar-brand h-10 w-auto ml-auto" routerLink="/home-page"><img [src]="imagesToShow[0].path" alt="" height="50" width="50"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-        <ul class="navbar-nav me-auto">
-            <li *ngFor="let link  of this.defaultlinks;" class="nav-item">
-            <a class="nav-link" routerLink="{{link.path}}" routerLinkActive="active">{{link.label}}</a>
-            </li>
-        </ul>
-        <form class="d-flex align-items-end">
-            <button class="btn btn-outline-success" type="submit" routerLink="/sign-up">Registro</button>
-            <button class="btn btn-outline-primary"type="submit" routerLink="/login-page">Login</button>
-        </form> 
+<header class="sticky-top" >
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" >
+        <div class="container-fluid">
+            <a class="navbar-brand h-10 w-auto ml-auto" routerLink="/home-page"><img [src]="imagesToShow[0].path" alt="" height="50" width="50"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+              <!-- <a href="http://">{{isLoggedIn}}</a> -->
+               
+            <ul class="navbar-nav me-auto" *ngIf="!isLoggedIn; ">
+                
+                <li *ngFor="let link  of this.defaultlinks;" class="nav-item">
+                    <a class="nav-link" routerLink="{{link.path}}" routerLinkActive="active">{{link.label}}</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-auto" *ngIf="this.userRole === 'ESTUDIANTE' && isLoggedIn" > 
+               
+                <ng-container *ngFor="let link of this.studentLinks;">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="{{link.path}}" routerLinkActive="active">{{link.label}}</a>
+                    </li>
+                </ng-container>
+                <!-- Removed redundant ADMIN check, as studentLinks should only show for ESTUDIANTE -->
+            </ul>
+            <ul class="navbar-nav me-auto" *ngIf="this.userRole === 'ADMIN' && isLoggedIn" > 
+
+                <ng-container *ngFor="let link of this.adminLinks;">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="{{link.path}}" routerLinkActive="active">{{link.label}}</a>
+                    </li>
+                </ng-container> 
+            </ul>
+            <!-- <form class="d-flex align-items-end"> -->
+                        <button class="btn btn-outline-success d-flex align-items-end" type="submit" routerLink="/sign-up" *ngIf="!isLoggedIn">Registro</button>
+                        <button class="btn btn-outline-primary d-flex align-items-end" type="submit" routerLink="/login-page" *ngIf="!isLoggedIn">Login</button>
+            <!-- </form> -->
+             <!-- <a  type = "button" (click)="logout();" ngIf="isLoggedIn"> <img src="{{imagesToShow[1].path}}" class="h-25 w-25" alt=""></a>  -->
+             
+                 <button class="btn btn-outline-danger"type="submit" (click)="logout();" *ngIf="isLoggedIn"><img src="{{imagesToShow[1].path}}" class="h-25 w-25" alt=""></button>
+            </div>
         </div>
-    </div>
     </nav>
 </header>

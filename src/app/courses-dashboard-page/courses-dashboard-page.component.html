@@ -1,0 +1,147 @@
+<div class="container-fluid">
+    <!-- main content -->
+    <div class="row justify-content-center" style="border: solid 2px #ccc; padding: 20px;">
+        <h2 class="text-center text-dark">Administracion de Recursos Educativos</h2>
+        <div class="col-md-12" style="border: solid 2px #ccc; padding: 20px;">
+            <!-- Formulario para agregar recursos -->
+        
+
+            <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="registrer()" method="post">
+                    <h2 class="text-center text-dark">{{ indiceEditar === null ? 'Agregar Recurso' : 'Editar Recurso' }}</h2>
+
+                    <label for="Nombre" class="form-label text-secondary">Nombre: </label>
+                    <input type="text" id="Nombre" name="Nombre" [(ngModel)]="newResouce.name" class="form-control" />
+
+                    <div class="input-group mb-3 mt-2">
+                        <label class="input-group-text" for="inputGroupSelect01">Carrier Path</label>
+                        <select
+                        class="form-select"
+                        id="inputGroupSelect01"
+                        [(ngModel)]="newResouce.carrierPath"
+                        name="carrierPath"
+                        >
+                        <option [ngValue]="null" disabled selected>Choose...</option>
+                        <option *ngFor="let option of carrierPath" [ngValue]="option.title">{{ option.title }}</option>
+                        </select>
+                    
+                    
+                                         
+                        <label class="input-group-text" for="inputGroupSelect02">Recurso</label>
+                        <select
+                            class="form-select"
+                            id="inputGroupSelect02"
+                            [(ngModel)]="newResouce.type"
+                            name="type"
+                            >
+                            <option [ngValue]="null" disabled selected>Choose...</option>
+                            <option *ngFor="let info of mainInfo" [ngValue]="info.title">{{ info.title }}</option>
+                        </select>
+                    
+                        <label class="input-group-text" for="inputGroupSelect03">Stack Tecnologico</label>
+                        <select
+                            class="form-select"
+                            id="inputGroupSelect03"
+                            [(ngModel)]="newResouce.tecnologyStack"
+                            name="stack"
+                            >
+                            <option [ngValue]="null" disabled selected>Choose...</option>
+                            <option *ngFor="let option of stacks" [ngValue]="option.title">{{ option.title }}</option>
+                        </select>
+                        <label class="input-group-text" for="inputGroupSelect04">Puntuacion</label>
+                        <select
+                            class="form-select"
+                            id="inputGroupSelect04"
+                            [(ngModel)]="newResouce.points"
+                            name="point"
+                            >
+                            <option [ngValue]="null" disabled selected>Choose...</option>
+                            <option *ngFor="let point of puntuation" [ngValue]="point">{{point}}</option>
+                        </select>
+                        <label class="input-group-text" for="inputGroupSelect05">Disponible</label>
+                        <select
+                            class="form-select"
+                            id="inputGroupSelect05"
+                            [(ngModel)]="newResouce.available"
+                            name="available"
+                            >
+                            <option [ngValue]="null" disabled selected>Choose...</option>
+                            <option *ngFor="let available of disponibilidad" [ngValue]="available.title">{{ available.title }}</option>
+                        </select>
+                    </div>
+
+                    <label for="resourseDescripcion" class="form-label text-secondary">Descripción</label>
+                    <textarea
+                        id="resourseDescripcion"
+                        name="resourseDescripcion"
+                        rows="5"
+                        class="form-control"
+                        [(ngModel)]="newResouce.description"
+                    ></textarea>
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-outline-success w-25"  (click)="addResource()" *ngIf="indiceEditar === null">Agregar</button>
+                        <button type="button" class="btn btn-outline-secondary w-25" *ngIf="indiceEditar !== null" (click)="cancelarEdicion()">Cancelar</button>
+                    </div>
+                    </form>
+            
+        </div>
+        <div class="col-md-12 mt-2 mb-2" style="border: solid 2px #ccc; padding: 20px;">
+            <h3 class="text-center text-dark">Recursos Actuales</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Carrier Path</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Stack Tecnologico</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Puntuacion</th>
+                    <th scope="col">Disponible</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resourse of resources; let indiceEditar = index">
+                    <td>{{resourse.name}}</td>
+                    <td>{{resourse.carrierPath}}</td>
+                    <td>{{resourse.type}}</td>
+                    <td>{{resourse.tecnologyStack}}</td>
+                    <td>{{resourse.points}}</td>
+                    <td>{{resourse.description}}</td>
+                    <td>{{resourse.available}}</td>
+                    <td><button type="submit" class="btn btn-outline-danger w-25 ml-2 mb-4" (click)="this.deleteResource(indiceEditar)">Eliminar</button><button type="submit" class="btn btn-outline-primary w-25 ml-2 mb-4" (click)="this.addResource()">Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
+    </div>
+     <div class="row justify-content-center mt-2" style="border: solid 2px #ccc; padding: 20px;">
+        <div class="col-md-12">
+            <h3 class="text-center text-dark">Recursos 
+                Guardados
+            </h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let option of currentResources">
+                    <th scope="row" >{{option.title}}</th>
+                    <td>{{option.description}}</td>
+                    <td>{{option.imagePath}}</td>
+                    <td><button>Editar</button></td>
+                    <td><button>Eliminar</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

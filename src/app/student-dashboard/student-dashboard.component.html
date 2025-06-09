@@ -29,11 +29,11 @@
       </form> 
     </div>
 </nav> -->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-2 position-fixed">
             <div id="mySidenav" class="sidenav mt-0">
-                <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"><i class="fa fa-close"></i></a> -->
+                
                 <div class="card mt-4">
                     <img src="{{studentImage}}" alt="">
                 </div>
@@ -111,18 +111,46 @@
 
             </div>
         </div>
-        <!-- <div class="col-10  text-dark" id="main">
+         <div class="col-10  text-dark" id="main">
             <router-outlet></router-outlet> 
-        </div> -->
+        </div> -
     </div>
-        
+    -->
+<div class="container-fluid" >
+    <div class="row justify-content-center" style="border: solid 2px #ccc; padding: 20px;">
+        <div class="col-md-12">
+            <h1 class="text-center text-primary">{{mainInfo[0].title}}</h1>
+             <div class="text-center">
+                <img src="{{mainInfo[0].imagePath}}" class="img-fluid mt-3 w-80 h-80" alt="Main Image">
+                <h4 class="text-center text-secondary mt-3">{{userName}}</h4>
+            </div> 
+            <p class="text-center text-secondary mt-3">{{mainInfo[0].description}}</p>       
+        </div>
+        <div class="col-md-12" style="border: solid 2px #ccc; padding: 20px;">
+                                <div class="card" *ngFor="let cardContent of linkscards" style="cursor: pointer; margin-left:2rem ; margin-right:2rem ;"(click)="openModal(cardContent.cardTitle)" >
+                                    <div class="card-body align-items-center">
+                                        <h1 class="card-title text-center text-dark">{{cardContent.cardTitle}}</h1>
+                                        <div>
+                                            <img  src="{{cardContent.imagePath}}" class=" align-self-center w-25 h-25" style="margin-left: 5rem; margin-right: auto;" alt="..." >
+                                        </div>   
+                                    </div>
+                                </div>
+        </div>
 
+    </div>
+    <!-- <div class="row justify-content-center mt-2" style="border: solid 2px #ccc; padding: 20px;">
+        <div class="col-md-12 ">
 
-  
-        
-
-
-        
- 
-    
-   
+                            <div class="col-md-12">
+                                <div class="card" *ngFor="let cardContent of linkscards" style="cursor: pointer; margin-left:2rem ; margin-right:2rem ;"(click)="openModal(cardContent.cardTitle)" >
+                                    <div class="card-body align-items-center">
+                                        <h1 class="card-title text-center text-dark">{{cardContent.cardTitle}}</h1>
+                                        <div>
+                                            <img  src="{{cardContent.imagePath}}" class=" align-self-center w-25 h-75" style="margin-left: 5rem; margin-right: auto;" alt="..." >
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+        </div>
+    </div> -->
+</div>

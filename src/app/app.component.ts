@@ -23,11 +23,21 @@ import { LeftSideComponentComponent } from "./left-side-component/left-side-comp
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
+ 
 // Define an interface for route links
 
 // Example usage of the interface
 export class AppComponent {
+  ngOnInit(): void {
+  // this.authService.logout();
+        this.router.navigate(['/home-page']);
 
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  
+}
+ constructor(private router: Router) {}
 
 public isLoggedIn = false;
  

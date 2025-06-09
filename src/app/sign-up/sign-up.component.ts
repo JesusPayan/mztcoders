@@ -28,7 +28,7 @@ respuesta: any;
   }
 
   student: Student = {
-    id: 0,
+    
     name: '',
     email: '',
     phone: ''
