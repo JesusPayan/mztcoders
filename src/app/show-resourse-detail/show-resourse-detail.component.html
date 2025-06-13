@@ -1,0 +1,267 @@
+<!-- <h1 mat-dialog-title>Mi Modal</h1>
+<div mat-dialog-content>
+  <p>Bienvenido a{{isAdmin}}</p>
+</div>
+<div mat-dialog-actions>
+
+</div> -->
+<!-- <div class="full-width">
+    <div class="row justify-content-center" style="border: solid 2px #ccc; padding: 20px;">
+        <h2 class="text-center text-dark">Administracion de Recursos Educativos</h2>
+        <div class="col-md-12" style="border: solid 2px #ccc; padding: 20px;">
+            <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="update()" method="post">
+                <h2 class="text-center text-dark">{{ resourceinfo.indiceEditar === null ? 'Agregar Recurso' : 'Editar Recurso' }}</h2>
+
+
+              <label for="Nombre" class="form-label text-secondary">Nombre: </label>
+              <input
+                type="text"
+                id="Nombre"
+                name="name"
+                required
+                [(ngModel)]="currentResource.name"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': signupForm.submitted && nameField.invalid }"
+                #nameField="ngModel"
+              />
+              <div *ngIf="signupForm.submitted && nameField.invalid" class="invalid-feedback">
+                El nombre es obligatorio.
+              </div>
+
+ 
+              <div class="input-group mb-3 mt-2">
+
+     
+                <label class="input-group-text" for="inputGroupSelect01">Carrier Path</label>
+                <select
+                  class="form-select"
+                  id="inputGroupSelect01"
+                  name="carrierPath"
+                  required
+                  [(ngModel)]="currentResource.carrierPath"
+                  [ngClass]="{ 'is-invalid': signupForm.submitted && carrierPathField.invalid }"
+                  #carrierPathField="ngModel"
+                >
+                  <option [ngValue]="null" disabled>Choose...</option>
+                  <option *ngFor="let option of resourceinfo.carrierPath" [ngValue]="option.title">{{ option.title }}</option>
+                </select>
+                <div *ngIf="signupForm.submitted && carrierPathField.invalid" class="invalid-feedback">
+                  Selecciona una ruta profesional.
+                </div>
+
+           <label class="input-group-text" for="inputGroupSelect02">Recurso</label>
+                <select
+                  class="form-select"
+                  id="inputGroupSelect02"
+                  name="type"
+                  required
+                  [(ngModel)]="currentResource.type"
+                  [ngClass]="{ 'is-invalid': signupForm.submitted && typeField.invalid }"
+                  #typeField="ngModel"
+                >
+                  <option [ngValue]="null" disabled>Choose...</option>
+                  <option *ngFor="let info of mainInfo" [ngValue]="info.title">{{ info.title }}</option>
+                </select>
+                <div *ngIf="signupForm.submitted && typeField.invalid" class="invalid-feedback">
+                  Selecciona un tipo de recurso.
+                </div>
+
+
+                <label class="input-group-text" for="inputGroupSelect03">Stack Tecnologico</label>
+                <select
+                  class="form-select"
+                  id="inputGroupSelect03"
+                  name="tecnologyStack"
+                  required
+                  [(ngModel)]="currentResource.tecnologyStack"
+                  [ngClass]="{ 'is-invalid': signupForm.submitted && stackField.invalid }"
+                  #stackField="ngModel"
+                >
+                  <option [ngValue]="null" disabled>Choose...</option>
+                  <option *ngFor="let option of stacks" [ngValue]="option.title">{{ option.title }}</option>
+                </select>
+                <div *ngIf="signupForm.submitted && stackField.invalid" class="invalid-feedback">
+                  Selecciona un stack tecnológico.
+                </div>
+
+                                <label class="input-group-text" for="inputGroupSelect04">Puntuacion</label>
+                <select
+                  class="form-select"
+                  id="inputGroupSelect04"
+                  name="points"
+                  required
+                  [(ngModel)]="currentResource.points"
+                  [ngClass]="{ 'is-invalid': signupForm.submitted && pointsField.invalid }"
+                  #pointsField="ngModel"
+                >
+                  <option [ngValue]="null" disabled>Choose...</option>
+                  <option *ngFor="let point of puntuation" [ngValue]="point">{{ point }}</option>
+                </select>
+                <div *ngIf="signupForm.submitted && pointsField.invalid" class="invalid-feedback">
+                  Selecciona una puntuación.
+                </div>
+
+ 
+                <label class="input-group-text" for="inputGroupSelect05">Disponible</label>
+                <select
+                  class="form-select"
+                  id="inputGroupSelect05"
+                  name="available"
+                  required
+                  [(ngModel)]="currentResource.available"
+                  [ngClass]="{ 'is-invalid': signupForm.submitted && availableField.invalid }"
+                  #availableField="ngModel"
+                >
+                  <option [ngValue]="null" disabled>Choose...</option>
+                  <option *ngFor="let available of resourceinfo.disponibilidad" [ngValue]="available.title">{{ available.title }}</option>
+                </select>
+                <div *ngIf="signupForm.submitted && availableField.invalid" class="invalid-feedback">
+                  Selecciona la disponibilidad.
+                </div>
+              </div>
+
+
+              <label for="resourseDescripcion" class="form-label text-secondary">Descripción</label>
+              <textarea
+                id="resourseDescripcion"
+                name="description"
+                class="form-control"
+                rows="5"
+                required
+                [(ngModel)]="currentResource.description"
+                [ngClass]="{ 'is-invalid': signupForm.submitted && descriptionField.invalid }"
+                #descriptionField="ngModel"
+              ></textarea>
+              <div *ngIf="signupForm.submitted && descriptionField.invalid" class="invalid-feedback">
+                Agrega una descripción del recurso.
+              </div>
+
+
+  <div class="text-center mt-3">
+    
+   
+    <button type="submit" class="btn btn-outline-primary w-25 ml-2 mb-4">Guardar</button>
+  </div>
+            </form>
+        </div>
+    </div>     
+</div>
+ -->
+
+
+
+<!-- <h2 mat-dialog-title>{{ data.resourceinfo.indiceEditar === null ? 'Agregar Recurso' : 'Editar Recurso' }}</h2> -->
+
+<div mat-dialog-content class="full-width">
+<h2 class="text-center text-dark">Editar Recurso</h2>
+  <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="update()" method="post">
+
+    <!-- Nombre -->
+    <label for="Nombre" class="form-label text-secondary">Nombre: </label>
+    <input
+      type="text"
+      id="Nombre"
+      name="name"
+      required
+      [(ngModel)]="currentResource.name"
+      class="form-control"
+      #nameField="ngModel"
+    />
+    <div *ngIf="signupForm.submitted && nameField.invalid" class="invalid-feedback">
+      El nombre es obligatorio.
+    </div>
+
+    <!-- Selects -->
+    <div class="input-group mb-3 mt-2">
+      
+      <!-- Carrier Path -->
+      <label class="input-group-text" for="inputGroupSelect01">Carrier Path</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        name="carrierPath"
+        required
+        [(ngModel)]="currentResource.carrierPath"
+        #carrierPathField="ngModel"
+      >
+        <option [ngValue]="null" disabled>Choose...</option>
+        <option *ngFor="let option of resourceinfo.carrierPath" [ngValue]="option.title">{{ option.title }}</option>
+      </select>
+
+      <!-- Recurso -->
+      <label class="input-group-text" for="inputGroupSelect02">Recurso</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect02"
+        name="type"
+        required
+        [(ngModel)]="currentResource.type"
+        #typeField="ngModel"
+      >
+        <option [ngValue]="null" disabled>Choose...</option>
+        <option *ngFor="let info of mainInfo" [ngValue]="info.title">{{ info.title }}</option>
+      </select>
+
+      <!-- Stack -->
+      <label class="input-group-text" for="inputGroupSelect03">Stack Tecnológico</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect03"
+        name="tecnologyStack"
+        required
+        [(ngModel)]="currentResource.tecnologyStack"
+        #stackField="ngModel"
+      >
+        <option [ngValue]="null" disabled>Choose...</option>
+        <option *ngFor="let option of stacks" [ngValue]="option.title">{{ option.title }}</option>
+      </select>
+
+      <!-- Puntuación -->
+      <label class="input-group-text" for="inputGroupSelect04">Puntuación</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect04"
+        name="points"
+        required
+        [(ngModel)]="currentResource.points"
+        #pointsField="ngModel"
+      >
+        <option [ngValue]="null" disabled>Choose...</option>
+        <option *ngFor="let point of puntuation" [ngValue]="point">{{ point }}</option>
+      </select>
+
+      <!-- Disponible -->
+      <label class="input-group-text" for="inputGroupSelect05">Disponible</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect05"
+        name="available"
+        required
+        [(ngModel)]="currentResource.available"
+        #availableField="ngModel"
+      >
+        <option [ngValue]="null" disabled>Choose...</option>
+        <option *ngFor="let available of resourceinfo.disponibilidad" [ngValue]="available.title">{{ available.title }}</option>
+      </select>
+
+    </div>
+
+    <!-- Descripción -->
+    <label for="resourseDescripcion" class="form-label text-secondary">Descripción</label>
+    <textarea
+      id="resourseDescripcion"
+      name="description"
+      class="form-control"
+      rows="5"
+      required
+      [(ngModel)]="currentResource.description"
+      #descriptionField="ngModel"
+    ></textarea>
+
+    <!-- Botones -->
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-outline-primary w-25 ml-2 mb-4">Guardar</button>
+    </div>
+
+  </form>
+</div>

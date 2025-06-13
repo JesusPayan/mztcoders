@@ -127,10 +127,10 @@ export class LoginPageComponent {
         this.authService.saveSession(res.token,res.role);
         if (res.role === 'ADMIN') {
           this.router.navigate(['/admin-dashboard-page']);
-          alert("Bienvenido "+ res.data.name);
+          // alert("Bienvenido "+ res.data.name);
         } else {
           this.router.navigate(['/student-dashboard']);
-          alert("Bienvenido "+ res.data.name);
+          // alert("Bienvenido "+ res.data.name);
         //  this.topNavBar.topNavBarVisible = false; 
         }
       },

@@ -3,6 +3,11 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CourseInfo } from '../utils/CourseInfo';
 import { Resource } from '../utils/ResourceObject.interface';
+import { ResourceService } from '../services/resource.service';
+import { response } from 'express';
+import { MatDialog } from '@angular/material/dialog';
+import { ShowResourseDetailComponent } from '../show-resourse-detail/show-resourse-detail.component';
+import { AuthService } from '../model/auth.service';
 // import { Resource } from '../utils/Resource';
 @Component({
   selector: 'app-courses-dashboard-page',
@@ -12,16 +17,16 @@ import { Resource } from '../utils/ResourceObject.interface';
   styleUrl: './courses-dashboard-page.component.css'
 })
 export class CoursesDashboardPageComponent {
-  newResouce:Resource = {
-    id: 0,
-    name: '',
-    carrierPath:null,
-    type: null,
-    tecnologyStack: null,
-    points: null,
-    description: '',
-    available: null
-  }
+// Removed duplicate getFiltered() method
+  //Declaracion de variables 
+  newResouce:Resource = {id: 0,name:'',carrierPath:null,type: null,tecnologyStack: null,points: null,description: '',available: null};
+  currentResource:Resource = {id: 0,name:'',carrierPath:null,type: null,tecnologyStack: null,points: null,description: '',available: null};
+  filterResource:Resource = {id: 0,name:'',carrierPath:null,type: null,tecnologyStack: null,points: null,description: '',available: null};
+
+  constructor(private resourceService:ResourceService, public dialog: MatDialog , private authService:AuthService){}
+  data: any;
+  respuesta: any;
+  searchTerm: string = '';
 // Índice del elemento que se está editando
   indiceEditar: number | null = null;
   mainInfo: CourseInfo[] = [
@@ -55,17 +60,49 @@ export class CoursesDashboardPageComponent {
       {title:'En Desarrollo', description:'', imagePath:''}, 
       
     ]
+    inputGroup:CourseInfo[] =[
+      {title:'Carrer Path', description:'1', imagePath:''}, 
+      {title:'Tipo', description:'2', imagePath:''},
+      {title:'Stack', description:'3', imagePath:''},
+      {title:'Disponibilidad', description:'4', imagePath:''},
+      
+    ] 
+
      puntuation= [5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
-     
+     currentResources: Resource[] = []; 
        
-     
+     resourceinfo = {
+    indiceEditar: null,
+    carrierPath: [{ title: 'Backend' }, { title: 'Frontend' }],
+    disponibilidad: [{ title: 'Disponible' }, { title: 'No Disponible' }]
+  };
+ 
 
     resources:Resource[] =[] ;
+editModal(index: number) {
 
+    this.currentResource = { ...this.currentResources[index] };
+    
+   const dialogRef = this.dialog.open(ShowResourseDetailComponent, {
+      data: {
+        resourceinfo: this.resourceinfo,
+        mainInfo: this.mainInfo,
+        stacks: this.stacks,
+        puntuation: this.puntuation,
+        currentResource: this.currentResource
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Recurso guardado:', result);
+      }
+    });
+}
     addResource(){
      if (this.indiceEditar === null) {
       // Modo crear
-      alert( this.newResouce.name + this.newResouce.carrierPath + this.newResouce.type);
+      // alert( this.newResouce.name + this.newResouce.carrierPath + this.newResouce.type);
       this.resources.push({ ...this.newResouce });
     } else {
       // Modo editar
@@ -91,23 +128,134 @@ editResource(index: number) {
   deleteResource(index: number) {
     this.resources.splice(index, 1);
   }
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Deletes a resource at the specified index from the resources array.
+ * 
+ * The function creates a copy of the resource object from the specified index 
+ * in the resources array and sends a request to delete it via the 
+ * resourceService. Upon successful deletion, it updates the currentResources 
+ * array with the data received from the response. It also handles different 
+ * response messages, such as successful deletion, student already registered, 
+ * and server errors by displaying appropriate alerts.
+ * 
+ * @param index - The index of the resource in the resources array to be deleted.
+ */
+
+/*******  21b3136b-3ad8-49d1-b271-0699b584921a  *******/
+  delete(index: number){ 
+   
+    this.newResouce = { ...this.resources[index] };
+    alert(this.newResouce.name);
+    this.resourceService.deleteResource(this.newResouce).subscribe({
+  next: (data) => {
+        this.respuesta = data; // Asigna la respuesta a la propiedad
+        // console.log('Respuesta recibida:', this.respuesta);
+        if (this.respuesta.message == 'Recurso Eliminado con Exito') {
+            
+            this.currentResources = this.respuesta.data;
+            
+        }
+        if(this.respuesta.message == 'Estudiante ya registrado'){
+          alert(this.respuesta.message);
+        }
+        if(['503', '500','504','502'].includes(this.respuesta.statusCode)){
+          alert(this.respuesta.message);
+        }
+        confirm(this.respuesta.message);
+      },
+      error: (error) => {
+        
+        console.error(error);
+      }
+    });
+  }
      
   cancelarEdicion() {
+    this.indiceEditar = null;
+    this.newResouce = {
+    id: 0,
+    name: '',
+    carrierPath: null,
+    type: null,
+    tecnologyStack: null,
+    points: null,
+    description: '',
+    available: null
+  };
+}
+    
+  
+  getFiltered(filterResource:Resource){ 
+    console.log(filterResource);
+    this.resourceService.getFilteredResources(filterResource).subscribe({
+      
+    });
     
   }
-      // this.resources.push(this.newResouce);
-      
-      // this.newResouce = {
-      //   id: 0,
-      //   name: '',
-      //   carrierPath: '',
-      //   type: '',
-      //   description: ''
-      // }
- 
-      
+
+  
+
+   getcurrentResources() {
+   
+    this.resourceService.getResources().subscribe({
+      next: (data) => {
+        this.respuesta = data; // Asigna la respuesta a la propiedad
+        // console.log('Respuesta recibida:', this.respuesta);
+        if (this.respuesta.message == 'Recursos Encontrados') {
+            
+            this.currentResources = this.respuesta.data;
+            
+        }
+        if(this.respuesta.message == 'Estudiante ya registrado'){
+          alert(this.respuesta.message);
+        }
+        if(['503', '500','504','502'].includes(this.respuesta.statusCode)){
+          alert(this.respuesta.message);
+        }
+        confirm(this.respuesta.message);
+      },
+      error: (error) => {
+        
+        console.error(error);
+      }
+    });
+  }
+    ngOnInit(): void {
+    this.getcurrentResources();
+  
+}
 
   registrer() {
 
+  
+  if (!this.resources || this.resources.length === 0) {
+    alert('No hay recursos para guardar');
+    return;
   }
-}
+
+  const cleanResources = this.resources.map(res => ({
+    name: res.name?.trim(),
+    carrierPath: res.carrierPath,
+    type: res.type,
+    tecnologyStack: res.tecnologyStack,
+    points: res.points,
+    description: res.description?.trim(),
+    available: res.available
+  }));
+
+  this.resourceService.addResource(cleanResources).subscribe({
+    next: (data) => {
+      this.respuesta = data;
+      alert(this.respuesta.message);
+      this.resources = [];
+      this.getcurrentResources();
+    },
+    error: (error) => {
+      console.error(error);
+    }
+  });
+
+  }
+  
+  }
