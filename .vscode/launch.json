@@ -1,3 +1,54 @@
+//{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "command": "npm start",
+//             "name": "Run npm start",
+//             "request": "launch",
+//             "type": "pwa-node"
+//         },
+//         {
+//             "type": "pwa-node",
+//             "name": "Run Script: build",
+//             "request": "launch",
+//             "program": "${workspaceFolder}/node_modules/.bin/npm",
+//             "args": ["run", "build"],
+//             "cwd": "${workspaceFolder}"
+//         },
+//         {
+//             "type": "pwa-node",
+//             "name": "Run Script: start",
+//             "request": "launch",
+//             "program": "${workspaceFolder}/node_modules/.bin/npm",
+//             "args": ["run", "start"],
+//             "cwd": "${workspaceFolder}"
+//         }
+//     ]
+// }
+
+
+//  "version": "0.2.0",
+//   "configurations": [
+
+//     {
+//       "type": "pwa-node",
+//       "request": "launch",
+//       "name": "Ejecutar Angular con CMD",
+//       "console": "integratedTerminal",
+//       "internalConsoleOptions": "neverOpen",
+//       "runtimeExecutable": "cmd.exe",
+//       "args": [
+//         "/c", "npm run start"
+//       ],
+//       "cwd": "${workspaceFolder}"
+//     } 
+//   ]
+// }
+
+
 {
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
@@ -7,14 +58,32 @@
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4200/",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "meteor://💻app/": "${workspaceFolder}/",
+        "webpack:///./~/": "${workspaceFolder}/node_modules/",
+        "webpack://?:/": "${workspaceFolder}/*"
+      }
     },
     {
       "name": "ng test",
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "./src/": "${workspaceFolder}/src/"
+      }
+    },
+    {
+      "name": "ng e2e",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
+      "args": ["${workspaceFolder}/e2e/protractor.conf.js"]
     }
   ]
 }

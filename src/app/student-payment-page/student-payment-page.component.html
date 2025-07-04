@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="row-md-center">
+        <div class="card">
+            <h1 class="text-center text-dark  border-top-danger bg-sucess">Bienvenido a tu seccion de Pagos</h1>
+            <h2 class="text-start text-dark  border-top-danger bg-sucess">Registrar Pago</h2>
+            <p class="text-start text-secondary">Ahora puedes registar tus pagos de manera sencilla y rápida a través de nuestro sistema de pagos. </p>
+            <div class="card">
+                <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" method="post">
+                    <h4 class="text-start text-dark  border-top-danger bg-sucess">Verifica que tus datos sean correctos</h4>
+                        <div class="form-group">
+                                <label for="name">Nombre:</label>
+                                <input type="text" class="form-control" id="name" placeholder="{{student.name}}" (click)="message()" [disabled]="!activate">
+                                 <label for="mail">Correo:</label>
+                                <input type="text" class="form-control" id="mail" placeholder="{{student.email}}" disabled>
+                                <label for="phone">telefono:</label>
+                                <input type="text" class="form-control" id="phone" placeholder="{{student.phone}}"disabled>
+                        </div>
+                        <h4 class="text-start text-dark  mt-2">Tipo de pago:</h4>
+                        <div class="form-group mb-1 mt-1" id="paymentType">  
+                            <label for="complete">Completo</label>
+                            <input type="radio" class="form-control" id="complete" (click)="this.amount= false">
+                            <label for="parcial">Parcial</label>
+                            <input type="radio" class="form-control" id="parcial" (click)="this.amount= true">
+                            <label for="amount">Monto:</label>
+                            <input type="text" class="form-control" id="amount" placeholder="$500.00" (click)="this.amount= true" [disabled]="!amount" (focus)="this.amount= true">
+                            <label for="amount">Fecha pago:</label>
+                            <input type="date" class="form-control" id="fecha" placeholder="{{currentDate.toString()}}">
+                        </div>
+                        <h4 class="text-start text-dark  mt-2">Agrega tu comprobante</h4>
+                        
+
+                </form> 
+                <div class="form-group mb-1 mt-1" id="fileGroup">
+                            <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                                <input type="file" class="form-control" id="file" (change)="onFileSelected($event)" id="file">
+                                
+                            </form>
+                            <button type="submit" class="btn btn-outline-success " [disabled]="!selectedFile" (click)="onSubmit()">Enviar</button>
+                </div>      
+            </div>
+            <div class="card">
+                <h2 class="text-start text-dark">Historial de Pagos</h2>
+                 <p class="text-start text-secondary">Aqui podras ver tu historial de pagos realizados.</p>
+                 <button class="btn btn-outline-success" (click)="showPayments(student.id)">Mostrar Pagos</button>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Monto</th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let payment of payments">
+                            <td>{{payment.date}}</td>
+                            <td>{{payment.amount}}</td>
+                            <!-- <td>{{payment.type}}</td> -->
+                            <!-- <td><a [href]="payment.receiptUrl" target="_blank">Ver Comprobante</a></td> -->
+                        </tr>
+                    </tbody>
+                </table>        
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100"> -->
+                    <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+                    <!-- Position Column -->
+                                <!-- <ng-container matColumnDef="position">
+                                    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                                </ng-container> -->
+
+                                <!-- Name Column -->
+                                <!-- <ng-container matColumnDef="name">
+                                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                                </ng-container> -->
+
+                                <!-- Weight Column -->
+                                <!-- <ng-container matColumnDef="weight">
+                                    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                                </ng-container>
+
+                                Symbol Column 
+                                <ng-container matColumnDef="symbol">
+                                    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                                </ng-container>
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table> -->

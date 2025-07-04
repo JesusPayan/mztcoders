@@ -39,6 +39,13 @@ export class CoursesPageComponent {
   basicFrontendImageUrl = 'assets/images/frontbasic.png';
   advancedFrontendImageUrl = 'assets/images/angular.png';
   devopsImageUrl = 'assets/images/devops.png';
+
+  troncoComunImageUrl = 'assets/images/tronco-comun.jpg';
+  htmlImageUrl = 'assets/images/html.png';
+  cssImageUrl = 'assets/images/css.png';
+  boostrapImageUrl = 'assets/images/boostrap.jpg';
+  angularImageUrl = 'assets/images/angular.png';
+
   readonly panelOpenState = signal(false);
   private _formBuilder = inject(FormBuilder);
 
