@@ -1,0 +1,24 @@
+span{
+    color: #111;
+}
+
+.sidenav {
+    border: solid 2px var(--gray-700);
+  height: 900px;
+  width: 250px;
+
+  z-index: 1;
+  margin-top: auto;
+  /* top: 10%; */
+  left: 0;
+  background-color: #34495e;
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+}
+ .sidenav.collapsed {
+  width: 60px;
+  padding: 1rem 0.5rem;
+}

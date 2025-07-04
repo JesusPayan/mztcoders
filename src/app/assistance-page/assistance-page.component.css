@@ -1,0 +1,8 @@
+h6,p,button{
+    margin-left: 2.5rem;
+    margin-right: 3rem;
+}
+.card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}

@@ -1,85 +1,15 @@
-<div class="container-fluid mt-3 mb-3">
-    <div class="row justify-content-md-center mb-2 mt-2">
-     <h2 class="text-center text-light mt-4 p-4 bg-primary">Inicia tu aventura para convertirte en un Desarrollador FullStack.</h2>
-        <div class="col-md-12">
-            <mat-expansion-panel hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title><h2 class="text-center text-dark">Tronco Comun</h2></mat-panel-title>   
-                </mat-expansion-panel-header>
-                <div class="row justify-content-md-center mb-3 mt-2">
-                    <img src="{{gitHubImageUrl}}" class="mx-auto mt-3" alt="">
-                    <img src="{{javaImageUrl}}" class="mx-auto mt-3" alt="">
-                    <img src="{{pooImageUrl}}" class="mx-auto mt-3" alt="">
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-2 ">
+        <h1 class="text-center mt-5 mb-4  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight" style="color: greenyellow;">Carrier Path</h1>
+        <p class="text-center mt-1 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap">Inicia tu aventura en el desarrollo de software con nuestro modulo de tronco comun, conviertete en un desarrollador backend con nuestro modulo de Desarrollador Backend muestra al mundo tus desarrollo con nuestro modulo Desarrollador Frontend</p>
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex ">
+                <div class="justify-content-center g-col-6 .g-col-6 .g-col-md-4 w-25 mt-2" *ngFor="let content of contentInfo" >
+                    <!-- <div class="content" > -->
+                        <h1 class="lh-base fs-4 text-start text-warning text-sucess"><b>{{content.title}}</b></h1>
+                        <img src="{{content.imagePath}}" class="w-100 h-75 align-items-center mb-2 text-dark p-4" alt="..." (click)="openRegistration()">
+                        <p class="lh-base fs-6 text-justify text-white">{{content.description}}</p>
+                    <!-- </div> -->  
                 </div>
-                <p class="lh-base fs-5 text-start text-secondary mt-3">
-                    El tronco común es la base de todas las rutas. Aquí los estudiantes adquieren los fundamentos de la programación y la lógica computacional, además de las herramientas esenciales para cualquier desarrollador.
-                    <br>Al finalizar el tronco común, los estudiantes estarán listos para elegir su especialización: backend, frontend o fullstack.
-                </p>
-            </mat-expansion-panel>
-        </div>
+        </div>  
     </div>
-    <div class="row justify-content-md-center mb-3 mt-2">
-        <h2 class="text-center text-light mt-4 p-4 bg-primary">Conviertete en un desarrollador Backend</h2>
-        <div class="col-md-12">
-               <mat-expansion-panel hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title ><h2 class="text-center text-dark"> Desarrollador Backend</h2> </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="row justify-content-md-center mb-3 mt-2">
-                    <img src="{{javaImageUrl}}" class="mx-auto  mt-3" alt="">
-                    <img src="{{sqlImageUrl}}" class="mx-auto  mt-3" alt="">
-                    <img src="{{springImageUrl}}" class="mx-auto mt-3" alt="">
-                    <img src="{{junitImageUrl}}" class="mx-auto mt-3" alt="">
-                </div>
-                <p class="lh-base fs-5 text-start text-secondary mt-3">
-                    La ruta backend está orientada a construir la lógica del servidor, APIs robustas y la gestión de datos. Se enfoca en resolver problemas complejos, diseñar sistemas escalables y trabajar con bases de datos, autenticación, seguridad y más.
-                    <br>
-                    El estudiante egresará como un backend developer capaz de construir servicios robustos, seguros y listos para producción
-                </p>
-                </mat-expansion-panel>
-        </div>
-    </div>
-    <div class="row justify-content-md-center mb-3 mt-2">
-        <h2 class="text-center text-light mt-4 p-4 bg-primary">Conviertete en un desarrollador Frontend</h2>
-        <div class="col-md-12">
-               <mat-expansion-panel hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title ><h2 class="text-center text-dark"> Desarrollador Frontend</h2> </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="row justify-content-md-center mb-3 mt-2">
-                    <img src="{{htmlImageUrl}}" class="mx-auto  mt-3" alt="">
-                    <img src="{{cssImageUrl}}" class="mx-auto  mt-3" alt="">
-                    <img src="{{boostrapImageUrl}}" class="mx-auto mt-3" alt="">
-                    <img src="{{angularImageUrl}}" class="mx-auto mt-3" alt="">
-                </div>
-                <p class="lh-base fs-5 text-start text-secondary mt-3">
-                    La ruta frontend está enfocada en la creación de interfaces modernas, accesibles y responsivas. Se enseña a construir experiencias de usuario atractivas y funcionales usando herramientas y frameworks actuales.
-                    <br>
-                    El egresado será capaz de diseñar y desarrollar interfaces modernas y dinámicas, conectadas con servicios backend.
-                </p>
-                </mat-expansion-panel>
-        </div>
-    </div>
-    <div class="row justify-content-md-center mb-3 mt-2">
-        <h2 class="text-center text-light mt-4 p-4 bg-primary">Termina tu transformacion</h2>
-        <div class="col-md-12">
-               <mat-expansion-panel hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title ><h2 class="text-center text-dark"> Desarrollador Fullstack</h2> </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="row justify-content-md-center mb-3 mt-2">
-                    <img src="{{apiImageUrl}}" class="mx-auto  mt-3" alt="">
-                    <img src="{{springImageUrl}}" class="mx-auto  mt-3" alt="">
-                    <img src="{{angularImageUrl}}" class="mx-auto mt-3" alt="">
-                    <img src="{{junitImageUrl}}" class="mx-auto mt-3" alt="">
-                </div>
-                <p class="lh-base fs-5 text-start text-secondary mt-3">
-                    La ruta fullstack combina el desarrollo frontend y backend, formando profesionales versátiles capaces de crear aplicaciones completas, desde el diseño de la base de datos hasta la interfaz del usuario.
-                    El estudiante fullstack egresará con un perfil integral, ideal para equipos pequeños, startups, o freelancing.
-                </mat-expansion-panel>
-        </div>
-    </div>
-  <p class="lh-base fs-5 text-center text-secondary mt-3 mb-3">
-      En nuestra academia de desarrollo de software te acompañamos desde cero hasta convertirte en un profesional listo para el mundo real. Ofrecemos una formación integral, práctica y enfocada en lo que verdaderamente se necesita en la industria tecnológica actual.             
-      </p> 
-    </div>
+</div>

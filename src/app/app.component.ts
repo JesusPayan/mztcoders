@@ -1,30 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { WhoweareComponent } from './whoweare/whoweare.component';
 import { ContacusComponent } from './contacus/contacus.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { Routes } from '@angular/router';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { StudentPaymentPageComponent } from './student-payment-page/student-payment-page.component';
+import { LinkRoute } from './utils/LinkRoute';
+import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
+
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { FooterPageComponent } from "./footer-page/footer-page.component";
+import { LeftSideComponentComponent } from "./left-side-component/left-side-component.component"; // Import NoopAnimationsModule for no animations
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatIconModule, RouterLink, WhoweareComponent, ContacusComponent, LoginPageComponent],
+  imports: [TopNavBarComponent, CommonModule, RouterLink, RouterOutlet, MatToolbarModule, MatIconModule, WhoweareComponent, ContacusComponent, LoginPageComponent, StudentDashboardComponent, FooterPageComponent, LeftSideComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
-export class AppComponent {
-  title = 'mztcoders';
-  welcomeMessage ='Bienvenido a Smarts Coders'  
-  logoUrl = 'assets/images/logo-removebg-preview.png'; 
-  one = 'assets/images/1.png';
-  two = 'assets/images/2.png';
-  three = 'assets/images/3.png'; 
+ 
+// Define an interface for route links
 
-  currentYear = new Date().getFullYear();
-  backgroundImageUrl  = 'assets/images/backgroung.png'; 
+// Example usage of the interface
+export class AppComponent {
+  ngOnInit(): void {
+  // this.authService.logout();
+        this.router.navigate(['/home-page']);
+
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  
+}
+ constructor(private router: Router) {}
+
+public isLoggedIn = false;
+ 
+  title = 'mztcoders';
+  isAuthenticated = true; 
 }

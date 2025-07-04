@@ -1,1 +1,110 @@
-<p>student-dashboard works!</p>
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-4">
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex">
+                <div class="card w-75 h-75 mb-4 text-white align-self-end" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; margin-top: 10rem; color: yellowgreen; box-shadow: 0 4px 8px yellowgreen;">
+                <div class="card-header">
+                    <h1 class="text-start mb-1 mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight" style="color: greenyellow;">Panel de Estudiante</h1>
+                </div>
+                <div class="card-body">
+                    <h4 class="text-start text-white mt-3 d-block">Bienvenido {{userName}}</h4>
+                    <p class="text-start text-white mt-3">{{mainInfo[0].description}}</p> 
+                    <div class="col-md-auto col-lg-12 col-sm-6 justify-content-start d-inline-flex">
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Pagos</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Modulo</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Puntuacion</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Estatus</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Incidentes</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <!-- <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div>
+                        <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">>Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div>
+                        <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div>
+                        <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-auto col-lg-12 col-sm-6 justify-content-start d-inline-flex">
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Pagos</p>
+                                <i class="fas fa-wallet text-success fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                         <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Recursos</p>
+                                <i class="fas fa-graduation-cap text-primary fs-1 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Puntaje</p>
+                                <i class="fas fa-users text-danger fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Progreso</p>
+                                <i class="fas fa-chart-line text-dark fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Soporte</p>
+                                <i class="fas fa-solid fa-headphones text-warning fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Asistencia</p>
+                                <i class="fas fa-solid fa-check text-dark fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Ajustes</p>
+                                <i class="fas fa-solid fa-pen text-success fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+
+             <!-- <div class="text-center">
+                <img src="{{mainInfo[0].imagePath}}" class="img-fluid mt-3 w-80 h-80" alt="Main Image">
+                
+            </div> 
+            <p class="text-center text-secondary mt-3">{{mainInfo[0].description}}</p>    -->

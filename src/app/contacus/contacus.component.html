@@ -1,64 +1,109 @@
-<div class="container-fluid">
-    <div class="row mt-5 mb-6">
-        <div class="col-md-6 text-align-left">
-            <div class="card">
-                <div class="card-body ">
-                    <h1 class="card-title text-center text-primary mt-3"><b>Inicia con nosotros en el mundo del Desarrollo de software!</b></h1>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4"><img src="{{appComponent.logoUrl}}" class="text-align-left mb-2" alt="" height="200" width="200" ></div>
-                        <div class="col-4"></div>
-                    </div>
-                            <h2 class="card-title text-primary text-center"><b>Contáctanos</b></h2>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <h3 class="text-tittle"><b>Escribenos al correo:</b></h3>
-                                <a class="" href="mailto:mztcoders@gmail.com"> Lic. Jesus Armando Hernadez Payan </a>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="text-tittle"><b>Escribenos al WhatsApp:</b></h3>
-                                <a class="" href="https://wa.me/526691429322">+52 6691429322</a>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <h2 class="text-center text-primary">Horarios</h2>
-                        <div class="col-md-6">
-                            <h3 class="text-tittle"><b>Sesiones de entrenamiento:</b></h3>
-                            <h3 class="text-tittle"> - Sabados de 3:00 pm a 6:00 pm</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="text-tittle"><b>Resolucion de dudas/preguntas:</b></h3>
-                            <h3 class="text-tittle">- Lunes a Viernes de 8:00 pm a 10:00 pm</h3>
-                        </div>
-                    </div>
-                    
-                </div>
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-4 ">
+        <h1 class="text-center mt-5 mb-4  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight" style="color: greenyellow;">¿Quieres contactarnos?</h1>
+        <p class="text-center mt-1 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap">Estamos aqui para ayudarte y aclarar tus dudas</p>
+        <p class="text-center mt-1 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap">Puedes contactarnos a traves de los siguientes medios</p>
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex ">
+            <div class="content d-flex flex-column justify-content-start align-items-center" *ngFor="let content of contentInfo">
+                <P class="text-center mt-1 mb-1 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap" style="color: greenyellow;">{{content.title}}</P>
+                <a href="{{content.description}}"><img src="{{content.imagePath}}" class="w-50 h-50 align-items-center  d-inline-flex" alt="..." style="width: 80px;  height: 80px;"></a>
+                <!-- <P class="text-center mt-1 mb-4  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap" style="color: greenyellow;">{{content.title}}</P> -->
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <h1 class="card-tittle text-center"><b>Ubicanos</b></h1>
-                        <div class="col-md-4">
-                            <h2 class="card-title"><b>Puedes encontrarnos en:</b></h2>
-                            <h3 class="card-title">San Esteban #12013, Fracc. La Cantera</h3>
-                            <h4 class="card-title">Mazatlán, Sinaloa, México.</h4>
-                        </div>
-                        <div class="col-md-8">
-                            <iframe class="ml" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.881253542346!2d-106.38046688810508!3d23.28376407890388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8698ad3a6ca03641%3A0x24c6559a7df68dc6!2sC.%20San%20Esteban%2C%2082139%20Mazatl%C3%A1n%2C%20Sin.!5e0!3m2!1ses-419!2smx!4v1746249426308!5m2!1ses-419!2smx" width="550" height="490" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>     
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-inline-flex">
+            <div class="card w-50 h-100 mb-4 text-white align-self-end" style="background-color: rgba(0, 0, 0, 0.5);">
+                <div class="card-header">
+                     <h4 class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap" style="color: greenyellow;">Dejanos tu opinion</h4>
                 </div>
+                <div class="card-body">
+                    <form #signupForm="ngForm" method="post"  style="margin-left: 4rem;" (ngSubmit)="saveOpinion()">
+                        <div class="mb-3 d-flex flex-column">
+                            <label for="name" class="form-label text-white">Nombre</label>
+                            <input type="text" class="form-control w-75" id="name" placeholder="Escribe tu nombre aquí...">
+                        </div>
+                        <div class="mb-3 d-flex flex-column">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control w-75" id="email" placeholder="Escribe tu correo electrónico aquí...">
+                        </div>
+                        <div class="mb-3 d-flex flex-column">
+                            <label for="subject" class="form-label">Telefono</label>
+                            <input type="text" class="form-control w-75" id="subject" placeholder="Escribe el asunto aquí...">
+                        </div>
+                        <div class="mb-3 d-flex flex-column">
+                            <label for="opinion" class="form-label">Tu Opinión</label>
+                            <textarea class="form-control w-100" id="opinion" rows="3" placeholder="Escribe tu opinión aquí... w-50"></textarea>
+                            <button type="submit" class="btn btn-primary align-self-end mt-2 mb-1 w-25">Enviar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="card w-50 h-100 mb-4 text-white align-self-end" style="background-color: rgba(0, 0, 0, 0.5); margin-left: 1rem;">
+                <div class="card-header">
+                     <h4 class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap" style="color: greenyellow;">Opiniones</h4>
+                </div>
+                <div class="card-body">
+                    
+                        <div class="card d-flex flex-row w-25">
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap d-flex flex-column"><b>Juan Perez</b></p>
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap d-flex flex-column">Es una empresa muy buena</p>
+                        </div>
+                        <div class="card d-flex flex-row w-25 bg-secondary">
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap d-flex flex-column"><b>Juan Perez</b></p>
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap d-flex flex-column">Es una empresa muy buena</p>
+                        </div>
+                        <div class="card d-flex flex-column">
+                            <label for="name" class="form-label text-dark">Juan Perez</label>
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap">Es una empresa muy buena</p>
+                        </div>
+                        <div class="card d-flex flex-column">
+                            <label for="name" class="form-label text-dark">Juan Perez</label>
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap">Es una empresa muy buena</p>
+                        </div>
+                        <div class="card d-flex flex-column">
+                            <label for="name" class="form-label text-dark">Juan Perez</label>
+                            <p class="text-start mt-1 mb-2  mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-wrap">Es una empresa muy buena</p>
+                        </div>
+                        
+
+                    
+                </div>
+            </div> -->
         </div>
+        
     </div>
-    <div class="row mt-5 mb-6">
-        <div class="col-md-4 text-center">
-        </div>
-         <div class="col-md-4 text-center">
-            <h2 class="card-title text-center text-danger ml-3"><b>! No dudes y contactanos hoy mismo ¡ </b></h2>
-            <a class ="btn btn-success" href="https://wa.me/526691429322">Registrate</a>
-         </div>
-    </div>
-</div>
+ </div>
+                    <!-- <div class="flex flex-col items-center slide-up" style="animation-delay: 0.2s">
+                        <div class="w-100 h-100 rounded-full bg-[#E4405F]/20 flex items-center justify-center mb-2">
+                            <a href="https://www.instagram.com/" target="_blank" style="color: blue; font-size: larger;"><i class="fab fa-instagram" style="border-radius: 100px; border: 1px solid #E4405F; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem; margin-top: 2rem; padding: 1px;"></i></a>
+                        </div>
+                        <span class="text-gray-300">Instagram</span>
+                    </div>
+                    <div class="flex flex-col items-center slide-up" style="animation-delay: 0.3s">
+                        <div class="w-16 h-16 rounded-full bg-[#1DA1F2]/20 flex items-center justify-center mb-2">
+                            <i class="fab fa-twitter text-[#1DA1F2] text-2xl"></i>
+                        </div>
+                        <span class="text-gray-300">Twitter</span>
+                    </div>
+                    <div class="flex flex-col items-center slide-up" style="animation-delay: 0.4s">
+                        <div class="w-16 h-16 rounded-full bg-[#FF0000]/20 flex items-center justify-center mb-2">
+                            <i class="fab fa-youtube text-[#FF0000] text-2xl"></i>
+                        </div>
+                        <span class="text-gray-300">YouTube</span>
+                    </div>
+                    <div class="flex flex-col items-center slide-up" style="animation-delay: 0.5s">
+                        <div class="w-16 h-16 rounded-full bg-[#ffffff]/20 flex items-center justify-center mb-2">
+                            <i class="fab fa-tiktok text-white text-2xl"></i>
+                        </div>
+                        <span class="text-gray-300">TikTok</span>
+                    </div>
+                    <div class="flex flex-col items-center slide-up" style="animation-delay: 0.6s">
+                        <div class="w-40 h-40 rounded-full bg-[#0A66C2]/20 flex items-center justify-center mb-2">
+                            <i class="fab fa-linkedin-in text-[#0A66C2] text-2xl"></i>
+                        </div>
+                        <span class="text-gray-300">LinkedIn</span>
+                    </div> -->
+            <!-- <p class="lh-base fs-5 text-start text-white  p-2 flex-fill w-25" *ngFor="let content of contentInfo">{{content.title}}
+                <a href="{{content.description}}" class="button p-2 flex-fill w-50" ><img src="{{content.imagePath}}" class="align-items-center" alt="..." style=" width: 60px; height: 60px;" ></a>
+            </p> -->
 

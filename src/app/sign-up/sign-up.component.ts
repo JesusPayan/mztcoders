@@ -1,47 +1,3 @@
-// import { Component,viewChild } from '@angular/core';
-// import { AppComponent } from '../app.component';
-// import { on } from 'events';
-// import { ViewChild } from '@angular/core';
-// import { NgForm } from '@angular/forms';
-// import {StudentService } from '../services/student.service';
-// import { Student } from '../services/Student';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
-
-// @Component({
-//   selector: 'app-sign-up',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './sign-up.component.html',
-//   styleUrl: './sign-up.component.css'
-// })
-
-// export class SignUpComponent {
-//    appComponent = new AppComponent();
-//    email: any;
-//    name: any;
-//    phone: any;
-   
-//     constructor(private studentService: StudentService) { }
-//   onSubmit() {}
-//    registrer(){ 
-//      this.email = document.getElementById('email');
-//      this.name = document.getElementById('name');
-//      this.phone = document.getElementById('phone');
-//      if (!this.email || !this.name || !this.phone) {
-//        alert('Faltan campos por llenar');
-//        return;
-//      }else{
-
-//       this.studentService.addStudent(new Student(this.name.value, this.email.value, this.phone.value)).subscribe();
-    
-
-//      alert  ('Registrado');
-//    }
-//   }
-// }
-  
-
 import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { StudentService, Student } from '../services/student.service';
@@ -49,14 +5,17 @@ import { CommonModule } from '@angular/common';
 import { response } from 'express';
 import { MatSnackBar,MatSnackBarConfig  } from '@angular/material/snack-bar';
 import { ToastComponent } from '../utils/toast/toast.componet';
-
+import { LinkRoute } from '../utils/LinkRoute';
+import { Elements } from '../utils/Element';
+import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   template: `
     <button (click)="showToast()">Show Toast</button>
   `,
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,RouterLink,],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
@@ -70,20 +29,37 @@ respuesta: any;
   }
 
   student: Student = {
+    
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    password: '',
+    role: 'STUDENT', 
+    paymentStatus: 'No payment status available',
+    picture: 'assets/images/logo-removebg-preview.png' // Default picture path
   };
 
-  constructor(private studentService: StudentService, private toast: MatSnackBar) {}
+  constructor(private studentService: StudentService, private toast: MatSnackBar, private router: Router) {}
 
+  imgToShow: LinkRoute[] = [
+    { path: 'logo', label: 'assets/images/logo-removebg-preview.png' }
+  ];
+
+login(){
+  this.router.navigate(['/login-page']);
+}
   // onSubmit(form: any) {
  registrer() {
    console.log(this.student);
    const toast = new ToastComponent(this.toast);   
     if (!this.student.name || !this.student.email || !this.student.phone) {
+      console.log('Faltan campos por llenar');
       //alert('Faltan campos por llenar');
        toast.showToast('Faltan campos por llenar','error','error');
+       confirm('Faltan campos por llenar');
+      //  alert('Faltan campos por llenar');
+
+      
       return;
     }
     const newPost = { title: 'Nuevo post', body: 'Contenido...', userId: 1 };
@@ -100,6 +76,7 @@ respuesta: any;
         }if(this.respuesta.statusCode in['503', '500','504','502']){
           toast.showToast("Error en el servidor, intente mas tarde", 'error', 'error');
         }
+        confirm(this.respuesta.message);
       },
       error: (error) => {
         toast.showToast(error, 'error', 'error');

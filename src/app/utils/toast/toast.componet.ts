@@ -28,7 +28,7 @@ export class ToastComponent {
     }else{
       config.panelClass = ['custom-toast-sucess'];
     }
-    // config.panelClass = ['custom-toast'];
+    config.panelClass = ['custom-toast'];
     this.snackBar.open(message, status, config);
   }
 }
