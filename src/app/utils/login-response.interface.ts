@@ -1,6 +1,7 @@
 import { Student } from "../services/Student";
 
 export interface LoginResponse {
+  id?: number;
   token: string;
   role: string;
   message: string;
@@ -8,4 +9,7 @@ export interface LoginResponse {
   data: Student;
   name: string;
   picture: string;
+  email: string;
+  paymentStatus?: string;
+  userData?: string;
 }

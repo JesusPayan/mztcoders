@@ -10,8 +10,9 @@ export class Student {
   password?: string;
   role?: string;
   picture?: string;
+  paymentStatus: string | undefined;
 
-  constructor(id: number, name: string, email: string, phone: string, password: string, role: string ) {
+  constructor(id: number, name: string, email: string, phone: string, password: string, role: string  , picture: string, paymentStatus: string) {
     this.id = 0; 
     this.name = name;
     this.email = email;
@@ -26,6 +27,8 @@ export class Student {
       json.phone,
       json.password,
       json.role
+      , json.picture,
+      json.paymentStatus || 'No payment status available'
     );
   }
 }

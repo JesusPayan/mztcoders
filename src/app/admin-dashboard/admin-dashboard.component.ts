@@ -21,11 +21,14 @@ userName: string | null = null;
      {title:'Panel de Administrador', description:'Aquí podrás encontrar las herramientas para poder admisnistrar la plataforma.', imagePath:'assets/images/logo-removebg-preview.png'}, 
     ]
     linkscards:DashboardCard[] = [
-      {cardTitle: 'Cursos', imagePath: 'assets/images/estadisticas.png', cardRoute: '/courses-page'},
-      {cardTitle: 'Puntajes', imagePath: '/assets/images/trofeo.png', cardRoute: '/student-payment'},
-      {cardTitle: 'Pagos', imagePath: '/assets/images/monedas.png', cardRoute: '/'},
-      {cardTitle: 'Lecciones', imagePath: '/assets/images/capas.png', cardRoute: '/student-courses'},
-      {cardTitle: 'Actividades', imagePath: '/assets/images/lapiz.png', cardRoute: '/student-courses'},
+      {cardTitle: 'Recursos', imagePath: 'fas fa-graduation-cap text-primary fs-1 mb-2', cardRoute: '/courses-page'},
+      {cardTitle: 'Pagos', imagePath: 'fas fa-wallet text-success fs-2 mb-2', cardRoute: '/student-payment-page'},
+      {cardTitle: 'Puntajes', imagePath: 'fas fa-users text-danger fs-2 mb-2', cardRoute: '/student-payment'},
+      {cardTitle: 'Estadisticas', imagePath: 'fas fa-chart-line text-dark fs-2 mb-2', cardRoute: '/statistics-page'},
+      {cardTitle: 'Asistencias', imagePath: 'fas fa-solid fa-check text-dark fs-2 mb-2', cardRoute: '/users-page'},
+      {cardTitle: 'Finanzas', imagePath: 'fa-solid fa-coins', cardRoute: '/users-page'},
+      {cardTitle: 'Soporte', imagePath: 'fas fa-solid fa-headphones text-warning fs-2 mb-2', cardRoute: '/student-courses'},
+
       // {cardTitle: 'Mis Cursos', imagePath: '/assets/images/courses.png', cardRoute: '/student-courses'},
       // {cardTitle: 'Mis Cursos', imagePath: '/assets/images/courses.png', cardRoute: '/student-courses'},
       // {cardTitle: 'Mis Cursos', imagePath: '/assets/images/courses.png', cardRoute: '/student-courses'},
@@ -37,12 +40,35 @@ userName: string | null = null;
     }
 
 
+    
 
   openModal(caller:string){
-  alert(caller);
-  if(caller === 'Cursos'){
-    this.router.navigate(['/courses-dashboard-page']);
-  }
+
+  switch (caller) {
+    case 'Recursos':
+        this.router.navigate(['/courses-dashboard-page']);
+        break;
+    case 'Pagos':
+        // statements for value2
+        this.router.navigate(['/student-payment-page']);
+        break;
+    case 'Puntajes':
+        this.router.navigate(['/student-payment']);
+        break;
+    case 'Estadisticas':
+        this.router.navigate(['/statistics-page']);
+        break;
+    case 'Asistencias':
+        this.router.navigate(['/users-page']);
+        break;
+    case 'Finanzas':
+        this.router.navigate(['/users-page']);
+        break;  
+    // ... more cases
+    default:
+        // statements if no case matches (optional)
+        break;
+}
   }
   logout(){
         this.authService.logout();

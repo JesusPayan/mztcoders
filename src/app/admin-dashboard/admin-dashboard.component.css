@@ -1,4 +1,4 @@
-.container-fluid{
+/* .container-fluid{
     margin-top: 5%;
 }
 .content{
@@ -12,7 +12,7 @@
     justify-content: center;
     width: 20%;
     height: 100%;
-}
+} */
 /* img{
   
     width: 10%;
@@ -21,7 +21,7 @@
 } */
 
 
-.img{
+/* .img{
   border: #111 solid 1px;
   margin: 1rem;
   padding: 1rem;
@@ -35,8 +35,4 @@
   height: 50%;
  }
 
-.card:hover{
-  transform: scale(1.1);
-    /* background-color: #111;
-    color: white; */
-}
+ */

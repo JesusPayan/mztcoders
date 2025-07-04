@@ -30,20 +30,20 @@ export class ShowResourseDetailComponent {
   
    isAdmin: boolean = false;
    isEstudiante: boolean = false;
-  //constructor(private authService: AuthService, private dialog: MatDialog ,public resourceinfo:CoursesDashboardPageComponent) { }
   respuesta: any;
   resourceinfo: any;
   mainInfo: any;
   stacks: any;
   puntuation: any;
   currentResource: Resource = {
-    name: '',
-    carrierPath: null,
-    type: null,
-    tecnologyStack: null,
-    points: null,
-    description: '',
-    available: null
+      id: 0,
+      name: '',
+      carrierPath: null,
+      type: null,
+      tecnologyStack: null,
+      score: 0,
+      description: '',
+      available: null
   };
   constructor(
     
@@ -59,12 +59,13 @@ export class ShowResourseDetailComponent {
     this.stacks = data.stacks;
     this.puntuation = data.puntuation;
     this.currentResource = { ...data.currentResource };
-    console.log('Recursos recibidos:', this.resourceinfo, this.mainInfo, this.stacks, this.puntuation, this.currentResource);
+    // console.log('Recursos recibidos:', this.resourceinfo, this.mainInfo, this.stacks, this.puntuation, this.currentResource);
   }
 
   update() {
-    alert('Recurso Actualizado');
+     console.log('Objeto que se envía al backend:', JSON.stringify(this.currentResource));
      this.resourceService.updateResource(this.currentResource).subscribe({
+
       next: (data) => {
         this.respuesta = data; // Asigna la respuesta a la propiedad
         // console.log('Respuesta recibida:', this.respuesta);

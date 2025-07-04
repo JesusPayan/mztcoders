@@ -35,6 +35,13 @@ contentToShow:CourseInfo[] = [
         { title: 'Mejores practicas', description: 'Conoce y aplica las mejores practicas de la industria.', imagePath: 'assets/images/best-practices.png' },
         { title: 'Bolsa de Trabajo', description: 'Conecta con empresas que buscan talento como el tuyo. Nosotros te acercamos a tu primer (o mejor) empleo.', imagePath: 'assets/images/bolsa-trabajo.jpg' }
        ];
+
+       whyChooseUs:CourseInfo[] = [
+        { title: 'Experiencia', description: 'Mas de 4 años laborando en una de las principales empresas de desarrollo de software en México.', imagePath: 'fas fa-bolt text-2xl' },
+        { title: 'Conocimiento de la industria', description: 'Conocemos las necesidades del mercado de software.', imagePath: 'fas fa-tags text-2xl'},
+        { title: 'Proyectos reales', description: 'Crea proyectos reales con tecnologías modernas.', imagePath: 'fas fa-headset text-2xl' },
+        { title: 'Preparacion para entrevistas', description: 'Te enseñamos las bases y te daremos tips y herramientas para prepararte para las entrevistas de trabajo.', imagePath: 'fas fa-shield-alt text-2xl' }
+       ];
        imageSize = "w-100";
        displayinf(){
          

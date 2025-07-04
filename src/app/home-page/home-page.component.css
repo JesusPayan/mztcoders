@@ -14,9 +14,13 @@
     height: 100%;
 
 }
-img{
+
+.justify-content-center:hover{
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+/* img{
     width: 40%;
     height: 40%;
     align-self: center;
-}
+} */
 

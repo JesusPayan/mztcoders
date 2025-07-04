@@ -1,43 +1,48 @@
 <div class="container-fluid">
-    <div class="row justify-content-center"> 
-        <h1 class="fs-2 fw-medium text-center mt-1 text-dark">¡Conviértete en el programador que el mundo necesita!</h1>
+    <div class="row justify-content-start">
         <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
+            <h2 class="text-center mt-5 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-white">¡Transforma tu potencial en habilidades reales!</h2>
             <div class="col-md-12 text-center">
-                <img src="{{contentToShow[0].imagePath}}" class="text-center w-100 h-100" alt="...">
-            </div>
-            <div class="col-md-12">
-                <p class=" fs-4 lh-base text-center text-secondary">En nuestra escuela no solo aprendes a programar, te formas para crear soluciones reales.</p>
-                <p class="fs-3 fst-normal text-center text-secondary">🚀 Empieza hoy tu camino al éxito.🚀</p>
-            </div>
-            <div class="col-md-12 text-center">
-                <button class="btn btn-outline-success mt-2 w-30" type="submit" routerLink="/sign-up">Registrate</button>
-                <button class="btn btn-outline-info mt-2 w-30" type="submit" routerLink="/sign-up" style="margin-left:2rem;">Oferta educativa</button>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center  mb-2" style="background: #e9ecef;">
-         <h1 class="fs-2 fw-medium text-center mt-5 text-dark">Aprendizaje actual y personalizado</h1>
-            <div class="content" *ngFor="let content of contentToShow" style="">
-                <div class="col-md-12 text-center">
-                        <img src="{{content.imagePath}}" class=" w-100 h-100 align-items-center" alt="...">
-                        <h1 class="lh-base fs-4   text-center text-dark">{{content.title}}</h1>
-                        <p class="lh-base fs-5  text-start text-secondary">{{content.description}}</p>
-                </div>
-            </div>
-    </div>
-    <div class="row justify-content-center mb-4"> 
-        <h1 class="fs-2 fw-medium text-center mt-1 text-dark">¡Transforma tu potencial en habilidades reales!</h1>
-        <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
-            <div class="col-md-12 text-center">
-                <img src="{{imagesToShow[0].path}}" class="text-center" alt="...">
+                <img src="{{imagesToShow[0].path}}" class="w-25 h-25 p-2" alt="...">
             </div>
             <div class="col-md-12 mb-2">
-                <p class=" fs-5 lh-base text-center text-secondary">{{textToShow}}</p>
-                <p class="fs-3 fst-normal text-center text-secondary">🚀 Registrate hoy tu camino al éxito.🚀</p>
+                <p class=" fs-5 lh-base text-center text-white">{{textToShow}}</p>
             </div>
-            <!-- <div class="col-md-12 text-center mb-4">
-                <button class="btn btn-outline-success mt-2 w-30" type="submit" routerLink="/sign-up">Registrate</button>
-                <button class="btn btn-outline-info mt-2 w-30" type="submit" routerLink="/sign-up" style="margin-left:2rem;">Oferta educativa</button>
-            </div> -->
         </div>
+        <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
+                <div class="class">
+                    <h2 class="text-center mt-5 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-white">¡Conviértete en el programador que el mundo necesita!</h2>
+                    <img src="{{contentToShow[0].imagePath}}" class="w-50 h-50 p-2" alt="..." style="margin-left: auto; margin-right: auto; display: block;">
+                    <p class=" fs-6 lh-base text-center text-white">En nuestra academia no solo aprendes a programar, te formas para crear soluciones reales.</p>
+                    <p class="fs-5 fst-normal text-center text-white">🚀 Empieza hoy tu camino al éxito.🚀</p>
+                </div>
+                <div class="class justify-content-center d-flex flex-inline align-items-end mb-2">
+                    <button class="btn btn-success mt-2 w-30" type="submit" routerLink="/sign-up">Registrate</button>
+                    <button class="btn btn-info mt-2 w-30" type="submit" routerLink="/sign-up" style="margin-left:2rem;">Oferta educativa</button>
+                </div>
+        </div>    
+    </div>
+    <div class="row justify-content-center flex-wrap mb-2 ">
+        <h1 class="text-center mt-5 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-white" style="color: orange;">Aprendizaje actual y personalizado</h1>
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex ">
+                <div class="justify-content-center g-col-6 .g-col-6 .g-col-md-4 w-25 mt-4" *ngFor="let content of contentToShow" style="background-color: greenyellow; padding: 0.5rem; border-radius: 10px; margin-bottom: 2rem; margin-left: 2rem; margin-right: 2rem;">
+                    <h1 class="lh-base fs-4 text-start text-warning text-dark"><b>{{content.title}}</b></h1>
+                    <!-- <img src="{{content.imagePath}}" class="w-50 h-50 align-items-center mb-4 text-dark" alt="..." style="margin-left: auto; margin-right: auto; display: block;"> -->
+                    <p class="lh-base fs-6 text-start text-dark">{{content.description}}</p>
+                </div>
+        </div>  
+    </div>
+    <div class="row justify-content-center flex-wrap mb-2 ">
+        <!-- <h1 class="text-center mt-5 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-white" style="color: orange;">Aprendizaje actual y personalizado</h1> -->
+        <h1 class="mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-white text-center mb-4" style="color: orange;">
+                        ¿Por Qué Elegirnos?
+        </h1>
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex " style="border-radius: 10px; ">
+                    <div class="justify-content-center g-col-6 .g-col-6 .g-col-md-4 w-25 h-75 mt-4 bg-dark"  *ngFor="let content of whyChooseUs" style=" background-color: darkgrey; padding: 0.5rem; border-radius: 10px; margin-bottom: 2rem; margin-left: 2rem; margin-right: 2rem; animation-delay: 0.2s">
+                    <h1 class="lh-base fs-4 text-start text-warning text-white"><b>{{content.title}}</b></h1>  
+                    <!-- <img src="{{content.imagePath}}" class="w-50 h-50 align-items-center mb-4 text-dark" alt="..." style="margin-left: auto; margin-right: auto; display: block;"> -->
+                    <p class="lh-base fs-6 text-start text-secondary">{{content.description}}</p>
+        </div>
+        </div>  
+    </div>
 </div>

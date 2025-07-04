@@ -73,73 +73,22 @@
   } */
 
   /* Estilo base para pantallas grandes */
-.container-fluid{
-  margin-top: 10%;
+
+input,label,p,select,#card{
+  margin-left: 3rem;
 }
-.row-md-center {
-  margin-left: 1rem;
+button{
+  margin-right: 1rem;
+  width: 10rem;
+  text-align: center;
+  align-self: flex-end;
+  margin-left: 3rem;
+  
+}
+table{
+  margin-left: 3rem;
   margin-right: 3rem;
-}
-
-.form-group {
-  /* margin-left: 3rem;
-  margin-right: 3rem; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-input {
-  /* margin-left: 1rem; */
-  /* margin-right: 1rem; */
-  width: 20%;
-}
-
-#paymentType {
-  /* margin-left: 1rem;
-  margin-right: 3rem; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.form-group input,
-#paymentType input {
-  /* margin-left: 1rem; */
-  /* margin-right: 3rem; */
-  max-width: 100%;
-}
-#fileGroup {
-  /* margin-left: 3rem; */
-  /* margin-right: 3rem; */
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-#file {
- 
-  width: 100%;
-}
-#complete,
-#parcial {
-  margin-left: 1rem;
-  margin-right: 3rem;
-  width: 1rem;
-  height: 1rem;
-}
-
-.mat-table {
-  margin-left: 0;
-  margin-right: 3rem;
-  width: 100%;
-  overflow-x: auto;
-}
-
+} 
 /* Estilo responsive para pantallas pequeñas */
 @media screen and (max-width: 650px) {
   .whatsapp {

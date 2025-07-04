@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class StudentDashboardComponent implements OnInit {
-  // sidenav = document.getElementById("mySidenav");
+
 
   studentImage = '/assets/images/logo-removebg-preview.png';
   studentName = 'Juan Perez Lopez';
@@ -27,19 +27,17 @@ export class StudentDashboardComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
  
 userName: string | null = null;
-
- mainInfo: CourseInfo[] = [
+paymentStatus: string | null = null;
+semaphores: string[] = ['warning','success','danger','info'];
+semaphore:string ='';
+mainInfo: CourseInfo[] = [
    {title:'Panel de Estudiante', description:'Aquí podrás encontrar toda la información relacionada con tu progreso académico, pagos y más. Explora las diferentes secciones para aprovechar al máximo tu experiencia de aprendizaje.', imagePath:'assets/images/logo-removebg-preview.png'}, 
   ]
   linkscards:DashboardCard[] = [
-    {cardTitle: 'Progreso', imagePath: 'assets/images/estadisticas.png', cardRoute: '/student-courses'},
+    {cardTitle: 'Progreso', imagePath: 'assets/images/estadisticas.png', cardRoute: '/'},
     {cardTitle: 'Puntaje', imagePath: '/assets/images/trofeo.png', cardRoute: '/student-payment'},
     {cardTitle: 'Pagos', imagePath: '/assets/images/monedas.png', cardRoute: '/'},
-    {cardTitle: 'Lecciones', imagePath: '/assets/images/capas.png', cardRoute: '/student-courses'},
-    {cardTitle: 'Actividades', imagePath: '/assets/images/lapiz.png', cardRoute: '/student-courses'},
-    // {cardTitle: 'Mis Cursos', imagePath: '/assets/images/courses.png', cardRoute: '/student-courses'},
-    // {cardTitle: 'Mis Cursos', imagePath: '/assets/images/courses.png', cardRoute: '/student-courses'},
-    // {cardTitle: 'Mis Cursos', imagePath: '/assets/images/courses.png', cardRoute: '/student-courses'},
+    {cardTitle: 'Recursos', imagePath: '/assets/images/capas.png', cardRoute: '/show-resourse-detail'},
   ];
 
   ngOnInit(): void {
@@ -47,10 +45,24 @@ userName: string | null = null;
    this.authService.userName.subscribe(name => {
       this.userName = name;
     });
+    
+    this.paymentStatus =  localStorage.getItem('paymentStatus');
+     if (this.paymentStatus === null || this.paymentStatus === undefined) {
+      this.paymentStatus = 'No payment status available';
+    }else if (this.paymentStatus=== 'Vigente'|| this.paymentStatus === 'CORRIENTE') {
+      this.semaphore = 'success';
+    }
+   
   }
 
   openModal(caller:string){
-  alert(caller);
+alert(caller);
+ if(caller === 'Recursos'){
+    this.router.navigate(['/courses-dashboard-page']);
+  }
+   if(caller === 'Pagos'){
+    this.router.navigate(['/student-payment-page']);
+  }
   }
   logout(){
         this.authService.logout();

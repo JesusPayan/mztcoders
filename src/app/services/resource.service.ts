@@ -13,13 +13,16 @@ export class ResourceService {
   
   updateResource( data: Resource): Observable<any> {
     // return this.http.put(`${this.apiUrl}/${id}`, data);
-     return this.http.put(this.apiUrl + '/update', data);
+    //  return this.http.put(this.apiUrl + '/update', data);
+    console.log("updateResource: ", data);
+     return this.http.put(`${this.apiUrl}/update`, data);
   }
   deleteResource( data: Resource): Observable<any> {
     // return this.http.put(`${this.apiUrl}/${id}`, data);
     //  return this.http.delete<Resource>(this.apiUrl + '/delete', { body: data });
       //return this.http.delete<Resource>(this.apiUrl + '/delete', { body: data });
-      return this.http.delete(this.apiUrl + '/delete',{ body: data });
+      // return this.http.delete(this.apiUrl + '/delete',{ body: data });
+       return this.http.delete(`${this.apiUrl}/delete`, { body: data });
   }
     
     constructor(private http: HttpClient) { }

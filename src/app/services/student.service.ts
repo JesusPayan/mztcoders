@@ -17,10 +17,9 @@ export class StudentService {
 
   constructor(private http: HttpClient) { }
 
-  getStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.apiUrl);
+  getUsersByRole(role: String): Observable<Student[]> {
+    return this.http.get<Student[]>(`${this.apiUrl}/${role}`);
   }
-
   addStudent(data: any): Observable<any> {
     // return this.http.post<Student>(this.apiUrl+'/register', student);
     return this.http.post(this.apiUrl+'/register', data);

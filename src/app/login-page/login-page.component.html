@@ -1,90 +1,20 @@
-<!-- <div class="container-fluid">
-    <div class="row justify-content-center align-items-center vh-100">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card w-60" id="mainCard">
-                    <div class="row justify-content-center align-items-center">
-                        <h5 class="card-title text-center fs-3 fw-bold mb-2 text-secondary">Ingreso</h5>
-                        <img src="{{this.logoUrl}}" class="card-img-top" alt="Logo">
-                         
-                    </div>    
-                    <div class="row justify-content-center align-items-center">
-                        <p class="card-text text-center fs-6 text-secondary">Ingresa tus datos para continuar</p>
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-4" >
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex">
+            <div class="card w-25 h-75 mb-4 text-white align-self-end" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; margin-top: 10rem; color: yellowgreen; box-shadow: 0 4px 8px yellowgreen;">
+              <h5 class="card-title text-center fs-2 mb-2 mt-2"  style="color: greenyellow;">Login</h5>       
+              <form #signupForm="ngForm" class="mt-2 text fs-5 align-items-center" (ngSubmit)="this.onSubmit()" method="post" style="margin-left: 3rem;margin-right: 3rem; color: yellowgreen;" >
+                <label for="email" class="form-label mt-3">Correo:</label>
+                <input type="email" id="email"   class="form-control mt-2 w-100" placeholder="juan.perez@outlook.com"  name="email"  [(ngModel)]="student.email" required />
+                <label for="password" class="form-label mt-3">Contraseña:</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••••" name="password" [(ngModel)]="student.password" required />
+                <div class="align-self-end d-flex flex-column">
+                  <button type="submit" class="btn btn-success w-50 ml-2 mb-4 mt-4 justify-content-end" onclick="" style="align-self: flex-end;">Ingresar </button>
+                </div>
+              </form>
+              <h1 class="lh-base fs-4 text-center text-white mt-2">¿No tienes cuenta?</h1>
+              <a class="btn btn-primary align-self-center mb-4" (click)="this.register()">Registrate</a>
 
-                        <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.login()" method="post">
-
-                        <div class="mb-2">
-
-                            <label for="textBoxName" class="form-label">Correo:</label>
-                            <input type="email" id="name" class="form-control" placeholder="Juan.Perez@out..." name="username" [(ngModel)]="this.student.email" required/> 
-                        </div>
-                        <div class="mb-2">
-                             <label for="textBoxEmail" class="form-label">Contraseña:</label>
-                           
-                            <input type="password" id="password" class="form-control" placeholder="" name="email" [(ngModel)]="this.student.password" required />
-                     
-                        </div>
-                        <div class="justify-content-center align-items-center vh-50 mt-4">
-                            <button type="submit" class="btn btn-outline-success w-100 ml-2 mb-4">Enviar</button>
-                
-                        </div>
-                    </form>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-<div class="container-fluid">
-  <div class="row justify-content-center align-items-center vh-100">
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card w-60" id="mainCard">
-        <div class="row justify-content-center align-items-center">
-          <h5 class="card-title text-center fs-3 fw-bold mb-2 text-secondary">Ingreso</h5>
-          <img src="{{ logoUrl }}" class="card-img-top" alt="Logo">
-        </div>
-
-        <div class="row justify-content-center align-items-center">
-          <p class="card-text text-center fs-6 text-secondary">Ingresa tus datos para continuar</p>
-          
-          <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" (ngSubmit)="this.onSubmit()" method="post">
-            <div class="mb-2">
-              <label for="email" class="form-label">Correo:</label>
-              <input type="email"
-                     id="email"
-                     class="form-control"
-                     placeholder="juan.perez@outlook.com"
-                     name="email"
-                     [(ngModel)]="student.email"
-                     required />
-            </div>
-
-            <div class="mb-2">
-              <label for="password" class="form-label">Contraseña:</label>
-              <input type="password"
-                     id="password"
-                     class="form-control"
-                     placeholder="••••••••"
-                     name="password"
-                     [(ngModel)]="student.password"
-                     required />
-            </div>
-
-            <div class="justify-content-center align-items-center vh-50 mt-4">
-              <button type="submit" class="btn btn-outline-success w-100 ml-2 mb-4" onclick="">
-                Enviar
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
   </div>
 </div>
-
-<!-- <div *ngIf="processingRequest" class="text-center mt-3">
-  <div class="spinner-border text-success" role="status">
-    <span class="visually-hidden">Cargando...</span>
-  </div>
-</div> -->

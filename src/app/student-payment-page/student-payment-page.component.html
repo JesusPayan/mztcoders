@@ -1,65 +1,84 @@
-<div class="container-fluid">
-    <div class="row-md-center">
-        <div class="card mt-4">
-            <h1 class="text-center text-dark  border-top-danger bg-sucess">Bienvenido a tu seccion de Pagos</h1>
-            <h2 class="text-start text-dark  border-top-danger bg-sucess">Registrar Pago</h2>
-            <p class="text-start text-secondary">Ahora puedes registar tus pagos de manera sencilla y rápida a través de nuestro sistema de pagos. </p>
-            <div class="card">
-                <form #signupForm="ngForm" class="w-100 mt-2 text-secondary" method="post">
-                    <h4 class="text-start text-dark  border-top-danger bg-sucess">Verifica que tus datos sean correctos</h4>
-                        <div class="form-group">
-                                <label for="name">Nombre:</label>
-                                <input type="text" class="form-control" id="name" placeholder="{{userName}}" (click)="message()" [disabled]="!activate">
-                                 <!-- <label for="mail">Correo:</label>
-                                <input type="text" class="form-control" id="mail" placeholder="{{userEmail}}" disabled> -->
-                                
-                                <!-- <label for="phone">telefono:</label>
-                                <input type="text" class="form-control" id="phone" placeholder="{{student.phone}}"disabled> -->
-                        </div>
-                        <h4 class="text-start text-dark  mt-2">Tipo de pago:</h4>
-                        <div class="form-group mb-1 mt-1" id="paymentType">  
-                            <label for="complete">Completo</label>
-                            <input type="radio" class="form-control" id="complete" (click)="this.amount= false">
-                            <label for="parcial">Parcial</label>
-                            <input type="radio" class="form-control" id="parcial" (click)="this.amount= true">
-                            <label for="amount">Monto:</label>
-                            <input type="text" class="form-control" id="amount" placeholder="$500.00" (click)="this.amount= true" [disabled]="!amount" (focus)="this.amount= true">
-                            <label for="amount">Fecha pago:</label>
-                            <input type="date" class="form-control" id="fecha" placeholder="{{currentDate.toString()}}">
-                        </div>
-                        <h4 class="text-start text-dark  mt-2">Agrega tu comprobante</h4>
-                        
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-4 ">
+        <div class="col-md-auto col-lg-12 col-sm-6  d-flex flex-column">
+            <div class="card w-100 h-100 mb-4 text-white align-self-start d-flex flex-column mt-4" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px;">
+                <div class="card w-75 h-100 mb-4 text-white align-self-center d-flex flex-row mt-3" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; margin-left: 3rem; margin-top: 3rem;" *ngIf="userRole != 'ESTUDIANTE'">
+                            
+                            <div class="form-group mb-2" style=" border-radius: 10px; padding: 1rem;">
+                                <h3 class="text-center mt-5 mb-4 mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight d-block" style="color: greenyellow;"
+                                *ngIf="userRole == 'Estudiante' || userRole != 'ESTUDIANTE'">Registro de pagos</h3>
+                                <form #signupForm="ngForm" class="w-75 mt-2 d-block" method="post" > 
+                                    <p class="text-start text-white">Por favor, completa el formulario para registrar tu pago.</p>        
+                                    <div class="form-group d-flex flex-row  mb-2 mt-2">
+                                        <select
+                                            class="form-select w-75 mb-3 fs-6 text-start  p-2 flex-fill w-75 mb-3"
+                                            id="inputGroupSelect05"
+                                            name="available"
+                                            required
+                                            [(ngModel)]="student.name"
+                                            [ngClass]="{ 'is-invalid': signupForm.submitted && availableField.invalid }"
+                                            #availableField="ngModel"
+                                            >
+                                            <option [ngValue]="null" disabled>Choose...</option>
+                                            <option *ngFor="let student of listStudents" [ngValue]="student.name">{{student.name }}</option>
+                                        </select>
+                                    </div>
+                                    <label for="name" class="fs-6 text-start text-white p-2 flex-fill w-50 mb-1">Selecciona el estudiante:</label>
+                                    
+                                    <label for="amount fs-6 text-start text-white p-2 flex-fill w-50 mb-1">Monto:</label>
+                                    <div class="form-group d-flex flex-row  mb-2 mt-2">
+                                        <input type="text" class="form-control fs-6 text-start text-dark p-1 flex-fill w-75 mb-2"  name="amount" id="amount" placeholder="$500.00"  [(ngModel)]="amount" [disabled]="enable">
+                                        <!-- <button type="button" class="btn btn-primary fs-6 text-center text-white p-2 "(click)="enableComponent()">Habilitar</button> -->
+                                        <!-- <input class="form-check-input" type="checkbox" value="" id="checkChecked"  (change)="enableComponent()">
+                                        <label class="form-check-label" for="checkChecked">
+                                            Habilitar
+                                        </label> -->
+                                    </div>
+                                    <label for="amount fs-6 text-start text-white p-2">Agregar comprobante:</label>
+                                    <div class="form-group mb-3 mt-2 d-flex flex-row" id="fileGroup">
+                                        <input type="file" class="form-control fs-6  w-100" id="file" (change)="onFileSelected($event)" id="file">
+                                        <button type="submit" class="btn btn-success " [disabled]="!selectedFile" (click)="onSubmit()">Guardar</button>
+                                    </div>  
+                                </form>
+                            </div>
+                            <div class="form-group mb-2 align-items-center" style="border-radius: 10px; padding: 1rem;">
+                                <h3 class="text-center mt-5 mb-4 mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight d-block" style="color: greenyellow;"
+                                    *ngIf="userRole == 'Estudiante' || userRole != 'ESTUDIANTE'">Vista previa del comprobante</h3>
+                                <img id="preview" src="" alt="" style="width: 15rem; height: 15rem; border:solid 1px greenyellow; margin-left: 4rem; margin-right: auto;" class="mt-2 " /> 
+                                {{student.name}}
 
-                </form> 
-                <div class="form-group mb-1 mt-1" id="fileGroup">
-                            <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-                                <input type="file" class="form-control" id="file" (change)="onFileSelected($event)" id="file">
-                                
-                            </form>
-                            <button type="submit" class="btn btn-outline-success " [disabled]="!selectedFile" (click)="onSubmit()">Enviar</button>
-                </div>      
-            </div>
-            <div class="card">
-                <h2 class="text-start text-dark">Historial de Pagos</h2>
-                 <p class="text-start text-secondary">Aqui podras ver tu historial de pagos realizados.</p>
-                 <!-- <button class="btn btn-outline-success" (click)="showPayments(student.id)">Mostrar Pagos</button> -->
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Monto</th>
-
-                    </thead>
-                    <tbody>
-                        <!-- <tr  *ngFor="let payment of payments">
-                            <td>{{payment.date}}</td>
-                            <td>{{payment.amount}}</td>
-                            <td>{{payment.type}}</td> 
-                          <td><a [href]="payment.receiptUrl" target="_blank">Ver Comprobante</a></td>
-                        </tr> -->
-                    </tbody>
-                </table>        
-            </div>
+                            </div>
+                </div>
+                <h2 class="text-start mt-5 mb-4 mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight" style="color: greenyellow; margin-left: 1rem; margin-top:2rem;">Historial de pagos</h2>
+                <table class="table table-striped table-dark table-bordered w-100 align-self-center mt-3 mb-3" style="border-radius: 5px; overflow: hidden;">
+                        <thead >
+                            <tr>
+                                <th scope="col-2">ID</th>
+                                <th scope="col-2" *ngIf="userRole == 'Admin' || userRole == 'ADMIN'">Usuario</th>
+                                <th scope="col-2">Estatus</th>
+                                <th scope="col-2">Monto</th>
+                                <th scope="col-2">Diferencia</th>
+                                <th scope="col-2">Fecha</th>
+                                <th scope="col-2" *ngIf="userRole == 'Admin' || userRole == 'ADMIN'">Proximo Pago</th>
+                                <th scope="col-2" *ngIf="userRole == 'Admin' || userRole == 'ADMIN'">Acciones</th>
+                        </thead>
+                        <tbody>
+                                <tr  *ngFor="let payment of studentPayments">
+                                    <td class="text-white">{{payment.id}}</td>
+                                    <td *ngIf="userRole == 'Admin' || userRole == 'ADMIN'">{{payment.user}}</td>
+                                    <td>{{payment.paymentStatus}}</td>
+                                    <td>{{payment.paymentAmount}}</td>
+                                    <td>${{payment.paymentDif}}</td>
+                                    <td>{{payment.paymentDate}}</td> 
+                                    <td>{{payment.nextPaymentDate}}</td>
+                                    <td *ngIf="userRole == 'Admin' || userRole == 'ADMIN'"><button class="btn btn-danger" (click)="ViewPaymentReceipt()">Ver comprobante</button></td>
+                                    <td *ngIf="userRole == 'Admin' || userRole == 'ADMIN'"><button class="btn btn-danger" (click)="sendPaymentReminder()">Enviar Recordator</button></td>
+                                </tr>
+                        </tbody>
+                    </table>   
+            </div>    
         </div>
     </div>
-</div>
+</div>        
+
+

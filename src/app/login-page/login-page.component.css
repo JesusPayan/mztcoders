@@ -1,4 +1,4 @@
-#mainCard{
+/* #mainCard{
     padding: 4rem;
     margin-top: 30%;
     margin-bottom: 30%;
@@ -32,7 +32,7 @@
 .card-title{
 
     text-align: center;
-    /* padding: 1rem; */
+ padding: 1rem; 
     margin-top: 1rem;
 }
 .mb-3{
@@ -55,4 +55,12 @@ a{
     font-size: 16px;
     padding: 16px;
     border-radius: 4px;
-}
+} */
+/* .card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(233, 1, 241, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px yellowgreen;
+    border-bottom: chocolate solid 1px;
+} */

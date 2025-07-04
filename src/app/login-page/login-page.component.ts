@@ -100,7 +100,9 @@ export class LoginPageComponent {
     name: '',
     email: '',
     phone: '',
-    password: ''
+    password: '',
+    role: '',
+    paymentStatus: ''
   };
       isLoggedIn = false;
   logoUrl = 'assets/images/logo-removebg-preview.png';
@@ -111,7 +113,9 @@ export class LoginPageComponent {
     private router: Router,
     // private topNavBar: TopNavBarComponent
   ) {}
-
+  register(){
+    this.router.navigate(['/sign-up']);
+  }
   onSubmit() {
     
     if (!this.student.email || !this.student.password) {

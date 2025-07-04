@@ -5,7 +5,7 @@ export interface Resource {
     carrierPath: null;
     type: null;
     tecnologyStack: null;
-    points: null;
+    score: number;
     description: string;
     available: null;
   // Define the properties of Resource as needed

@@ -27,6 +27,8 @@ export class AuthService {
   userEmail = new BehaviorSubject<string | null>(null);
   userID = new BehaviorSubject<string | null>(null);
   userPicture = new BehaviorSubject<string | null>(null);
+  userPassword = new BehaviorSubject<string | null>(null);
+  userPaymentStatus = new BehaviorSubject<string | null>(null);
 
 
   //user$ = this.user.asObservable();
@@ -50,9 +52,22 @@ export class AuthService {
           this.userRoleSubject.next(response.role);
           this.userName.next(response.data.name);
           this.userPicture.next(response.data.picture ?? null);
-
+          this.userEmail.next(response.data.email);
+          this.userID.next(String(response.data.id));
+          this.userPassword.next(password);
+          this.userPaymentStatus.next(response.data.paymentStatus ?? 'No payment status available');
+          localStorage.setItem('token', response.token);
           localStorage.setItem('userRole', response.role);
           localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('password', password);
+          localStorage.setItem('name', response.data.name);
+          localStorage.setItem('email', response.data.email);
+          localStorage.setItem('id', String(response.data.id));
+          localStorage.setItem('picture', response.data.picture ?? '');
+          localStorage.setItem('userData', JSON.stringify(response.data));
+          localStorage.setItem('paymentStatus', response.data.paymentStatus ?? 'No payment status available');
+          this.saveSession(response.token, response.role);
+          
         })
       );
     }
@@ -78,7 +93,10 @@ logout() {
   isEstudiante(): boolean {
     return this.getRole() === 'ESTUDIANTE';
   }
-
+  getpassword(): string {
+    
+   return this.getpassword();
+  }
   restoreSession() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const role = localStorage.getItem('userRole');

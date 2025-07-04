@@ -1,35 +1,30 @@
-<div class="container-fluid">
-    <div class="row justify-content-center"> 
-        <h1 class="fs-2 fw-medium text-center mt-1 text-dark">{{contentToShow[0].title}}</h1>
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+    <h2 class="text-center mt-5 mb-4 text-white mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight text-white text-center">¡Conoce Smarts Coders Academy!</h2>
+    <div class="row justify-content-start flex-wrap mb-2">
         <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
+            <h1 class="fs-2 fw-medium text-center mt-1 text-white">{{contentToShow[0].title}}</h1>
             <div class="col-md-12 text-center">
-                <img src="{{contentToShow[0].imagePath}}" class="text-center mt-2" width="400" height="300" alt="...">
-                <h5 class="text-center text-dark text-wrap mt-2">"Mi misión es ayudarte a aprender de una manera dinamica y divertida <br>
+                <img src="{{contentToShow[0].imagePath}}" class="text-center mt-2 w-50 h-50"  alt="...">
+                <h5 class="text-center text-wrap mt-2" style="color: yellowgreen;">"Mi misión es ayudarte a aprender de una manera dinamica y divertida <br>
                   alineada a las necesidades reales del mundo laboral actual"</h5>
-            </div>
+            </div>http://localhost:4200/who-we-are
             <div class="col-md-12">
-                <p class=" fs-6 lh-base text-center text-secondary">{{contentToShow[0].description}}</p>
-            </div>        </div>
-    </div>
-    <div class="row justify-content-center mt-1" style="background: #e9ecef;"> 
-        <h1 class="fs-2 fw-medium text-center mt-2 text-dark">{{contentToShow[1].title}}</h1>
-        <div class="col-md-auto col-lg-6 col-sm-12 justify-content-center">
-            <div class="col-md-12 text-center">
-                <img src="{{contentToShow[1].imagePath}}" class="text-center mt-3" width="400" height="300" alt="...">
-                <h5 class="text-center text-dark text-wrap mt-2">"Mi misión es ayudarte a aprender de una manera dinamica y divertida <br>
-                  alineada a las necesidades reales del mundo laboral actual"</h5>
+                <p class=" fs-6 lh-base text-center text-white">{{contentToShow[0].description}}</p>
             </div>
-            <div class="col-md-12">
-                <p class=" fs-6 lh-base text-center text-secondary">{{contentToShow[1].description}}</p>
-            </div>        </div>
     </div>
+    <div class="col-md-auto col-lg-6 col-sm-12 justify-content-end">
+        <h1 class="fs-2 fw-medium text-center mt-2 text-white">{{contentToShow[1].title}}</h1>
+            <div class="class" >
+                <img src="{{contentToShow[1].imagePath}}" class="w-50 h-50" alt="..." style="margin-left: auto; margin-right: auto; display: block;">
+            </div>
+            <p class=" fs-6 lh-base text-start text-white">{{contentToShow[1].description}}</p>
+    </div>
+</div>
+    
     <div class="row justify-content-center mb-2">
-            <div class="content" *ngFor="let item of contentToShow2">
-                <div class="col-md-12 text-center">
-                        <img src="{{item.imagePath}}" class=" w-80 h-100 align-items-center" width="400" height="300" alt="...">
-                        <h1 class="lh-base fs-3   text-center text-dark">{{item.title}}</h1>
-                        <p class="lh-base fs-6  text-start text-secondary">{{item.description}}</p>
-                </div>
+            <div class="content bg-dark" *ngFor="let item of contentToShow2" style=" border-radius: 10px; margin-bottom: 2rem; margin-left: 2rem; margin-right: 2rem; animation-delay: 0.2s">
+                <img src="{{item.imagePath}}" class="align-items-center w-75 h-75" alt="...">
+                <p class="lh-base fs-6 text-start text-secondary">{{item.description}}</p>
             </div>
     </div>
  </div>

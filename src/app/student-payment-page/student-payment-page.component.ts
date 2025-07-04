@@ -1,54 +1,4 @@
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
-// import { Student } from '../services/Student';
 
-// import {Component} from '@angular/core';
-// import {toSignal} from '@angular/core/rxjs-interop';
-// import {FormBuilder, FormControl, ReactiveFormsModule,NgForm} from '@angular/forms';
-// import {MatCheckboxModule} from '@angular/material/checkbox';
-
-// import {FloatLabelType, MatFormFieldModule} from '@angular/material/form-field';
-// import {FormsModule} from '@angular/forms';
-// import {MatRadioModule} from '@angular/material/radio';
-// import {MatTableModule} from '@angular/material/table'; //MatTableModule
-
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-// }
- 
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-// ];
-
-// @Component({
-//   selector: 'app-student-payment-page',
-//   templateUrl: './student-payment-page.component.html',
-//   styleUrls: ['./student-payment-page.component.css'],
-//   standalone: true // <- Asegúrate de que esto esté
-// })
-// export class StudentPaymentPageComponent {
-//    student: Student = {
-//     name: 'Juan Perez Lopez',
-//     email: '',
-//     phone: ''
-//   };
-
-// displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-//   dataSource = ELEMENT_DATA;
-
-// }
 
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -60,9 +10,12 @@ import { Student } from '../services/Student';
 import { Payment } from '../services/Payment';
 import { Observable } from 'rxjs';
 import { PaymentService } from '../services/paymentservice';
+import { StudentService } from '../services/student.service';
 import { AuthService } from '../model/auth.service';
 import { AppComponent } from '../app.component';
 import { Router } from '@angular/router';
+import { PaymentObjetc } from '../model/Payment.interface';
+
 
 
 
@@ -80,39 +33,92 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-payment-page.component.css']
 })
 export class StudentPaymentPageComponent {
-currentDate: any;
-amount: any;
-selectedFile: any;
 
-
-  
+  // Declaracion de variables 
+      currentDate: Date = new Date();
+      amount: any;
+      selectedFile: any;
+      newPayment: PaymentObjetc = {  id: 0,  user: 0,  paymentAmount: 0,  paymentDate: new Date(),  datos: null,  paymentStatus: '',  paymentDif: 0,nextPaymentDate: new Date() };
+      studentPayments: PaymentObjetc[] = [];
+      
+listStudents: Student[] = [];
+      student: Student = {
+        id: 0,
+        name: '',
+        email: '',      
+        phone: '',
+        password: '',
+        role: '',
+        picture: '',
+        paymentStatus: 'No payment status available'
+      };
+      enable:boolean = false;
       isLoggedIn = false;
       userRole: string | null = null;
       userName: string | null = null;
       userEmail: string | null = null;
       userID:string | null = null;
-       type: any;
+      type: any;
+      respuesta: any;
+    
+  studentPaymentList: PaymentObjetc[] = [];
   selectedValue: any;
   activate:boolean = false;
-  constructor(private router: Router, private appComponent: AppComponent, private authService:AuthService, private paymentService: PaymentService) {}
+  // constructor de la clase
+  constructor(private router: Router, private appComponent: AppComponent, private authService:AuthService, private paymentService: PaymentService, private http: HttpClient , private studentService: StudentService) {}
+    //Inicializacion del componente
     ngOnInit(){
-        this.authService.isAuthenticated$.subscribe((status: boolean) => {
-          this.isLoggedIn = status;
+          this.authService.isAuthenticated$.subscribe((status: boolean) => {
+            this.isLoggedIn = status;
+          });
+           this.authService.userRole$.subscribe((role: string | null) => {
+          this.userRole = role;
         });
-         this.authService.userRole$.subscribe((role: string | null) => {
-        this.userRole = role;
-      });
-        this.authService.userName.subscribe((name: string | null) => {
-        this.userName = name;
-      });
-      this.authService.userEmail.subscribe((email: string | null) => {
-        this.userEmail = email;
-      });
-      this.authService.userID.subscribe((userID: string | null) => {
-        this.userID = userID;
-      });
+          this.authService.userName.subscribe((name: string | null) => {
+          this.userName = name;
+        });
+        this.authService.userEmail.subscribe((email: string | null) => {
+          this.userEmail = email;
+        });
+        this.authService.userID.subscribe((userID: string | null) => {
+          this.userID = userID;
+        });
+        //this.showPayments(Number(this.userID) || 0,this.userRole || '');
+        console.log('Usuario autenticado:', this.isLoggedIn);
+        console.log('Rol del usuario:', this.userRole);
+        console.log('Nombre del usuario:', this.userName);
+        console.log('Email del usuario:', this.userEmail);
+        console.log('ID del usuario:', this.userID);
+        if (!this.isLoggedIn) {
+          this.router.navigate(['/login-page']);
+        }
+        if(this.userRole === 'ESTUDIANTE' || this.userRole === 'Estudiante'){
+          this.showPayments(Number(this.userID) || 0, this.userRole || '');
+        }else if(this.userRole === 'ADMIN' || this.userRole === 'Admin'){
+          // this.paymentService.getAllPayments().subscribe({
+          //   next: (data) => {
+          //     console.log(data);
+          //     this.respuesta = data;
+          //     this.studentPayments = this.respuesta;
+          //   },
+          //   error: (error) =>{
+          //     console.error(error);
+          //   }
+          // });
+          this.studentService.getUsersByRole('ESTUDIANTE').subscribe({
+            next: (data) => {
+              console.log(data);
+              this.respuesta = data;
+              this.listStudents = this.respuesta.data;
+            },
+            error: (error) => {
+              console.error(error);
+            }
+        });
+        }
 
     }
+
      registrePayment() {
     console.log('Entrada de datos');
     alert('¡ Pago registrado con Éxito !\n Se enviará un recibo a su correo.\n Gracias por su pago');
@@ -131,112 +137,102 @@ selectedFile: any;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
     }
+    this.previewImage(event);
   };
 
-
-showPayments(id:number){
-  alert('Cargando pagos del estudiante con ID: ' + id);
-  this.paymentService.getPaymentsByStudentId(Number(this.userID) || 0).subscribe(payments => {
-    if( payments.length === 0) {
-      alert('No se encontraron pagos para el estudiante con ID: ' + id);
-      return;
-    }else{
-      alert('Pagos encontrados para el estudiante con ID: ' + id);
-      //this.payments = payments;
-    }
+enableComponent(){
+  if(this.enable == false){
+    this.enable = true;
+  }else{
+    this.enable = false;
   }
-  );
+}
+ViewPaymentReceipt(){
+  
+}
+sendPaymentReminder(){
+  alert('Enviando recordatorio de pago al estudiante: ' + this.userName);
+}
+previewImage(event: any) {
+     const file = event.target.files[0];
+     if (file) {
+       const reader = new FileReader();
+       reader.onload = (e: any) => {
+         const preview = document.getElementById('preview') as HTMLImageElement;
+         preview.src = e.target.result;
+       };
+       reader.readAsDataURL(file);
+     }
+   }
+
+showPayments(id:number,role:string){
+  //alert('Cargando pagos del estudiante con ID: ' + id);
+  console.log('Cargando pagos del usuario: ' + this.userName + ' con el role: ' + this.userRole);
+  if(this.userRole === 'ESTUDIANTE' || this.userRole === 'Estudiante'){
+    this.paymentService.getPaymentsByStudentId(Number(this.userID) || 0).subscribe({
+            next: (data) => {
+              console.log(data);
+              this.respuesta = data;
+              this.studentPayments = this.respuesta;
+            },
+            error: (error) =>{
+              console.error(error);
+            }
+          });
+  }else if(this.userRole === 'ADMIN'){
+    this.paymentService.getAllPayments().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.respuesta = data;
+        this.studentPayments = this.respuesta;
+      },
+      error: (error) =>{
+        console.error(error);
+      }
+    });
+  }
+
 }
     onSubmit(): void {
 
-    // if (!this.selectedFile){
-    //   alert('Por favor, selecciona un archivo para enviar.');
-    //   return;
-    // } else{
-    //    console.log('servicio pára enviar el pago');
-    //   payment:Payment;
+    if (!this.selectedFile){
+      alert('Por favor, selecciona un archivo para enviar.');
+      return;
+    } else{
+       console.log('servicio pára enviar el pago');
+      
+      const newPayment: PaymentObjetc = {  id: 0,  user: 0,  paymentAmount: 0,  paymentDate: new Date(),  datos: null,  paymentStatus: '',  paymentDif: 0.0};
+      const paymentData = new FormData();
 
-    //   const paymentData = new FormData();
+      paymentData.append('amount', String(this.amount));
+      // paymentData.append('date',  new Date().toISOString()); //
+      paymentData.append('studentId', (this.userID ?? 0).toString()); 
+      paymentData.append('file', this.selectedFile);
 
-    //   paymentData.append('amount', String(this.payment.amount));
-    //   paymentData.append('date', this.payment.date.toISOString()); //
-    //   paymentData.append('studentId', (this.payment.studentId ?? 0).toString()); 
-    //   paymentData.append('file', this.selectedFile);
-
-    //   this.http.post('http://localhost:8080/api/auth/payments/register', paymentData).subscribe({
-    //     next: (response) => {
-    //       console.log('Pago registrado exitosamente:', response);
-    //       alert('Pago registrado exitosamente');
-    //     },
-    //     error: (error) => {
-    //       console.error('Error al registrar el pago:', error);
-    //       alert('Error al registrar el pago');
-    //     }
-    //     });
+      console.log(paymentData.get('amount'), this.userID, this.selectedFile);
+      this.paymentService.registerPayment(paymentData).subscribe({
+        next: (response) => {
+          console.log('Pago registrado exitosamente:', response);
+          alert('Pago registrado exitosamente');
+          this.showPayments(Number(this.userID) || 0, this.userRole || '');
+        },
+        error: (error) => {
+          console.error('Error al registrar el pago:', error);
+          alert('Error al registrar el pago');
+        }
+        });
       
 
     
     }
      
     }
-    
-
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-
- 
-
- 
-// showPayments(id:number){
-//   alert('Cargando pagos del estudiante con ID: ' + id);
-  // this.paymentService.getPaymentsByStudentId(this.userID?? 0).subscribe(payments => {
-  //   if( payments.length === 0) {
-  //     alert('No se encontraron pagos para el estudiante con ID: ' + id);
-  //     return;
-  //   }else{
-  //     alert('Pagos encontrados para el estudiante con ID: ' + id);
-  //     this.payments = payments;
-  //   }
-    
-//   });}
-// //
-// Funcion para cargar el archivo
-  // onFileSelected(event: Event): void {
-  //   const input = event.target as HTMLInputElement;
-  //   if (input.files && input.files.length > 0) {
-  //     this.selectedFile = input.files[0];
-  //   }
-  // }
-
-  //onSubmit(): void {
-
-    // if (!this.selectedFile){
-    //   alert('Por favor, selecciona un archivo para enviar.');
-    //   return;
-    // } else{
-    //   console.log('servicio pára enviar el pago');
-    //   payment:Payment;
-
-    //   const paymentData = new FormData();
-
-    //   paymentData.append('amount', String(this.payment.amount));
-    //   paymentData.append('date', this.payment.date.toISOString()); //
-    //   paymentData.append('studentId', (this.payment.studentId ?? 0).toString()); 
-    //   paymentData.append('file', this.selectedFile);
-
-    //   this.http.post('http://localhost:8080/api/auth/payments/register', paymentData).subscribe({
-    //     next: (response) => {
-    //       console.log('Pago registrado exitosamente:', response);
-    //       alert('Pago registrado exitosamente');
-    //     },
-    //     error: (error) => {
-    //       console.error('Error al registrar el pago:', error);
-    //       alert('Error al registrar el pago');
-    //     }
-    //   });
-
-   // }
-
- // }
 
 
 
+
+
+  }
+
+  
+ // 

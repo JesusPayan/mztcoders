@@ -7,14 +7,15 @@ import { MatSnackBar,MatSnackBarConfig  } from '@angular/material/snack-bar';
 import { ToastComponent } from '../utils/toast/toast.componet';
 import { LinkRoute } from '../utils/LinkRoute';
 import { Elements } from '../utils/Element';
-
+import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   template: `
     <button (click)="showToast()">Show Toast</button>
   `,
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,RouterLink,],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
@@ -31,16 +32,22 @@ respuesta: any;
     
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    password: '',
+    role: 'STUDENT', 
+    paymentStatus: 'No payment status available',
+    picture: 'assets/images/logo-removebg-preview.png' // Default picture path
   };
 
-  constructor(private studentService: StudentService, private toast: MatSnackBar) {}
+  constructor(private studentService: StudentService, private toast: MatSnackBar, private router: Router) {}
 
   imgToShow: LinkRoute[] = [
     { path: 'logo', label: 'assets/images/logo-removebg-preview.png' }
   ];
 
-
+login(){
+  this.router.navigate(['/login-page']);
+}
   // onSubmit(form: any) {
  registrer() {
    console.log(this.student);

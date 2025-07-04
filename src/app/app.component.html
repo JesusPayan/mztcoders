@@ -1,16 +1,12 @@
 <header>
   <app-top-nav-bar></app-top-nav-bar>
 </header>
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 ">
   <app-left-side-component *ngIf="this.isLoggedIn"></app-left-side-component>
   <main class="content">
     <router-outlet></router-outlet>
   </main>
 </div>
-<!-- <footer>
+<footer>
   <app-footer-page></app-footer-page>
-</footer> -->
-
-<!-- <div class="container-fluid navbar-expand-sm sticky-bottom bg-dark text-white">
-  <h2 class="text-center text-danger">Espera noticias de Smart Coders Academy</h2>
-</div> -->
+</footer>

@@ -1,4 +1,4 @@
-.container-fluid{
+/* .container-fluid{
     margin-top: 5%;
 }
 .content{
@@ -21,4 +21,14 @@ img{
 button{
     margin-top: 1rem;
     margin-left: 1rem;
+} */
+.form-select{
+    color: black;
+    margin-left: 1rem;
+}
+h2 {
+    color: yellowgreen;
+}
+button {
+    margin: 0.5rem;
 }

@@ -1,3 +1,8 @@
+@theme {
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}
 :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -76,7 +81,10 @@
 
 
 /* Ocultar en escritorio (opcional) */
-
+button {
+    width: 3rem;
+    height: 3rem;
+  }
 
   @media screen and (max-width: 650px) {
     .whatsapp {

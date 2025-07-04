@@ -19,6 +19,7 @@ import { AuthService } from '../model/auth.service';
 })
 export class TopNavBarComponent {
     constructor(private router: Router, private appComponent: AppComponent, private authService:AuthService) {}
+    isMenuOpen = false;
     isLoggedIn = false;
     userRole: string | null = null;
     userName: string | null = null;
@@ -34,6 +35,10 @@ export class TopNavBarComponent {
     });
     
   }
+  closeMenu() {
+    this.isMenuOpen = false;
+  }  
+  
 
       logout(){
         this.authService.logout();
@@ -51,10 +56,13 @@ export class TopNavBarComponent {
     ];
     studentLinks: LinkRoute[]  = [
       { path: 'student-dashboard', label: 'Inicio' },
-      // { path: 'student-dashboard', label: 'Panel de Estudiante' },
       { path: 'student-payment-page', label: 'Pagos' },
-      { path: 'student-payment-page', label: 'Lecciones' },
-       { path: 'student-payment-page', label: 'Actividades'},
+      { path: 'courses-dashboard-page', label: 'Recursos' },
+      { path: 'student-payment-page', label: 'Puntajes'},
+      { path: 'student-payment-page', label: 'Certificados'},
+      { path: 'assistance-page', label: 'Asistencia'},
+      { path: 'student-payment-page', label: 'Incidentes'},
+
     ];
     adminLinks: LinkRoute[]  = [
       { path: 'admin-dashboard-page', label: 'Inicio' },

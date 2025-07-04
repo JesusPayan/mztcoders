@@ -1,4 +1,4 @@
-
+/* 
 .container-fluid{
     margin-top: 5%;
 }
@@ -19,4 +19,42 @@ img{
     width: 40%;
     height: 40%;
     align-self: center;
+} */
+h1:hover {
+    color: #007bff;
+    cursor: pointer;
+}   
+#contentCard {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+}
+.content:hover {
+    cursor: pointer;
+
+    border-radius: 8px;
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.1);
+
+}
+img {
+    width: 40%;
+    height: 40%;
+    align-self: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}       
+h1{
+    color: chartreuse;
+    text-align: center;
 }

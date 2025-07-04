@@ -1,156 +1,110 @@
-<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand h-10 w-auto ml-auto" routerLink="/home-page"><img [src]='logoUrl' alt="" height="50" width="50"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto"  >
-        <li class="nav-item d-flex ms-2">
-          <a class="nav-link"  routerLink="/home-page" routerLinkActive="active">Inicio</a>
-        </li>
-        <li class="nav-item d-flex ms-2">
-          <a class="nav-link" routerLink="/who-we-are">Conocenos</a>
-        </li>
-        <li class="nav-item d-flex ms-2">
-          <a class="nav-link" routerLink="/learning-path">Oferta Educativa</a>
-        </li>
-        <li class="nav-item d-flex ms-2">
-          <a class="nav-link" routerLink="/learning-path">Noticias</a>
-        </li>
-        <li class="nav-item d-flex ms-2">
-          <a class="nav-link" routerLink="/student-dashboard">Student Dashboard</a>
-        </li>
-        <li class="nav-item d-flex ms-2">
-          <a class="nav-link" routerLink="/contac-us">Contacto</a>
-        </li>
-      </ul>
-      <form class="d-flex align-items-end">  
-          <button class="btn btn-outline-danger"type="submit" routerLink="/login-page">Logout</button>
-      </form> 
-    </div>
-</nav> -->
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-2 position-fixed">
-            <div id="mySidenav" class="sidenav mt-0">
-                
-                <div class="card mt-4">
-                    <img src="{{studentImage}}" alt="">
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-4">
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex">
+                <div class="card w-75 h-75 mb-4 text-white align-self-end" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; margin-top: 10rem; color: yellowgreen; box-shadow: 0 4px 8px yellowgreen;">
+                <div class="card-header">
+                    <h1 class="text-start mb-1 mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight" style="color: greenyellow;">Panel de Estudiante</h1>
                 </div>
-                <h1 class="text-center text-primary">Bienvenido</h1>
-                <h1 class="text-center text-primary">{{studentName}}</h1>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Aprendizaje
-                    </mat-expansion-panel-header>
-                        <ng-template matExpansionPanelContent>
-                            <b>Tronco comun</b>
-                            <ul>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Git y Github</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Fundamentos de Java</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Programacion Orientada a Objetos</a>
-                            </ul>
+                <div class="card-body">
+                    <h4 class="text-start text-white mt-3 d-block">Bienvenido {{userName}}</h4>
+                    <p class="text-start text-white mt-3">{{mainInfo[0].description}}</p> 
+                    <div class="col-md-auto col-lg-12 col-sm-6 justify-content-start d-inline-flex">
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Pagos</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Modulo</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Puntuacion</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Estatus</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <div class="card bg-dark mt-2 mb-4" style="margin-left: 2rem; margin-right: 2rem; border-radius: 15px;  width: 10rem;">
+                            <p class="h5 text-center  mt-3" style="color: greenyellow; font-weight: bold;">Incidentes</p>
+                            <p class="h6 text-center text-white mt-3">{{this.paymentStatus}}</p> 
+                        </div>
+                        <!-- <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div>
+                        <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">>Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div>
+                        <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div>
+                        <div class="card bg-secondary">
+                            <p class="h5 text-center text-dark mt-3">Estado de Cuenta</p>
+                            <i class="fas fa-wallet text-success fs-1 mb-2"></i>
+                            <p class="h5 text-center text-white mt-3">Vigente</p>
+                        </div> -->
 
-                            Desarrollador Backend
-                            <ul>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Java Avanzado</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Bases de datos</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Spring/Springboot</a>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Unit Testing</a>
-                            </ul>
-                            Desarrollador Frontend
-                            <ul>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">HTML</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">CSS</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Boostrap</a>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Angular</a>
-                            </ul>
-                            Desarrollador Fullstack
-                            <ul>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Api Rest</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Spring/Springboot</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Angular</a>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Unit Testing</a>
-                            </ul>
-                            Extras
-                            <ul>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Metodologias Agiles</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Mock Interviews</a></li>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Patrones de Diseño</a>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Arquitectura de Software</a>
-                                <li><a type="button" class=" lh-base  text-decoration-none text-align-start">Principios de Cloud Computing</a>
-                            </ul>
-                           
-                        </ng-template>
-                    </mat-expansion-panel>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Progreso
-                    </mat-expansion-panel-header>
-                        <ng-template matExpansionPanelContent>
-                            Github
-                        </ng-template>
-                    </mat-expansion-panel>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Pagos
-                    </mat-expansion-panel-header>
-                    <ng-template matExpansionPanelContent>
-                        <li><a type="button" class="lh-base text-decoration-none text-align-start" routerLink="/student-payment-page">Agregar Pago</a>
-                    </ng-template>
-                </mat-expansion-panel>
-                                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Examenes
-                    </mat-expansion-panel-header>
-
-                    <ng-template matExpansionPanelContent>
-                        Lecciones
-                    </ng-template>
-                </mat-expansion-panel>
-
-            </div>
-        </div>
-         <div class="col-10  text-dark" id="main">
-            <router-outlet></router-outlet> 
-        </div> -
-    </div>
-    -->
-<div class="container-fluid" >
-    <div class="row justify-content-center" style="border: solid 2px #ccc; padding: 20px;">
-        <div class="col-md-12">
-            <h1 class="text-center text-primary">{{mainInfo[0].title}}</h1>
-             <div class="text-center">
-                <img src="{{mainInfo[0].imagePath}}" class="img-fluid mt-3 w-80 h-80" alt="Main Image">
-                <h4 class="text-center text-secondary mt-3">{{userName}}</h4>
-            </div> 
-            <p class="text-center text-secondary mt-3">{{mainInfo[0].description}}</p>       
-        </div>
-        <div class="col-md-12" style="border: solid 2px #ccc; padding: 20px;">
-                                <div class="card" *ngFor="let cardContent of linkscards" style="cursor: pointer; margin-left:2rem ; margin-right:2rem ;"(click)="openModal(cardContent.cardTitle)" >
-                                    <div class="card-body align-items-center">
-                                        <h1 class="card-title text-center text-dark">{{cardContent.cardTitle}}</h1>
-                                        <div>
-                                            <img  src="{{cardContent.imagePath}}" class=" align-self-center w-25 h-25" style="margin-left: 5rem; margin-right: auto;" alt="..." >
-                                        </div>   
-                                    </div>
-                                </div>
-        </div>
-
-    </div>
-    <!-- <div class="row justify-content-center mt-2" style="border: solid 2px #ccc; padding: 20px;">
-        <div class="col-md-12 ">
-
-                            <div class="col-md-12">
-                                <div class="card" *ngFor="let cardContent of linkscards" style="cursor: pointer; margin-left:2rem ; margin-right:2rem ;"(click)="openModal(cardContent.cardTitle)" >
-                                    <div class="card-body align-items-center">
-                                        <h1 class="card-title text-center text-dark">{{cardContent.cardTitle}}</h1>
-                                        <div>
-                                            <img  src="{{cardContent.imagePath}}" class=" align-self-center w-25 h-75" style="margin-left: 5rem; margin-right: auto;" alt="..." >
-                                        </div>   
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-md-auto col-lg-12 col-sm-6 justify-content-start d-inline-flex">
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Pagos</p>
+                                <i class="fas fa-wallet text-success fs-2 mb-2"></i>
                             </div>
+                        </a>
+                         <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Recursos</p>
+                                <i class="fas fa-graduation-cap text-primary fs-1 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Puntaje</p>
+                                <i class="fas fa-users text-danger fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Progreso</p>
+                                <i class="fas fa-chart-line text-dark fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Soporte</p>
+                                <i class="fas fa-solid fa-headphones text-warning fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Asistencia</p>
+                                <i class="fas fa-solid fa-check text-dark fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                        <a routerLink="['student-payments']" routerLinkActive="router-link-active" type="button" class="btn btn-link text-decoration-none">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">Ajustes</p>
+                                <i class="fas fa-solid fa-pen text-success fs-2 mb-2"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
         </div>
-    </div> -->
+    </div>
 </div>
+
+
+             <!-- <div class="text-center">
+                <img src="{{mainInfo[0].imagePath}}" class="img-fluid mt-3 w-80 h-80" alt="Main Image">
+                
+            </div> 
+            <p class="text-center text-secondary mt-3">{{mainInfo[0].description}}</p>    -->

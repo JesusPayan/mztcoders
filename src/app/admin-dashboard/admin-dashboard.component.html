@@ -1,19 +1,24 @@
-<div class="container-fluid">
-    <div class="row justify-content-center" style="border: solid 2px #ccc; padding: 20px;">
-        <div class="col-md-12">
-            <h1 class="text-center text-primary">{{mainInfo[0].title}}</h1>
+<div class="container-fluid w-100 h-100 vh-100">
+    <div class="row justify-content-center flex-wrap mb-4">
+        <div class="col-md-auto col-lg-12 col-sm-6 justify-content-center d-flex">
+            <div class="card w-75 h-75 mb-4 text-white align-self-end" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; margin-top: 10rem; color: yellowgreen; box-shadow: 0 4px 8px yellowgreen;">
+                <h1 class="text-center mb-1 mt-2 text-3xl sm:text-4xl leading-8 font-extrabold tracking-tight" style="color: greenyellow;">Panel de Administracion</h1>
+            
+                <div class="card-body">
+                    <a *ngFor="let crContent of linkscards" routerLink="" routerLinkActive="" type="button" class="btn btn-link text-decoration-none" (click)="openModal(crContent.cardTitle)">
+                            <div class="mb-4 text-white align-self-end mt-1" >
+                                <p class="h5 text-center text-white mt-3">{{crContent.cardTitle}}</p>
+                                <i class="{{crContent.imagePath}}"></i>
+                            </div>
+                    </a>
+            </div>
+            <!-- <h1 class="text-center text-primary">{{mainInfo[0].title}}</h1>
              <div class="text-center">
-                <!-- <img src="{{mainInfo[0].imagePath}}" class="img-fluid mt-3 w-25 h-25" alt="Main Image"> -->
+                
                 <h4 class="text-center text-secondary mt-3">{{userName}}</h4>
             </div> 
             <p class="text-center text-secondary mt-3">{{mainInfo[0].description}}</p>
-                     
-        </div>
-        <div class="col-md-12"  style="border: solid 2px #ccc; padding: 20px;">
-            <div class="card" *ngFor="let crContent of linkscards" style="cursor: pointer; margin-left:2rem ; margin-right:2rem ;" (click)="openModal(crContent.cardTitle) " >
-                 <h3 class="card-title text-center text-dark">{{crContent.cardTitle}}</h3>
-                <!-- <img  src="{{crContent.imagePath}}" class=" align-self-center w-50 h-50" style="margin-left: 5rem; margin-right: auto;" alt="..." > -->
-            </div>
-        </div>    
+                      -->
+        </div>   
     </div>
 </div>
